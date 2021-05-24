@@ -1,0 +1,33 @@
+{%- if page.url == '/' -%}
+<header class="site-header site-header-big" role="banner">
+{%- else -%}
+<header class="site-header" role="banner">
+{%- endif -%}
+
+  {%- if page.url == '/' -%}
+  <div class="nav-menu nav-menu-overlay">
+  {%- else -%}
+  <div class="nav-menu">
+  {%- endif -%}
+    <img class="bi-white" src="{{ site.assets }}/site-img/bi-white.svg">
+    <img class="v-sep" src="{{ site.assets }}/site-img/rectangle-v-sep.svg">
+    <a class="nav-menu-item" href="{{ '/' | relative_url }}">블로그</a>
+  </div>
+
+  {%- if page.url == '/' -%}
+  <div class="site-title-banner">
+    <div class="site-title-box">
+      <img
+        class="img-tech"
+        src="{{ site.assets }}/site-img/img-tech.png"
+        srcset="{{ site.assets }}/site-img/img-tech@2x.png 2x, {{ site.assets }}/site-img/img-tech@3x.png 3x"
+        >
+      <a class="site-title" rel="author" href="{{ '/' | relative_url }}">{{ site.title | escape }}</a>
+    </div>
+    <div class="site-desc">
+      <p>한컴 개발자들의 <span class="site-desc-highlight">실전 개발 경험과 지식</span>이 담겨진 기술 블로그입니다.</p>
+    </div>
+  </div>
+  {%- endif -%}
+
+</header>
