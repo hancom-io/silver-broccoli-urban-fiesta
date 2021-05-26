@@ -1,0 +1,51 @@
+---
+layout: default
+---
+
+<div class="home">
+  <div class="bg-img-box">
+    <img class="img-comma1" src="{{ site.assets }}/site-img/img-comma-1.svg" >
+  </div>
+
+  {%- if site.posts.size > 0 -%}
+    <div class="post-list-marker"></div>
+    <ul class="post-list">
+      {%- for post in site.posts -%}
+      <li class="post-item">
+
+        {%- assign date_format = "%Y. %m. %d" -%}
+        <div class="post-title-box">
+          <a class="post-link one-line"
+            href="{{ post.url | relative_url }}">
+            {{ post.title | escape }}
+          </a>
+          <div class="post-excerpt two-lines">
+            {{ post.excerpt }}
+          </div>
+
+          <ul class="tag-list">
+            {%- for tag in post.tags -%}
+            <li class="tag-item">#{{ tag }}</li>
+            {%- endfor -%}
+          </ul>
+        </div>
+
+        <div class="post-meta">
+          {%- if post.author -%}
+          <div class="author-avatar"></div>
+          <div class="author-name">{{ post.author }}</div>
+          {%- endif -%}
+          <div class="post-date">{{ post.date | date: date_format }}</div>
+        </div>
+
+      </li>
+      {%- endfor -%}
+    </ul>
+
+    <p class="rss-subscribe">subscribe <a href="{{ '/feed.xml' | relative_url }}">via RSS</a></p>
+  {%- endif -%}
+
+  <div class="bg-img-box">
+    <img class="img-comma2" src="{{ site.assets }}/site-img/img-comma-2.svg" >
+  </div>
+</div>

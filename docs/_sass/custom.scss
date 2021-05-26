@@ -156,3 +156,135 @@ $banner-height: calc(360px * 0.75);
     }
   }
 }
+
+.home {
+  .post-list-marker {
+    width: 120px;
+    height: 3px;
+    margin-top: 90px;    // considered page-content padding (30px)
+    background-color: #000000;
+  }
+
+  .post-list {
+
+    .post-item {
+      border-bottom: 1px solid #e6e9ea;
+      margin: 0;
+      display: flex;
+      justify-content: space-between;
+
+      .post-title-box {
+        .post-link {
+          margin-top: 68px;
+          height: 30px;
+          font-family: NotoSansCJKkr, sans-serif;
+          font-size: 24px;
+          letter-spacing: -0.4px;
+          color: #111111;
+
+          &.one-line {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+          }
+        }
+
+        .post-excerpt {
+          height: 48px;
+          margin: 12px 0 0;
+          font-family: NotoSansCJKkr, sans-serif;
+          font-size: 16px;
+          line-height: 1.5;
+          letter-spacing: -0.2px;
+          color: #888888;
+
+          &.two-lines {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+          }
+        }
+
+        .tag-list {
+          list-style-type: none;
+          display: flex;
+          justify-content: flex-start;
+
+          margin: 0 0 68px 0;
+
+          .tag-item {
+            height: 16px;
+            margin-right: 6px;
+            padding: 8px 16px;
+            border-radius: 16px;
+            background-color: #eaeaea;
+
+            font-family: NotoSansCJKkr, sans-serif;
+            font-size: 13px;
+            color: #333333;
+          }
+        }
+      }
+
+      .post-meta {
+        min-width: 200px;
+        margin-left: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+
+        .author-avatar {
+          // TODO: properly implement getting avatar image
+          background-image: url(https://avatars.githubusercontent.com/u/583231?s=56);
+          background-size: contain;
+          width: 56px;
+          height: 56px;
+          border-radius: 50%;
+          margin-bottom: 8px;
+        }
+
+        .author-name {
+          height: 19px;
+          font-family: NotoSans, sans-serif;
+          font-size: 14px;
+          color: #333333;
+        }
+
+        .post-date {
+          height: 19px;
+          font-family: NotoSans, sans-serif;
+          font-size: 14px;
+          color: #bdbdbd;
+          margin-bottom: 59px;
+        }
+      }
+    }
+  }
+
+  .bg-img-box {
+    position: relative;
+
+    .img-comma1 {
+      position: absolute;
+      left: 800px;
+      top: -100px;
+
+      width: 347px;
+      height: 291px;
+    }
+
+    .img-comma2 {
+      position: absolute;
+      left: -400px;
+      bottom: -50px;
+
+      width: 310px;
+      height: 381px;
+    }
+  }
+}
