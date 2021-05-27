@@ -238,10 +238,7 @@ $banner-height: calc(360px * 0.75);
         justify-content: flex-end;
         align-items: center;
 
-        .author-avatar {
-          // TODO: properly implement getting avatar image
-          background-image: url(https://avatars.githubusercontent.com/u/583231?s=56);
-          background-size: contain;
+        .author-avatar .avatar {
           width: 56px;
           height: 56px;
           border-radius: 50%;
