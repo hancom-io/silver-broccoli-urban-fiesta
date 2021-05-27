@@ -32,7 +32,9 @@ layout: default
 
         <div class="post-meta">
           {%- if post.author -%}
-          <div class="author-avatar"></div>
+          <div class="author-avatar">
+            {%- avatar {{ post.author }} size=56 -%}
+          </div>
           <div class="author-name">{{ post.author }}</div>
           {%- endif -%}
           <div class="post-date">{{ post.date | date: date_format }}</div>
