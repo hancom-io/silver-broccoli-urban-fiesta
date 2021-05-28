@@ -9,9 +9,11 @@
   {%- else -%}
   <div class="nav-menu">
   {%- endif -%}
-    <img class="bi-white" src="{{ site.assets }}/site-img/bi-white.svg">
-    <img class="v-sep" src="{{ site.assets }}/site-img/rectangle-v-sep.svg">
-    <a class="nav-menu-item" href="{{ '/' | relative_url }}">블로그</a>
+    <div class="nav-menu-inner-box">
+      <img class="bi-white" src="{{ site.assets }}/site-img/bi-white.svg">
+      <img class="v-sep" src="{{ site.assets }}/site-img/rectangle-v-sep.svg">
+      <a class="nav-menu-item" href="{{ '/' | relative_url }}">블로그</a>
+    </div>
   </div>
 
   {%- if page.url == '/' -%}

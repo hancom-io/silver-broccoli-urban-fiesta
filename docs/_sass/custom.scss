@@ -13,6 +13,9 @@ $banner-height: calc(360px * 0.75);
   .nav-menu {
     height: $menu-height;
     background-image: linear-gradient(124deg, #182461 23%, #26328c 51%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     &-overlay {
       box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
@@ -20,35 +23,39 @@ $banner-height: calc(360px * 0.75);
       background-image: none;
     }
 
-    display: flex;
-    align-items: center;
-    padding-left: 50px;
+    &-inner-box {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      width: 1240px;
 
-    .bi-white {
-      opacity: 1;
-      color: white;
-      width: 206.3px;
-      height: 26px;
-      object-fit: contain;
-    }
+      .bi-white {
+        opacity: 1;
+        color: white;
+        width: 206.3px;
+        height: 26px;
+        margin-left: 6px;
+        object-fit: contain;
+      }
 
-    .v-sep {
-      width: 1px;
-      height: 20px;
-      margin: 3px 20px 3px 19.7px;
-      object-fit: contain;
-      opacity: 0.32;
-      background-color: #ffffff;
-    }
+      .v-sep {
+        width: 1px;
+        height: 20px;
+        margin: 3px 20px 3px 19.7px;
+        object-fit: contain;
+        opacity: 0.32;
+        background-color: #ffffff;
+      }
 
-    &-item {
-      opacity: 0.9;
-      font-family: NotoSansCJKkr, sans-serif;
-      font-size: 19px;
-      font-weight: 500;
-      color: #ffffff;
+      .nav-menu-item {
+        opacity: 0.9;
+        font-family: NotoSansCJKkr, sans-serif;
+        font-size: 19px;
+        font-weight: 500;
+        color: #ffffff;
 
-      margin: 0;
+        margin: 0;
+      }
     }
   }
 }
@@ -102,56 +109,63 @@ $banner-height: calc(360px * 0.75);
   background-color: #313131;
 
   display: flex;
-  justify-content: space-around;
+  align-items: center;
+  justify-content: center;
 
-  .footer-info-box {
-
-    .stipulation {
-      margin: 0 0 16px;
-      width: 360px;
-
-      list-style-type: none;
-      display: flex;
-      justify-content: space-between;
-
-      opacity: 0.88;
-      font-family: NotoSansCJKkr, sans-serif;
-      font-size: 14px;
-      color: #ffffff;
-    }
-
-    .company-info,
-    .copyright {
-      opacity: 0.4;
-      font-family: NotoSansCJKkr, sans-serif;
-      font-size: 12px;
-      line-height: 1.67;
-      color: #ffffff;
-
-      margin: 0 0 4px;
-
-      p {
-        margin: 0;
-      }
-    }
-  }
-
-  .family-site-box {
+  .footer-inner-box {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    width: 1240px;
 
-    select {
-      width: 200px;
-      height: 32px;
-      padding: 8px 16px;
-      background-color: rgba(204, 204, 204, 0.2);
-      color: rgba(255, 255, 255, 0.8);
+    .footer-info-box {
+      .stipulation {
+        margin: 0 0 16px;
+        width: 360px;
 
-      option {
-        opacity: 0.8;
+        list-style-type: none;
+        display: flex;
+        justify-content: space-between;
+
+        opacity: 0.88;
         font-family: NotoSansCJKkr, sans-serif;
         font-size: 14px;
         color: #ffffff;
+      }
+
+      .company-info,
+      .copyright {
+        opacity: 0.4;
+        font-family: NotoSansCJKkr, sans-serif;
+        font-size: 12px;
+        line-height: 1.67;
+        color: #ffffff;
+
+        margin: 0 0 4px;
+
+        p {
+          margin: 0;
+        }
+      }
+    }
+
+    .family-site-box {
+      display: flex;
+      align-items: center;
+
+      select {
+        width: 200px;
+        height: 32px;
+        padding: 8px 16px;
+        background-color: rgba(204, 204, 204, 0.2);
+        color: rgba(255, 255, 255, 0.8);
+
+        option {
+          opacity: 0.8;
+          font-family: NotoSansCJKkr, sans-serif;
+          font-size: 14px;
+          color: #ffffff;
+        }
       }
     }
   }
