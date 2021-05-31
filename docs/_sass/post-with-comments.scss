@@ -1,0 +1,108 @@
+.post {
+  width: 960px;
+  margin-top: calc(128px - 30px);  // considered page-content padding (30px)
+
+  .post-header {
+    margin: 0;
+
+    .post-title {
+      font-family: NotoSansCJKkr, sans-serif;
+      font-size: 40px;
+      line-height: 1.35;
+      letter-spacing: -0.4px;
+      color: #000000;
+    }
+
+    .post-meta {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding-bottom: 72px;
+      margin: 0;
+
+      .author-avatar {
+        // TODO: properly implement getting avatar image
+        .avatar {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+        }
+      }
+
+      .p-author {
+        margin: 0 8px;
+        font-family: NotoSans, sans-serif;
+        font-size: 14px;
+        color: #111111;
+      }
+
+      .dt-published {
+        margin: 0 8px;
+        font-family: NotoSans, sans-serif;
+        font-size: 14px;
+        color: #999999;
+      }
+    }
+  }
+
+  .post-content {
+    margin: 0;
+    padding: 72px 0;
+    border: {
+      top: 1px solid #111111;
+      bottom: 1px solid #111111;
+    }
+
+    .tag-list {
+      margin-top: 30px;
+    }
+  }
+
+  .bg-img-box {
+    position: relative;
+
+    .img-comma3 {
+      position: absolute;
+      left: -170px;
+      top: -100px;
+
+      width: 186px;
+      height: 156px;
+    }
+
+    .img-comma4 {
+      position: absolute;
+      left: calc(960px + 106px);
+      bottom: -120px;
+
+      width: 340px;
+      height: 332px;
+    }
+  }
+
+}
+
+.comment-widget {
+  margin: 72px 0 52px;
+
+  .utterances {
+    margin: 0;
+    max-width: 100%;
+  }
+}
+
+.button-box {
+  display: flex;
+  justify-content: center;
+  margin: 52px 0 90px;
+
+  .button-to-list {
+    width: 144px;
+    height: 48px;
+    padding: 17px 32px;
+    border-radius: 4px;
+    border: solid 1px #bdbdbd;
+    background-color: white;
+    cursor: pointer;
+  }
+}
