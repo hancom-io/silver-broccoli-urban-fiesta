@@ -10,7 +10,7 @@ layout: default
     <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
     <p class="post-meta">
       {%- if page.author -%}
-      <span class="author-avatar">{%- avatar page.author size=40 -%}</span>
+      <span class="author-avatar">{%- avatar user=page.author size=40 -%}</span>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ page.author }}</span></span>
       • {%- endif -%}
       <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
