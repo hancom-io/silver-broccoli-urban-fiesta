@@ -302,3 +302,16 @@ $banner-height: calc(360px * 0.75);
     color: #333333;
   }
 }
+
+.btn-top-box {
+  position: relative;
+
+  .btn-top {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+
+    width: 56px;
+    height: 56px;
+  }
+}
