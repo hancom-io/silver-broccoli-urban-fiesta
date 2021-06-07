@@ -31,11 +31,13 @@ layout: default
         </div>
 
         <div class="post-meta">
-          {%- if post.author -%}
+        {%- assign authorId = post.author_id | default: post.author -%}
+        {%- assign author = post.author | default: post.author_id -%}
+        {%- if author and authorId -%}
           <div class="author-avatar">
-            {%- avatar user=post.author size=56 -%}
+            {%- avatar user=authorId size=56 -%}
           </div>
-          <div class="author-name">{{ post.author }}</div>
+          <div class="author-name">{{ author }}</div>
           {%- endif -%}
           <div class="post-date">{{ post.date | date: date_format }}</div>
         </div>
