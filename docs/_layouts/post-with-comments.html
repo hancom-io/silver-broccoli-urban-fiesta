@@ -11,6 +11,7 @@ layout: default
     <p class="post-meta">
       {%- assign authorId = page.author_id | default: page.author -%}
       {%- assign author = page.author | default: page.author_id -%}
+
       {%- if author and authorId -%}
       <span class="author-avatar">{%- avatar user=authorId size=40 -%}</span>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ author }}</span></span>

@@ -31,9 +31,10 @@ layout: default
         </div>
 
         <div class="post-meta">
-        {%- assign authorId = post.author_id | default: post.author -%}
-        {%- assign author = post.author | default: post.author_id -%}
-        {%- if author and authorId -%}
+          {%- assign authorId = post.author_id | default: post.author -%}
+          {%- assign author = post.author | default: post.author_id -%}
+
+          {%- if author and authorId -%}
           <div class="author-avatar">
             {%- avatar user=authorId size=56 -%}
           </div>
