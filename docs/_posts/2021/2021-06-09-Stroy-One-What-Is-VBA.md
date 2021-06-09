@@ -15,7 +15,7 @@ excerpt: VBA의 개요와 한셀을 이용한 자동화 기본 예제
   VBA는 1993년 MS Excel 5.0 에서 처음 공개된 언어로 **Visual Basic for Application** 이란 이름 그대로 특정 Application을 위한 
  Visual Basic이다. 프로그래밍 언어인 VBA 코드를 작성하여 Application의 특정 기능을 실행시킬 수 있다.
 
-```VB
+```vb
 ' Hello World! 메시지 박스를 출력하는 예제
 Sub WelcomeToVBA()
     MsgBox "Hello World!"
@@ -36,7 +36,7 @@ End Sub
 
 이는 VBA를 통하여 이렇게 나타낼 수 있다.
 
-```VB
+```vb
 ' A1 셀에 "HI" 를 입력하는 예제
 Sub InputDataIntoA1Cell()
     Cells(1, 1) = "HI"
@@ -65,7 +65,7 @@ End Sub
  >
  > 그림 3. 한셀 Application
 
-```VB
+```vb
 'Application 객체의 ScreenUpdating 속성 테스트
 Sub ApplicationScreenUpdatingPropertyTest()
     Appication.ScreenUpdating = false
@@ -83,7 +83,7 @@ VBA 코드를 이용하여 문서 편집에 대해 자동화를 구현하는 경
 ### Workbooks
 `Workbook`의 집합을 나타내는 객체로 `Workbook` 객체를 관리할 수 있다.
 
-```VB
+```vb
 '현재 문서와 같은 경로에 있는 "test.xlsm" 문서를 여는 동작
 Sub WorkbooksOpenTest()
     Appication.ScreenUpdating = false
@@ -107,7 +107,7 @@ End Sub
 ### Workbook
 스프레드시트 문서를 나타내는 객체이다. 
 
-```VB
+```vb
 '문서을 열고 수정, 저장 후 닫기
 Sub WorkbooksOpenTest()
     Appication.ScreenUpdating = false
@@ -135,7 +135,7 @@ End Sub
 ### Worksheets
 `Worksheet`의 집합을 나타내는 객체로 `Worksheet`를 관리할 수 있다.
 
-```VB
+```vb
 '문서에서 원하는 시트에 접근
 Sub WorkbooksOpenTest()
     Appication.ScreenUpdating = false
@@ -172,7 +172,7 @@ End Sub
  > ![Worksheet]({{ site.assets }}/2021/2021-06-09-worksheet.png)
  > 그림 4. Worksheet
 
-```VB
+```vb
 '특정 시트를 숨기기
 Sub WorkbooksOpenTest()
     Appication.ScreenUpdating = false
@@ -209,7 +209,7 @@ End Sub
  > ![Range]({{ site.assets }}/2021/2021-06-09-range.png)
  > 그림 5. Range
   
-```VB
+```vb
 '특정 범위의 값 데이터 얻기
 Sub WorkbooksOpenTest()
     Appication.ScreenUpdating = false
