@@ -30,7 +30,7 @@ End Sub
 예를들어 아래와 같이 한셀에서 A1 셀에 "HI" 라는 텍스트 값을 입력하는 동작을 보자.
 
 
-> ![A1 셀에 "HI" 입력]({{ site.assets }}/2021/2021-06-09-InputDataIntoCell.gif)
+> ![A1 셀에 "HI" 입력]({{ site.assets }}/2021/2021-06-09-inputDataIntoCell.gif)
 >
 > 그림 1. 한셀에서 셀A1에 HI를 입력하는 모습
 
@@ -206,7 +206,7 @@ End Sub
 
 ### Range
 시트 내에 셀들의 영역을 관리할 수 있는 객체이다. 셀의 특정 범위에 대한 데이터를 다룰 수 있다.
- > ![Range]({{ site.assets }}/2021/2021-06-09-Range.png)
+ > ![Range]({{ site.assets }}/2021/2021-06-09-range.png)
  > 그림 5. Range
   
 ```VB
