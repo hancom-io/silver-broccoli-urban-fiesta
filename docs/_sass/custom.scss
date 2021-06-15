@@ -75,15 +75,15 @@ $banner-height: calc(360px * 0.75);
     display: flex;
 
     .img-tech {
-      width: 247px;
-      height: 52px;
-      margin: 0 14px 0 0;
+      width: 229px;
+      height: 48px;
+      margin: 0 12px 0 0;
       object-fit: contain;
     }
 
     .site-title {
       height: 51px;
-      margin: 1px 0 0 14px;
+      margin: 0;
       font-family: NotoSansCJKkr, sans-serif;
       font-size: 51.2px;
       font-weight: 500;
