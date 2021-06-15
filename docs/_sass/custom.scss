@@ -372,3 +372,9 @@ $max-tablet-width: 1023px;  // $min-desktop-width - 1
     }
   }
 }
+
+// early application of https://github.com/jekyll/minima/pull/273
+// TODO: remove after an official update of minima theme
+.post-content h1 {
+  @extend .post-title;
+}
