@@ -1,5 +1,6 @@
+@import 'vars';
+
 .post {
-  width: 960px;
   margin-top: calc(128px - 30px);  // considered page-content padding (30px)
 
   .post-header {
@@ -104,5 +105,16 @@
     border: solid 1px #bdbdbd;
     background-color: white;
     cursor: pointer;
+  }
+}
+
+@media (max-width: $max-phone-width) {
+  .tag-list {
+    display: inline;
+
+    .tag-item {
+      margin: 4px 0;
+      display: table;
+    }
   }
 }
