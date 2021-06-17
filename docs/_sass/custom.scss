@@ -3,8 +3,47 @@
 $menu-height: calc(64px * 0.9);
 $banner-height: calc(360px * 0.75);
 
-.page-content > .wrapper {
-  max-width: 960px;
+$bg1-width: 347px;
+$bg1-x: calc(50% + #{$content-width}/2 + #{$bg1-width}/2 + 20px);
+$bg1-y: 38px;
+
+$bg2-width: 455px;
+$bg2-x: calc(50% - #{$content-width}/2 - #{$bg2-width/2} - 136px);
+$bg2-y: calc(100% - 120px - 123px);
+
+$bg3-width: 186px;
+$bg3-x: calc(50% - #{$content-width}/2 - #{$bg3-width/2} + 20px);
+$bg3-y: 56px;
+
+$bg4-width: 397px;
+$bg4-x: calc(50% + #{$content-width}/2 + #{$bg4-width}/2 + 106px);
+// TODO: $bg4-y -> fix later considering comments widget height
+$bg4-y: calc(100% - 224px);
+
+.page-content {
+  background-repeat: no-repeat;
+
+  &.home-parent {
+    background-image:
+      url("site-img/img-comma-1.svg"),
+      url("site-img/img-comma-2.svg");
+    background-position:
+      $bg1-x $bg1-y,
+      $bg2-x $bg2-y;
+  }
+
+  &.post-parent {
+    background-image:
+      url("site-img/img-comma-3.svg"),
+      url("site-img/img-comma-4.svg");
+    background-position:
+      $bg3-x $bg3-y,
+      $bg4-x $bg4-y;
+  }
+
+  & > .wrapper {
+    max-width: $content-width;
+  }
 }
 
 .site-header {
@@ -262,28 +301,6 @@ $banner-height: calc(360px * 0.75);
       }
     }
   }
-
-  .bg-img-box {
-    position: relative;
-
-    .img-comma1 {
-      position: absolute;
-      left: 1000px;
-      top: -80px;
-
-      width: 347px;
-      height: 291px;
-    }
-
-    .img-comma2 {
-      position: absolute;
-      left: -400px;
-      bottom: -50px;
-
-      width: 310px;
-      height: 381px;
-    }
-  }
 }
 
 .tag-list {
@@ -321,10 +338,16 @@ $banner-height: calc(360px * 0.75);
 @media (max-width: $max-tablet-width) {
   .site-title-banner .site-title-box .img-tech,
   .site-title-banner .site-desc,
-  .home .bg-img-box,
   .home .post-list .post-item .post-title-box .tag-list
   {
     display: none;
+  }
+
+  .page-content {
+    &.home-parent,
+    &.post-parent {
+      background: none;
+    }
   }
 
   .site-title-banner {
