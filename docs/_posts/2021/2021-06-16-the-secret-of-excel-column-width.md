@@ -49,6 +49,8 @@ Excel의 `열 너비`(`column width`)는 지금까지 베일에 싸여있었다.
 #### - `ch`
 하나의 글자를 말한다. 1 `ch`의 폭은 `MDW`와 같다.
 
+![Character]({{ site.assets }}/2021/2021-06-16-secret-of-excel-column-width_Character.svg){: width="130px" }  
+
 #### - `MDW` (Maximum digit width)
 특정 폰트의 특정 크기, 보통 스타일 일 때 '0'에서 '9'까지 숫자 폭 중 가장 큰 것을 말한다.  
 대부분의 숫자 폭은 일정하지만 되도록 모든 숫자의 폭을 조사하여 가져오는 게 좋다.  
@@ -76,6 +78,8 @@ Excel 앱단에서 사용되는 글꼴의 기본 크기를 말한다. 변경 후
 
 #### - `margin space` (Total margin space)
 좌/우 여백(`padding`)과 `grid line` 폭을 합한 것으로, 단위는 `px`이다.
+
+![Cell Width Structure]({{ site.assets }}/2021/2021-06-16-secret-of-excel-column-width_Cell-Width-Structure.svg){: width="300px" }
 
 <br />
 
@@ -205,8 +209,10 @@ Ceil(\frac{px}{8}) \times 8
 <br />
 
 지금까지 완성한 공식을 순서에 따라 엮어보면 아래 그림과 같다.  
-시스템에서 DPI를 가져오고, 원하는 폰트의 이름과 크기 및 default character size를 넣어주면,  
+시스템에서 `DPI`를 가져오고, 원하는 폰트의 `이름`과 `크기` 및 `default character size`를 넣어주면,  
 최종적으로 `Column Width`가 출력된다.
+
+![전체 계산 프로세스]({{ site.assets }}/2021/2021-06-16-secret-of-excel-column-width_Entire-Process.svg){: width="800px" }  
 
 <br />
 
@@ -246,4 +252,4 @@ Key(s) | Value(s)
 
 
 ---
-* 본 블로그는 2011년 한컴오피스 한셀 개발팀에서 고군분투하며 연구/개발한 내용을 바탕으로 작성되었습니다.
+* 본 포스트는 2011년 한컴오피스 한셀 개발팀에서 고군분투하며 연구/개발한 내용을 바탕으로 작성되었습니다.
