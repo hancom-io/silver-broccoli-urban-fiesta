@@ -33,50 +33,69 @@ Excel의 `열 너비`(`column width`)는 지금까지 베일에 싸여있었다.
 계산 알고리즘에 대한 이야기이니 이해에 필요한 단위와 용어에 대해 먼저 알아보고 출발하자.
 
 #### - `pt` (point)
+&nbsp;&nbsp;&nbsp;&nbsp;
 1/72 inch를 말하며, 폰트 크기를 나타내는 기본 단위로 쓰인다.
 
 #### - `dpi` (dot per inch)
+&nbsp;&nbsp;&nbsp;&nbsp;
 그래픽 단위인 `ppi`(pixel per inch)와 같은 뜻으로 쓰이며, 1 `inch`당 들어갈 수 있는 점(pixel)의 갯수를 말한다.  
+&nbsp;&nbsp;&nbsp;&nbsp;
 윈도우 시스템은 96`dpi`를 사용하고, 애플 시스템은 72`dpi`를 사용한다.
 
 #### - `px` (pixel)
+&nbsp;&nbsp;&nbsp;&nbsp;
 점 단위로, 96`dpi` 하의 모니터에서 1/96 `inch`를 말한다.  
+&nbsp;&nbsp;&nbsp;&nbsp;
 따라서 `pt`와 `px`간 변환 시에는 현재 그래픽 설정의 `dpi`를 가져와서 계산해야 한다.
 
 #### - `twip`
+&nbsp;&nbsp;&nbsp;&nbsp;
 1/20 `pt`를 말한다. 1/1440 `inch`와도 같다.
 
 #### - `ch`
+&nbsp;&nbsp;&nbsp;&nbsp;
 하나의 글자를 말한다. 1 `ch`의 폭은 `MDW`와 같다.
 
 ![Character]({{ site.assets }}/2021/2021-06-16-secret-of-excel-column-width_Character.svg){: style="margin-left: 20px" }
 
 #### - `MDW` (Maximum digit width)
+&nbsp;&nbsp;&nbsp;&nbsp;
 특정 폰트의 특정 크기, 보통 스타일 일 때 '0'에서 '9'까지 숫자 폭 중 가장 큰 것을 말한다.  
+&nbsp;&nbsp;&nbsp;&nbsp;
 대부분의 숫자 폭은 일정하지만 되도록 모든 숫자의 폭을 조사하여 가져오는 게 좋다.  
+&nbsp;&nbsp;&nbsp;&nbsp;
 단위는 `px`이다.
 
 #### - `col width` (Column width)
+&nbsp;&nbsp;&nbsp;&nbsp;
 단위는 `ch`인데, `MDW`를 폭으로 하는 글자가 최대 몇 자까지 표시될 수 있는 지를 나타낸다.  
+&nbsp;&nbsp;&nbsp;&nbsp;
 특이한 것은 엑셀의 `cell` 안에는 좌/우 여백이 있는데, 이 부분에도 글자를 표시할 수 있는 것으로 너비를 계산한다는 것이다.  
+&nbsp;&nbsp;&nbsp;&nbsp;
 그러나 실제로는 이곳에 글자를 표시할 수 **없다!!**  
 
 #### - `char width` (Character width)
+&nbsp;&nbsp;&nbsp;&nbsp;
 단위는 `ch`이며, `cell`에 표시할 수 있는 실제 글자 수를 나타낸다. 즉, `col width`에서 `cell` 안의 좌/우 여백을 뺀 것을 말한다.
 
 #### - `col width px` (Column width in px)
+&nbsp;&nbsp;&nbsp;&nbsp;
 `ch` 단위 인 `col width`를 `px` 단위로 변환한 것.
 
 #### - `def char` (Default character size)
+&nbsp;&nbsp;&nbsp;&nbsp;
 Excel 앱단에서 사용되는 글꼴의 기본 크기를 말한다. 변경 후에는 프로그램 종료 후 다시 시작해 야 적용된다.
 
 #### - `padding` (Margin padding)
+&nbsp;&nbsp;&nbsp;&nbsp;
 단위는 `px`이며, `cell` 안쪽 좌/우의 여백을 말한다. 글자가 표시될 수 없는 영역이다.
 
 #### - `grid line`
+&nbsp;&nbsp;&nbsp;&nbsp;
 1`px` 고정이며, 가이드 라인을 그리기 위한 영역이다.
 
 #### - `margin space` (Total margin space)
+&nbsp;&nbsp;&nbsp;&nbsp;
 좌/우 여백(`padding`)과 `grid line` 폭을 합한 것으로, 단위는 `px`이다.
 
 ![Cell Width Structure]({{ site.assets }}/2021/2021-06-16-secret-of-excel-column-width_Cell-Width-Structure.svg){: style="margin-left: 20px"}
