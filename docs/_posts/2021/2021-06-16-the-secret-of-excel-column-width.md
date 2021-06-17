@@ -49,7 +49,7 @@ Excel의 `열 너비`(`column width`)는 지금까지 베일에 싸여있었다.
 #### - `ch`
 하나의 글자를 말한다. 1 `ch`의 폭은 `MDW`와 같다.
 
-![Character]({{ site.assets }}/2021/2021-06-16-secret-of-excel-column-width_Character.svg){: width="130px" }  
+![Character]({{ site.assets }}/2021/2021-06-16-secret-of-excel-column-width_Character.svg){: style="margin-left: 20px" }
 
 #### - `MDW` (Maximum digit width)
 특정 폰트의 특정 크기, 보통 스타일 일 때 '0'에서 '9'까지 숫자 폭 중 가장 큰 것을 말한다.  
@@ -79,7 +79,7 @@ Excel 앱단에서 사용되는 글꼴의 기본 크기를 말한다. 변경 후
 #### - `margin space` (Total margin space)
 좌/우 여백(`padding`)과 `grid line` 폭을 합한 것으로, 단위는 `px`이다.
 
-![Cell Width Structure]({{ site.assets }}/2021/2021-06-16-secret-of-excel-column-width_Cell-Width-Structure.svg){: width="300px" }
+![Cell Width Structure]({{ site.assets }}/2021/2021-06-16-secret-of-excel-column-width_Cell-Width-Structure.svg){: style="margin-left: 20px"}
 
 <br />
 
@@ -89,13 +89,16 @@ Excel 앱단에서 사용되는 글꼴의 기본 크기를 말한다. 변경 후
 <br />
 
 #### - `pt` to `px` 변환
-pt \times \frac{dpi}{72} = px
+[//]: # pt \times \frac{dpi}{72} = px
+![pt to px]({{ site.assets }}/2021/2021-06-16-secret-of-excel-column-width_pt2px.svg){: style="margin-left: 100px"}
 
 #### - `px` to `pt` 변환
-px \times \frac{72}{dpi} = pt
+[//]: # px \times \frac{72}{dpi} = pt
+![pt to px]({{ site.assets }}/2021/2021-06-16-secret-of-excel-column-width_px2pt.svg){: style="margin-left: 100px"}
 
 #### - `twip` to `pt` 변환
-twip \times \frac{1}{20} = pt
+[//]: # twip \times \frac{1}{20} = pt
+![pt to px]({{ site.assets }}/2021/2021-06-16-secret-of-excel-column-width_twip2pt.svg){: style="margin-left: 100px"}
 <br />
 <br />
 <br />
@@ -126,14 +129,17 @@ OOXML 공식 스펙 문서(ISO/IEC 29500 part 1)의 18.3.1.13 col(Column Width &
 
 이를 토대로 아래와 같은 계산 공식을 얻어낼 수 있다.
 
-#### - `col width`
-\frac{Truncate(frac{characters \times MDW + (2(margin padding) \times + 1(grid line))}{MDW} \times 256)}{256}
+#### - `col width` =
+[//]: # \frac{Truncate\left(\frac{characters \times MDW + (2(margin\ padding) \times 2 + 1(grid\ line))}{MDW} \times 256\right)}{256}
+![pt to px]({{ site.assets }}/2021/2021-06-16-secret-of-excel-column-width_pub-col-width.svg){: style="margin-left: 100px; margin-bottom: 20px;"}  
 
-#### - `col width px`
-Truncate(\frac{256 \times col width + Truncate(\frac{128}{MDW})}{256} \times MDW)
+#### - `col width px` =
+[//]: # Truncate\left(\frac{256 \times col\ width + Truncate\left(\frac{128}{MDW}\right)}{256} \times MDW\right)
+![pt to px]({{ site.assets }}/2021/2021-06-16-secret-of-excel-column-width_pub-col-width-px.svg){: style="margin-left: 100px; margin-bottom: 20px;"}  
 
-#### - `char width`
-\frac{Truncate(\frac{pixels - 5}{MDW} \times 100 + 0.5)}{100}
+#### - `char width` =
+[//]: # \frac{Truncate\left(\frac{pixels - 5}{MDW} \times 100 + 0.5\right)}{100}
+![pt to px]({{ site.assets }}/2021/2021-06-16-secret-of-excel-column-width_pub-char-width.svg){: style="margin-left: 100px; margin-bottom: 20px;"}  
 
 #### * 그러나, 공개된 공식만으로는 제대로 된 `열 너비`를 구할 수 없더라!!
 <br />
@@ -180,26 +186,43 @@ pixel 보정까지 완료하면, `px` 단위의 `열 너비`는 정확하게 나
 
 빨간 색이 입력 값이며, 각 공식에 대한 간략한 설명도 추가하였다.
 
-#### - `margin space`
-Truncate(\frac{Truncate(\frac{MDW}{2} + 0.5)}{2} + 0.5) \times 2 + 1(grid line)  
-`MDW`의 1/4 두 개에 1`px`를 더한다.
-
-#### - `col width`
-\frac{Truncate(\frac{characters \times MDW + margin space}{MDW} \times 256)}{256}  
-주어진 `ch`가 차지하는 `px`에 `margin space`를 더하여 여백을 포함한 총 너비를 `px`로 구한 뒤 `MDW`로 나누어 `ch` 단위로 변환한다.
-
-#### - `col width px`
-Truncate(\frac{256 \times col width + Truncate(\frac{128}{MDW})}{256} \times MDW)  
-주어진 `ch`를 정수로 반올림 하고, `ch`당 `px`에 해당하는 `MDW`를 곱하여 `px` 단위로 변환한다.
-
-#### - calibrate `col width px`
-Ceil(\frac{px}{8}) \times 8  
-8의 배수로 올림을 통해 보정한다.
-
-#### - `char width`
-\frac{Truncate(\frac{px - margin space}{MDW} \times 100 + 0.5)}{100}  
-`px` 단위의 총 너비에서 `margin space`를 제외한 순수 글자표시 영역을 `ch` 단위로 변환하되, 소수점 3째 자리에서 반올림하여 구한다.
+#### - `margin space` =
+[//]: # Truncate\left(\frac{Truncate\left(\frac{MDW}{2} + 0.5\right)}{2} + 0.5\right) \times 2 + 1(grid\ line)  
+![pt to px]({{ site.assets }}/2021/2021-06-16-secret-of-excel-column-width_sec-margin-space.svg){: style="margin-left: 100px; margin-bottom: 20px;"}  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+`MDW`의 1/4 두 개에 1`px`를 더한다.  
 <br />
+
+#### - `col width` =
+[//]: # \frac{Truncate\left(\frac{characters \times MDW + margin\ space}{MDW} \times 256\right)}{256}  
+![pt to px]({{ site.assets }}/2021/2021-06-16-secret-of-excel-column-width_sec-col-width.svg){: style="margin-left: 100px; margin-bottom: 20px;"}  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+주어진 `ch`가 차지하는 `px`에 `margin space`를 더하여 여백을 포함한 총 너비를 `px`로 구한 뒤,  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+`MDW`로 나누어 `ch` 단위로 변환한다.  
+<br />
+
+#### - `col width px` =
+[//]: # Truncate\left(\frac{256 \times col\ width + Truncate\left(\frac{128}{MDW}\right)}{256} \times MDW\right)  
+![pt to px]({{ site.assets }}/2021/2021-06-16-secret-of-excel-column-width_sec-col-width-px.svg){: style="margin-left: 100px; margin-bottom: 20px;"}  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+주어진 `ch`를 정수로 반올림 하고, `ch`당 `px`에 해당하는 `MDW`를 곱하여 `px` 단위로 변환한다.  
+<br />
+
+#### - calibrate `col width px` =
+[//]: # Ceil\left(\frac{px}{8}\right) \times 8  
+![pt to px]({{ site.assets }}/2021/2021-06-16-secret-of-excel-column-width_calibrate-col-width-px.svg){: style="margin-left: 100px; margin-bottom: 20px;"}  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+8의 배수로 올림을 통해 보정한다.  
+<br />
+
+#### - `char width` =
+[//]: # \frac{Truncate\left(\frac{pixels - margin\ space}{MDW} \times 100 + 0.5\right)}{100}  
+![pt to px]({{ site.assets }}/2021/2021-06-16-secret-of-excel-column-width_sec-char-width.svg){: style="margin-left: 100px; margin-bottom: 20px;"}  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+`px` 단위의 총 너비에서 `margin space`를 제외한 순수 글자표시 영역을 `ch` 단위로 변환하되,  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+소수점 3째 자리에서 반올림하여 구한다.  
 <br />
 <br />
 
@@ -252,4 +275,5 @@ Key(s) | Value(s)
 
 
 ---
-* 본 포스트는 2011년 한컴오피스 한셀 개발팀에서 고군분투하며 연구/개발한 내용을 바탕으로 작성되었습니다.
+* 본 포스트는 2011년 한컴오피스 한셀 개발팀에서 연구/개발한 내용을 바탕으로 작성되었습니다.
+* 본 포스트의 공식은 말랑말랑 웹 수식 편집기로 작성되었습니다.
