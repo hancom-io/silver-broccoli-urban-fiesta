@@ -3,10 +3,6 @@ layout: default
 ---
 
 <div class="home">
-  <div class="bg-img-box">
-    <img class="img-comma1" src="{{ site.assets }}/site-img/img-comma-1.svg" >
-  </div>
-
   {%- if site.posts.size > 0 -%}
     <div class="post-list-marker"></div>
     <ul class="post-list">
@@ -49,8 +45,4 @@ layout: default
 
     <p class="rss-subscribe">subscribe <a href="{{ '/feed.xml' | relative_url }}">via RSS</a></p>
   {%- endif -%}
-
-  <div class="bg-img-box">
-    <img class="img-comma2" src="{{ site.assets }}/site-img/img-comma-2.svg" >
-  </div>
 </div>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+
+  {%- include head.html -%}
+
+  <body>
+
+    {%- include header.html -%}
+
+    {%- if page.url == "/" -%}
+    {%- assign pageClass="home-parent" -%}
+    {%- else -%}
+    {%- assign pageClass="post-parent" -%}
+    {%- endif -%}
+    <main class="page-content {{ pageClass }}" aria-label="Content">
+      <div class="wrapper">
+        {{ content }}
+      </div>
+    </main>
+
+    {%- include footer.html -%}
+
+  </body>
+
+</html>
