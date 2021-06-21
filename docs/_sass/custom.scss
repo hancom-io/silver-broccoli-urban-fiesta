@@ -1,7 +1,7 @@
 @import 'vars';
 
-$menu-height: calc(64px * 0.9);
-$banner-height: calc(360px * 0.75);
+$menu-height: 64px;
+$banner-height: 360px;
 
 $bg1-width: 347px;
 $bg1-x: calc(50% + #{$content-width}/2 + #{$bg1-width}/2 + 20px);
@@ -52,7 +52,7 @@ $bg4-y: calc(100% - 224px);
   &.site-header-big {
     background-image: url("site-img/img-top.png");
     background-color: darkblue;
-    height: calc($banner-height + $menu-height);
+    height: $banner-height;
   }
 
   .nav-menu {
@@ -63,7 +63,6 @@ $bg4-y: calc(100% - 224px);
     align-items: center;
 
     &-overlay {
-      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
       background-color: rgba(0, 0, 0, 0.2);
       background-image: none;
     }
@@ -87,7 +86,6 @@ $bg4-y: calc(100% - 224px);
         width: 1px;
         height: 20px;
         margin: 3px 20px 3px 19.7px;
-        object-fit: contain;
         opacity: 0.32;
         background-color: #ffffff;
       }
@@ -110,10 +108,12 @@ $bg4-y: calc(100% - 224px);
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: $banner-height;
+  height: calc(#{$banner-height} - #{$menu-height});
 
   .site-title-box {
     display: flex;
+    height: 51px;
+    align-items: flex-end;
 
     .img-tech {
       width: 229px;
@@ -126,9 +126,9 @@ $bg4-y: calc(100% - 224px);
       height: 51px;
       margin: 0;
       font-family: NotoSansCJKkr, sans-serif;
-      font-size: 51.2px;
+      font-size: 50px;
       font-weight: 500;
-      letter-spacing: -0.32px;
+      letter-spacing: -0.31px;
       color: #ffffff;
     }
   }
