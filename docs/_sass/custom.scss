@@ -1,0 +1,446 @@
+@import 'vars';
+
+$menu-height: 64px;
+$banner-height: 360px;
+
+$bg1-width: 347px;
+$bg1-x: calc(50% + #{$content-width}/2 + #{$bg1-width}/2 + 20px);
+$bg1-y: 38px;
+
+$bg2-width: 455px;
+$bg2-x: calc(50% - #{$content-width}/2 - #{$bg2-width/2} - 136px);
+$bg2-y: calc(100% - 120px - 123px);
+
+$bg3-width: 186px;
+$bg3-x: calc(50% - #{$content-width}/2 - #{$bg3-width/2} + 20px);
+$bg3-y: 56px;
+
+$bg4-width: 397px;
+$bg4-x: calc(50% + #{$content-width}/2 + #{$bg4-width}/2 + 106px);
+// TODO: $bg4-y -> fix later considering comments widget height
+$bg4-y: calc(100% - 224px);
+
+.page-content {
+  background-repeat: no-repeat;
+
+  &.home-parent {
+    background-image:
+      url("site-img/img-comma-1.svg"),
+      url("site-img/img-comma-2.svg");
+    background-position:
+      $bg1-x $bg1-y,
+      $bg2-x $bg2-y;
+  }
+
+  &.post-parent {
+    background-image:
+      url("site-img/img-comma-3.svg"),
+      url("site-img/img-comma-4.svg");
+    background-position:
+      $bg3-x $bg3-y,
+      $bg4-x $bg4-y;
+  }
+
+  & > .wrapper {
+    max-width: $content-width;
+  }
+}
+
+.site-header {
+  border-width: 0;
+
+  &.site-header-big {
+    background-image: url("site-img/img-top.png");
+    background-color: darkblue;
+    height: $banner-height;
+  }
+
+  .nav-menu {
+    height: $menu-height;
+    background-image: linear-gradient(124deg, #182461 23%, #26328c 51%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &-overlay {
+      background-color: rgba(0, 0, 0, 0.2);
+      background-image: none;
+    }
+
+    &-inner-box {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      width: 1240px;
+
+      .bi-white {
+        opacity: 1;
+        color: white;
+        width: 206.3px;
+        height: 26px;
+        margin-left: 6px;
+        object-fit: contain;
+      }
+
+      .v-sep {
+        width: 1px;
+        height: 20px;
+        margin: 3px 20px 3px 19.7px;
+        opacity: 0.32;
+        background-color: #ffffff;
+      }
+
+      .nav-menu-item {
+        opacity: 0.9;
+        font-family: NotoSansCJKkr, sans-serif;
+        font-size: 19px;
+        font-weight: 500;
+        color: #ffffff;
+
+        margin: 0;
+      }
+    }
+  }
+}
+
+.site-title-banner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: calc(#{$banner-height} - #{$menu-height});
+
+  .site-title-box {
+    display: flex;
+    height: 51px;
+    align-items: flex-end;
+
+    .img-tech {
+      width: 229px;
+      height: 48px;
+      margin: 0 12px 0 0;
+      object-fit: contain;
+    }
+
+    .site-title {
+      height: 51px;
+      margin: 0;
+      font-family: NotoSansCJKkr, sans-serif;
+      font-size: 50px;
+      font-weight: 500;
+      letter-spacing: -0.31px;
+      color: #ffffff;
+    }
+  }
+
+  .site-desc {
+    margin-top: 24px;
+    height: 20px;
+    opacity: 0.64;
+    font-family: NotoSansCJKkr, sans-serif;
+    font-size: calc(20px * 0.9);
+    letter-spacing: -0.33px;
+    color: #ffffff;
+
+    &-highlight {
+      color: #b29fff;
+    }
+  }
+}
+
+.site-footer {
+  height: calc(216px / 2);
+  background-color: #313131;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .footer-inner-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 1240px;
+
+    .footer-info-box {
+      .stipulation {
+        margin: 0 0 16px;
+        width: 360px;
+
+        list-style-type: none;
+        display: flex;
+        justify-content: space-between;
+
+        opacity: 0.88;
+        font-family: NotoSansCJKkr, sans-serif;
+        font-size: 14px;
+        color: #ffffff;
+      }
+
+      .company-info,
+      .copyright {
+        opacity: 0.4;
+        font-family: NotoSansCJKkr, sans-serif;
+        font-size: 12px;
+        line-height: 1.67;
+        color: #ffffff;
+
+        margin: 0 0 4px;
+
+        p {
+          margin: 0;
+        }
+      }
+    }
+
+    .family-site-box {
+      display: flex;
+      align-items: center;
+
+      select {
+        width: 200px;
+        height: 32px;
+        padding: 8px 16px;
+        background-color: rgba(204, 204, 204, 0.2);
+        color: rgba(255, 255, 255, 0.8);
+
+        option {
+          opacity: 0.8;
+          font-family: NotoSansCJKkr, sans-serif;
+          font-size: 14px;
+          color: #ffffff;
+        }
+      }
+    }
+  }
+}
+
+.home {
+  .post-list-marker {
+    width: 120px;
+    height: 3px;
+    margin-top: 90px;    // considered page-content padding (30px)
+    background-color: #000000;
+  }
+
+  .post-list {
+
+    .post-item {
+      border-bottom: 1px solid #e6e9ea;
+      margin: 0;
+      display: flex;
+      justify-content: space-between;
+
+      .post-title-box {
+        margin: 64px 0;
+
+        .post-link {
+          height: 30px;
+          font-family: NotoSansCJKkr, sans-serif;
+          font-size: 24px;
+          letter-spacing: -0.4px;
+          color: #111111;
+
+          &.one-line {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+          }
+        }
+
+        .post-excerpt {
+          height: 48px;
+          margin: 12px 0 0;
+          font-family: NotoSansCJKkr, sans-serif;
+          font-size: 16px;
+          line-height: 1.5;
+          letter-spacing: -0.2px;
+          color: #888888;
+
+          &.two-lines {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+          }
+        }
+      }
+
+      .post-meta {
+        min-width: 200px;
+        min-height: 100px;
+        margin-left: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .author-avatar .avatar {
+          width: 56px;
+          height: 56px;
+          border-radius: 50%;
+          margin-bottom: 8px;
+        }
+
+        .author-name {
+          height: 19px;
+          font-family: NotoSans, sans-serif;
+          font-size: 14px;
+          color: #333333;
+        }
+
+        .post-date {
+          height: 19px;
+          font-family: NotoSans, sans-serif;
+          font-size: 14px;
+          color: #bdbdbd;
+        }
+      }
+    }
+  }
+}
+
+.tag-list {
+  list-style-type: none;
+  display: flex;
+  justify-content: flex-start;
+  margin: 0;
+
+  .tag-item {
+    height: 16px;
+    margin-right: 6px;
+    padding: 8px 16px;
+    border-radius: 16px;
+    background-color: #eaeaea;
+
+    font-family: NotoSansCJKkr, sans-serif;
+    font-size: 13px;
+    color: #333333;
+  }
+}
+
+.btn-top-box {
+  position: relative;
+
+  .btn-top {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+
+    width: 56px;
+    height: 56px;
+  }
+}
+
+@media (max-width: $max-tablet-width) {
+  .site-title-banner .site-title-box .img-tech,
+  .site-title-banner .site-desc,
+  .home .post-list .post-item .post-title-box .tag-list
+  {
+    display: none;
+  }
+
+  .page-content {
+    &.home-parent,
+    &.post-parent {
+      background: none;
+    }
+  }
+
+  .site-title-banner {
+    height: 168px;
+  }
+
+  .site-header.site-header-big {
+    background-image: none;
+    background-color: white;
+  }
+
+  .site-header .site-title-box .site-title {
+    color: black;
+  }
+
+  .home .post-list-marker {
+    width: 100%;
+    height: 1px;
+    margin: 0;
+    background-color: #333333;
+  }
+
+  .home .post-list .post-item {
+    flex-direction: column;
+
+    .post-title-box {
+      // TODO: adjust for phone size, separately
+      margin: 56px 0 24px;
+    }
+
+    .post-meta {
+      flex-direction: row;
+      justify-content: flex-start;
+      min-height: 0;
+      margin-left: 0;
+
+      .author-avatar .avatar {
+        width: 40px;
+        height: 40px;
+      }
+    }
+  }
+
+  .site-footer {
+    height: 204px;
+
+    .footer-inner-box {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-left: 40px;
+
+      .family-site-box {
+        margin-top: 24px;
+      }
+    }
+  }
+}
+
+@media (max-width: $max-phone-width) {
+  .site-footer {
+    .footer-inner-box {
+      margin: 0 16px;
+      width: 100%;
+
+      .footer-info-box {
+        width: 100%;
+
+        .stipulation {
+          width: 100%;
+        }
+
+        .company-info {
+          .registration-info {
+            display: flex;
+            flex-direction: column;
+          }
+        }
+      }
+
+      .family-site-box {
+        width: 100%;
+
+        select {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+// early application of https://github.com/jekyll/minima/pull/273
+// TODO: remove after an official update of minima theme
+.post-content h1 {
+  @extend .post-title;
+}

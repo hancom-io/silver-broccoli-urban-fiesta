@@ -6,7 +6,8 @@
   <!-- TODO: remove 'robots' meta tag and use the original code -->
   <meta name="robots" content="noindex, nofollow">
 
-  <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
+  <link rel="shortcut icon" type="image/png" href="{{ site.baseurl }}/assets/site-img/favicon-32.png">
   {%- feed_meta -%}
   {%- if jekyll.environment == 'production' and site.google_analytics -%}
     {%- include google-analytics.html -%}

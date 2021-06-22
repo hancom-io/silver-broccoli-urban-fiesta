@@ -1,12 +1,51 @@
 ---
-layout: post
+layout: default
 ---
-{{ content }}
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+    <p class="post-meta">
+      {%- assign authorId = page.author_id | default: page.author -%}
+      {%- assign author = page.author | default: page.author_id -%}
 
-<script src="https://utteranc.es/client.js"
-        repo="hancom-io/didactic-octo-palm-tree"
-        issue-term="pathname"
-        theme="github-light"
-        crossorigin="anonymous"
-        async>
-</script>
+      {%- if author and authorId -%}
+      <span class="author-avatar">{%- avatar user=authorId size=40 -%}</span>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ author }}</span></span>
+      • {%- endif -%}
+      <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+        {%- assign date_format = site.minima.date_format | default: "%Y. %m. %d" -%}
+        {{ page.date | date: date_format }}
+      </time>
+    </p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    {{ content }}
+
+    <ul class="tag-list">
+      {%- for tag in page.tags -%}
+      <li class="tag-item">#{{ tag }}</li>
+      {%- endfor -%}
+    </ul>
+  </div>
+
+  <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+</article>
+
+<div class="comment-widget">
+  <script src="https://utteranc.es/client.js"
+          repo="hancom-io/didactic-octo-palm-tree"
+          issue-term="pathname"
+          theme="github-light"
+          crossorigin="anonymous"
+          async>
+  </script>
+</div>
+
+<div class="button-box">
+  <button class="button-to-list"
+    onclick='window.history.back()'
+    >
+    이전 목록으로
+  </button>
+</div>
