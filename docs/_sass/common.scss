@@ -1,0 +1,24 @@
+$min-phone-width: 320px;
+$min-tablet-width: 768px;
+$min-desktop-width: 1024px;
+
+$max-tablet-width: 1023px;  // $min-desktop-width - 1
+$max-phone-width: 767px;    // $min-tablet-width - 1
+
+$content-width: 960px;
+
+.one-line {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.two-lines {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
