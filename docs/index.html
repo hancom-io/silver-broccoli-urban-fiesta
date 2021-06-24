@@ -1,0 +1,89 @@
+---
+layout: default
+---
+
+<div class="home">
+  {%- assign posts = paginator.posts -%}
+  {%- if posts.size > 0 -%}
+    <div class="post-list-marker"></div>
+    <ul class="post-list">
+      {%- for post in posts -%}
+      <li class="post-item">
+
+        {%- assign date_format = "%Y. %m. %d" -%}
+        <div class="post-title-box">
+          <a class="post-link one-line"
+            href="{{ post.url | relative_url }}">
+            {{ post.title | escape }}
+          </a>
+          <div class="post-excerpt two-lines">
+            {{ post.excerpt | strip_html }}
+          </div>
+
+          <ul class="tag-list">
+            {%- for tag in post.tags -%}
+            <li class="tag-item">#{{ tag }}</li>
+            {%- endfor -%}
+          </ul>
+        </div>
+
+        <div class="post-meta">
+          {%- assign authorId = post.author_id | default: post.author -%}
+          {%- assign author = post.author | default: post.author_id -%}
+
+          {%- if author and authorId -%}
+          <div class="author-avatar">
+            {%- avatar user=authorId size=56 -%}
+          </div>
+          <div class="author-name">{{ author }}</div>
+          {%- endif -%}
+          <div class="post-date">{{ post.date | date: date_format }}</div>
+        </div>
+
+      </li>
+      {%- endfor -%}
+    </ul>
+
+    <p class="rss-subscribe">subscribe <a href="{{ '/feed.xml' | relative_url }}">via RSS</a></p>
+  {%- endif -%}
+
+  {% if paginator.total_pages > 1 %}
+    <div class="pagination">
+      {% if page.url != '/' %}
+      <a href="{{ '/' | relative_url }}">&Lang; First</a>
+      {% else %}
+      <span>&Lang; First</span>
+      {% endif %}
+
+      {% if paginator.previous_page %}
+        <a href="{{ paginator.previous_page_path | relative_url }}">&lang; Prev</a>
+      {% else %}
+        <span>&lang; Prev</span>
+      {% endif %}
+
+      <!-- TODO: consider many page numbers -->
+      {% for page in (1..paginator.total_pages) %}
+        {% if page == paginator.page %}
+          <strong>{{ page }}</strong>
+        {% elsif page == 1 %}
+          <a href="{{ paginator.previous_page_path | relative_url }}">{{ page }}</a>
+        {% else %}
+          <a href="{{ site.paginate_path | relative_url | replace: ':num', page }}">{{ page }}</a>
+        {% endif %}
+      {% endfor %}
+
+      {% if paginator.next_page %}
+        <a href="{{ paginator.next_page_path | relative_url }}">Next &rang;</a>
+      {% else %}
+        <span>Next &rang;</span>
+      {% endif %}
+
+      {% if paginator.page != paginator.total_pages %}
+      <a href="{{ site.paginate_path | relative_url | replace: ':num', paginator.total_pages }}">Last &Rang;</a>
+      {% else %}
+      <span>Last &Rang;</span>
+      {% endif %}
+    </div>
+  {% endif %}
+
+</div>
