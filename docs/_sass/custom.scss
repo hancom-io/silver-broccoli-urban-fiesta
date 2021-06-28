@@ -2,6 +2,7 @@
 
 $banner-height: 360px;
 $menu-height: 64px;
+$footer-height: calc(216px / 2);;
 
 $bg1-width: 347px;
 $bg1-x: calc(50% + #{$content-width}/2 + #{$bg1-width}/2 + 20px);
@@ -19,6 +20,22 @@ $bg4-width: 397px;
 $bg4-x: calc(50% + #{$content-width}/2 + #{$bg4-width}/2 + 106px);
 // TODO: $bg4-y -> fix later considering comments widget height
 $bg4-y: calc(100% - 224px);
+
+
+#top-pixel-anchor {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  top: 0;
+  left: 0;
+}
+
+#bottom-pixel-anchor {
+  position: relative;
+  width: 1px;
+  height: 1px;
+  top: 30px;
+}
 
 .page-content {
   background-repeat: no-repeat;
@@ -56,11 +73,13 @@ $bg4-y: calc(100% - 224px);
   }
 
   .nav-menu {
+    position: fixed;
     height: $menu-height;
     background-image: linear-gradient(124deg, #182461 23%, #26328c 51%);
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
 
     &-overlay {
       background-color: rgba(0, 0, 0, 0.2);
@@ -109,6 +128,7 @@ $bg4-y: calc(100% - 224px);
   justify-content: center;
   align-items: center;
   height: calc(#{$banner-height} - #{$menu-height});
+  margin-top: $menu-height;
 
   .site-title-box {
     display: flex;
@@ -137,20 +157,19 @@ $bg4-y: calc(100% - 224px);
   .site-desc {
     margin: 26px 24px 0;
     height: 29px;
-    opacity: 0.64;
     font-family: NotoSansCJKkr, sans-serif;
     font-size: 20px;
     letter-spacing: -0.33px;
-    color: #ffffff;
+    color: rgba(255, 255, 255, 0.64);
 
     &-highlight {
-      color: #b29fff;
+      color: rgba(178, 159, 255, 0.64);
     }
   }
 }
 
 .site-footer {
-  height: calc(216px / 2);
+  height: $footer-height;
   background-color: #313131;
 
   display: flex;
@@ -311,18 +330,37 @@ $bg4-y: calc(100% - 224px);
   position: relative;
 
   .btn-top {
-    position: absolute;
-    right: 20px;
-    bottom: 20px;
+    position: fixed;
+    right: 40px;
+    bottom: 40px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     width: 56px;
     height: 56px;
+    box-shadow: 0 2px 7px 0 rgba(0, 0, 0, 0.06);
+    border: solid 1px #e6e9ea;
+    background-color: #ffffff;
+    border-radius: 50%;
+
+    &.absolute {
+      position: absolute;
+    }
+
+    .img-arrow {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
+    }
   }
 }
 
 @media (max-width: $max-tablet-width) {
   $banner-height: 320px;
   $menu-height: 56px;
+  $footer-height: 204px;
 
   .page-content {
     &.home-parent,
@@ -411,7 +449,7 @@ $bg4-y: calc(100% - 224px);
   }
 
   .site-footer {
-    height: 204px;
+    height: $footer-height;
 
     .footer-inner-box {
       display: flex;

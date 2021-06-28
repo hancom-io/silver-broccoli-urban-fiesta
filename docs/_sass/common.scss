@@ -7,6 +7,10 @@ $max-phone-width: 767px;    // $min-tablet-width - 1
 
 $content-width: 960px;
 
+.hide {
+  visibility: hidden;
+}
+
 .one-line {
   overflow: hidden;
   text-overflow: ellipsis;
