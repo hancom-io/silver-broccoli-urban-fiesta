@@ -338,8 +338,8 @@ $bg4-y: calc(100% - 224px);
     justify-content: center;
     align-items: center;
 
-    width: 56px;
-    height: 56px;
+    width: 54px;
+    height: 54px;
     box-shadow: 0 2px 7px 0 rgba(0, 0, 0, 0.06);
     border: solid 1px #e6e9ea;
     background-color: #ffffff;
@@ -462,6 +462,11 @@ $bg4-y: calc(100% - 224px);
       }
     }
   }
+
+  .btn-top-box .btn-top {
+    right: 24px;
+    bottom: 24px;
+  }
 }
 
 @media (max-width: $max-phone-width) {
@@ -557,6 +562,14 @@ $bg4-y: calc(100% - 224px);
         }
       }
     }
+  }
+
+  .btn-top-box .btn-top {
+    width: 46px;
+    height: 46px;
+
+    right: 16px;
+    bottom: 16px;
   }
 }
 
