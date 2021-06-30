@@ -48,8 +48,8 @@ excerpt: 웹 개발 입문자의 걸음마 프로젝트
 <br>
 플라스크 (Flask)와 장고(Django) 입니다.
 
-> ![flask]({{ site.assets }}/2021/2021-06-30-flask.png){: width="400px" }
-> ![django]({{ site.assets }}/2021/2021-06-30-django.png){: width="400px" }
+> ![flask]({{ site.assets }}/2021/2021-06-30-flask1.png){: width="400px" }
+> ![django]({{ site.assets }}/2021/2021-06-30-django1.png){: width="400px" }
 
 
 <br>
@@ -88,7 +88,7 @@ if __name__ == '__main__':
     get_data("AAPL")
 ```
 #### 결과
-> ![res]({{ site.assets }}/2021/2021-06-30-res.png){: width="600px" }
+> ![res]({{ site.assets }}/2021/2021-06-30-res1.png){: width="600px" }
 
 위와 같이 yfinance API를 이용해 쉽게 과거 데이터를 수집하고 이용할 수 있습니다.
 <br>
@@ -137,7 +137,7 @@ if __name__ == '__main__':
 ```
 
 #### 결과(애플차트)
-> ![chart]({{ site.assets }}/2021/2021-06-30-chart.png){: width="600px" }
+> ![chart]({{ site.assets }}/2021/2021-06-30-chart1.png){: width="600px" }
 
    ~~이렇게 보니 고평가..~~
 <br>
