@@ -48,8 +48,8 @@ excerpt: 웹 개발 입문자의 걸음마 프로젝트
 <br>
 플라스크 (Flask)와 장고(Django) 입니다.
 
-> ![flask]({{ site.assets }}/2021/2021-06-30-flask.png){: width="400px" }
-> ![django]({{ site.assets }}/2021/2021-06-30-django.png){: width="400px" }
+> ![flask]({{ site.assets }}/2021/2021-06-30-flask1.png){: width="400px" }
+> ![django]({{ site.assets }}/2021/2021-06-30-django1.png){: width="400px" }
 
 
 <br>
@@ -76,7 +76,7 @@ excerpt: 웹 개발 입문자의 걸음마 프로젝트
 ### 데이터 수집
 데이터 수집은 Yahoo Fianace API를 이용하였습니다.
 파이썬에서는 pip install yfinance로 API를 이용할 수 있습니다.
-```vb
+```py
 import yfinance as yf
 
 def get_data(name):
@@ -88,7 +88,7 @@ if __name__ == '__main__':
     get_data("AAPL")
 ```
 #### 결과
-> ![res]({{ site.assets }}/2021/2021-06-30-res.png){: width="600px" }
+> ![res]({{ site.assets }}/2021/2021-06-30-res1.png){: width="600px" }
 
 위와 같이 yfinance API를 이용해 쉽게 과거 데이터를 수집하고 이용할 수 있습니다.
 <br>
@@ -97,7 +97,7 @@ if __name__ == '__main__':
 numpy.polyfit()를 이용하여 데이터 추세에 맞는 다항식을 얻고,<br>
 다항식 x에 Close 값을 넣은 결과값을 배열형태로 리턴하는 함수입니다.
 
-```vb
+```py
 import numpy as np
 
 def getTrandLine(target, x, y, degree):
@@ -122,7 +122,7 @@ if __name__ == '__main__':
 다음과 같이 matplotlib.pyplot 패키지를 이용하여 **가공된 추세선 데이터를 출력**합니다.<br>
 추후 프론트 생기면 없어질 코드니 불편하시더라도 양해바랍니다.
 
-```vb
+```py
 def drawChart(res, date, x, y=""):
     timelimit = res['Date'] > '2000-01-01'
     plt.plot(res.loc[timelimit, date].values, res.loc[timelimit, x].values)
@@ -137,7 +137,7 @@ if __name__ == '__main__':
 ```
 
 #### 결과(애플차트)
-> ![chart]({{ site.assets }}/2021/2021-06-30-chart.png){: width="600px" }
+> ![chart]({{ site.assets }}/2021/2021-06-30-chart1.png){: width="600px" }
 
    ~~이렇게 보니 고평가..~~
 <br>
