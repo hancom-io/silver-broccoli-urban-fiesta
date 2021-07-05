@@ -45,8 +45,7 @@ plugins:
   - jekyll-avatar
   - jekyll-paginate
 
-# TODO: adjust properly
-paginate: 5
+paginate: 10
 
 # Exclude from processing.
 # The following items will not be processed, by default.

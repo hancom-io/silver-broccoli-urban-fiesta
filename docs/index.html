@@ -44,46 +44,11 @@ layout: default
       {%- endfor -%}
     </ul>
 
-    <p class="rss-subscribe">subscribe <a href="{{ '/feed.xml' | relative_url }}">via RSS</a></p>
-  {%- endif -%}
+    {%- include pagination.html -%}
 
-  {% if paginator.total_pages > 1 %}
-    <div class="pagination">
-      {% if page.url != '/' %}
-      <a href="{{ '/' | relative_url }}">&Lang; First</a>
-      {% else %}
-      <span>&Lang; First</span>
-      {% endif %}
-
-      {% if paginator.previous_page %}
-        <a href="{{ paginator.previous_page_path | relative_url }}">&lang; Prev</a>
-      {% else %}
-        <span>&lang; Prev</span>
-      {% endif %}
-
-      <!-- TODO: consider many page numbers -->
-      {% for page in (1..paginator.total_pages) %}
-        {% if page == paginator.page %}
-          <strong>{{ page }}</strong>
-        {% elsif page == 1 %}
-          <a href="{{ paginator.previous_page_path | relative_url }}">{{ page }}</a>
-        {% else %}
-          <a href="{{ site.paginate_path | relative_url | replace: ':num', page }}">{{ page }}</a>
-        {% endif %}
-      {% endfor %}
-
-      {% if paginator.next_page %}
-        <a href="{{ paginator.next_page_path | relative_url }}">Next &rang;</a>
-      {% else %}
-        <span>Next &rang;</span>
-      {% endif %}
-
-      {% if paginator.page != paginator.total_pages %}
-      <a href="{{ site.paginate_path | relative_url | replace: ':num', paginator.total_pages }}">Last &Rang;</a>
-      {% else %}
-      <span>Last &Rang;</span>
-      {% endif %}
+    <div class="rss-info-box">
+      <p class="rss-subscribe">subscribe <a href="{{ '/feed.xml' | relative_url }}">via RSS</a></p>
     </div>
-  {% endif %}
 
-</div>
+    {%- endif -%}
+  </div>

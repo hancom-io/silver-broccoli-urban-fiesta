@@ -1,0 +1,69 @@
+{% if paginator.total_pages > 1 %}
+
+{% capture arrow_first %}<img src="{{ site.assets }}/site-img/ic-arrow-first.svg" class="ic-page-arrow">{% endcapture %}
+{% capture arrow_prev %}<img src="{{ site.assets }}/site-img/ic-arrow-prev.svg" class="ic-page-arrow">{% endcapture %}
+{% capture arrow_next %}<img src="{{ site.assets }}/site-img/ic-arrow-next.svg" class="ic-page-arrow">{% endcapture %}
+{% capture arrow_last %}<img src="{{ site.assets }}/site-img/ic-arrow-last.svg" class="ic-page-arrow">{% endcapture %}
+
+{% assign current_page = paginator.page %}
+{% assign total_pages = paginator.total_pages %}
+{% assign range_size = 5 %}
+
+{% assign range_start = current_page | minus: 1 | divided_by: range_size | times: range_size | plus: 1 %}
+{% assign range_end = range_start | plus: range_size | minus: 1 | at_most: total_pages %}
+
+{% comment %}
+  example) pagination ranges, if range_size == 10
+    -  1-10,
+    - 11-20,
+    - 21-23 (if 23 is the last page)
+{% endcomment %}
+
+<div class="pagination">
+  {% if page.url != '/' %}
+  <a href="{{ '/' | relative_url }}">
+    <div class="page-unit">{{ arrow_first }}</div>
+  </a>
+  {% else %}
+  <div class="page-unit">{{ arrow_first }}</div>
+  {% endif %}
+
+  {% if paginator.previous_page %}
+  <a href="{{ paginator.previous_page_path | relative_url }}">
+    <div class="page-unit">{{ arrow_prev }}</div>
+  </a>
+  {% else %}
+  <div class="page-unit">{{ arrow_prev }}</div>
+  {% endif %}
+
+  {% for page in (range_start..range_end) %}
+    {% if page == current_page %}
+    <div class="page-unit current">{{ page }}</div>
+    {% elsif page == 1 %}
+    <a href="{{ paginator.previous_page_path | relative_url }}">
+      <div class="page-unit">{{ page }}</div>
+    </a>
+    {% else %}
+    <a href="{{ site.paginate_path | relative_url | replace: ':num', page }}">
+      <div class="page-unit">{{ page }}</div>
+    </a>
+    {% endif %}
+  {% endfor %}
+
+  {% if paginator.next_page %}
+  <a href="{{ paginator.next_page_path | relative_url }}">
+    <div class="page-unit">{{ arrow_next }}</div>
+  </a>
+  {% else %}
+  <div class="page-unit">{{ arrow_next }}</div>
+  {% endif %}
+
+  {% if current_page != total_pages %}
+  <a href="{{ site.paginate_path | relative_url | replace: ':num', total_pages }}">
+    <div class="page-unit">{{ arrow_last }}</div>
+  </a>
+  {% else %}
+  <div class="page-unit">{{ arrow_last }}</div>
+  {% endif %}
+</div>
+{% endif %}
