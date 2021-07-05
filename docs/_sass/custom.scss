@@ -217,6 +217,8 @@ $bg4-y: calc(100% - 224px);
 }
 
 .home {
+  padding-bottom: 90px;
+
   .post-list-marker {
     width: 120px;
     height: 3px;
@@ -225,6 +227,7 @@ $bg4-y: calc(100% - 224px);
   }
 
   .post-list {
+    margin-bottom: 0;
 
     .post-item {
       border-bottom: 1px solid #e6e9ea;
@@ -524,7 +527,58 @@ $bg4-y: calc(100% - 224px);
 
 .pagination {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
+  align-items: center;
+  margin-top: 24px;
+
+  .page-unit {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 14px;
+
+    font-size: 14px;
+    color: #666666;
+    opacity: 0.2;
+
+    &.current {
+      font-weight: bold;
+      text-decoration: underline;
+      color: #2e5fd8;
+      opacity: 1;
+    }
+
+    .ic-page-arrow {
+      width: 16px;
+      height: 16px;
+      object-fit: contain;
+    }
+  }
+
+  a {
+    .page-unit {
+      opacity: 1;
+
+      &:hover {
+        background-color: #eeeeee;
+        border-radius: 2px;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.rss-info-box {
+  // TODO: (to be redesigned)
+  position: relative;
+
+  .rss-subscribe {
+    color: gray;
+    position: absolute;
+    bottom: -120px;
+  }
 }
 
 // early application of https://github.com/jekyll/minima/pull/273
