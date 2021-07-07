@@ -7,6 +7,9 @@
 -->
 
 <script src="{{ site.assets }}/lib/lunr.js"></script>
+<script src="{{ site.assets }}/lib/lunr.stemmer.support.js"></script>
+<script src="{{ site.assets }}/lib/lunr.ko.js"></script>
+<script src="{{ site.assets }}/lib/lunr.multi.js"></script>
 
 <script>
 {% assign counter = 0 %}
@@ -28,6 +31,7 @@ var documents = [{% for page in site.pages %}{% if page.url contains '.xml' or p
     }{% if forloop.last %}{% else %}, {% endif %}{% endfor %}];
 
 var idx = lunr(function () {
+    this.use(lunr.multiLanguage('en', 'ko'))
     this.ref('id')
     this.field('title')
     this.field('body')
