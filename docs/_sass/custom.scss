@@ -622,7 +622,7 @@ $bg4-y: calc(100% - 224px);
   }
 }
 
-.rss-info-box {
+.extra-box {
   // TODO: (to be redesigned)
   position: relative;
 
@@ -630,6 +630,24 @@ $bg4-y: calc(100% - 224px);
     color: gray;
     position: absolute;
     bottom: -120px;
+  }
+
+  .search-link {
+    position: absolute;
+    bottom: -120px;
+    left: 200px;
+  }
+}
+
+#lunrsearch-form {
+  display: flex;
+  justify-content: center;
+
+  #lunrsearch {
+    width: 60vw;
+    height: 40px;
+    margin: 20px;
+    font-size: large;
   }
 }
 

@@ -46,8 +46,9 @@ layout: default
 
     {%- include pagination.html -%}
 
-    <div class="rss-info-box">
+    <div class="extra-box">
       <p class="rss-subscribe">subscribe <a href="{{ '/feed.xml' | relative_url }}">via RSS</a></p>
+      <p class="search-link"><a href="{{ '/search.html' | relative_url }}">검색</a></p>
     </div>
 
     {%- endif -%}
