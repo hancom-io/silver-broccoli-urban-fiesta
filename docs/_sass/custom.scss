@@ -648,6 +648,11 @@ $bg4-y: calc(100% - 224px);
     height: 40px;
     margin: 20px;
     font-size: large;
+    border: 1px solid lightgray;
+
+    &:focus {
+      border-color: transparent;
+    }
   }
 }
 

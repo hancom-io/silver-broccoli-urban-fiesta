@@ -5,6 +5,7 @@
     - escaping double quotes in title
     - changing placeholder message
     - supporting multi languages: English and Korean
+    - limiting search boundary only for site.posts
 -->
 
 <script src="{{ site.assets }}/lib/lunr.js"></script>
@@ -13,22 +14,17 @@
 
 <script>
 {% assign counter = 0 %}
-var documents = [{% for page in site.pages %}{% if page.url contains '.xml' or page.url contains 'assets' %}{% else %}{
-    "id": {{ counter }},
-    "url": "{{ site.url }}{{ site.baseurl }}{{ page.url }}",
-    "title": "{{ page.title | replace: '"', '~'}}",
-    "body": "{{ page.content | markdownify | replace: '.', '. ' | replace: '</h2>', ': ' | replace: '</h3>', ': ' | replace: '</h4>', ': ' | replace: '</p>', ' ' | strip_html | strip_newlines | replace: '  ', ' ' | replace: '"', ' ' }}"{% assign counter = counter | plus: 1 %}
-    }, {% endif %}{% endfor %}{% for page in site.without-plugin %}{
-    "id": {{ counter }},
-    "url": "{{ site.url }}{{ site.baseurl }}{{ page.url }}",
-    "title": "{{ page.title | replace: '"', '~'}}",
-    "body": "{{ page.content | markdownify | replace: '.', '. ' | replace: '</h2>', ': ' | replace: '</h3>', ': ' | replace: '</h4>', ': ' | replace: '</p>', ' ' | strip_html | strip_newlines | replace: '  ', ' ' | replace: '"', ' ' }}"{% assign counter = counter | plus: 1 %}
-    }, {% endfor %}{% for page in site.posts %}{
-    "id": {{ counter }},
-    "url": "{{ site.url }}{{ site.baseurl }}{{ page.url }}",
-    "title": "{{ page.title | replace: '"', '~'}}",
-    "body": "{{ page.date | date: "%Y/%m/%d" }} - {{ page.content | markdownify | replace: '.', '. ' | replace: '</h2>', ': ' | replace: '</h3>', ': ' | replace: '</h4>', ': ' | replace: '</p>', ' ' | strip_html | strip_newlines | replace: '  ', ' ' | replace: '"', ' ' }}"{% assign counter = counter | plus: 1 %}
-    }{% if forloop.last %}{% else %}, {% endif %}{% endfor %}];
+const documents = [
+{% for page in site.posts %}
+    {
+        "id": {{ counter }},
+        "url": "{{ page.url | relative_url }}",
+        "title": "{{ page.title | replace: '"', ''}}",
+        "body": "{{ page.date | date: "%Y. %m. %d" }} - {{ page.content | markdownify | replace: '.', '. ' | replace: '</h2>', ': ' | replace: '</h3>', ': ' | replace: '</h4>', ': ' | replace: '</p>', ' ' | strip_html | strip_newlines | replace: '  ', ' ' | replace: '"', ' ' }}"
+    },
+    {% assign counter = counter | plus: 1 %}
+{% endfor %}
+];
 
 const langs = ['en', 'ko'];
 const idxMap = {};
