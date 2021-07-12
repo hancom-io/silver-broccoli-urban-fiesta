@@ -50,7 +50,7 @@ function lunr_search(term) {
 
     if (term) {
         document.getElementById('lunrsearchresults').innerHTML =
-            "<p>Search results for '" + term + "'</p>" +
+            `<p>'${term}'에 대한 검색 결과:</p>` +
             document.getElementById('lunrsearchresults').innerHTML;
 
         //put results on the screen.
@@ -74,18 +74,17 @@ function lunr_search(term) {
                 const body = documents[ref]['body'].substring(0, 160) + '...';
 
                 document.querySelectorAll('#lunrsearchresults ul')[0].innerHTML +=
-                    "<li class='lunrsearchresult'>" +
-                        "<a href='" + url + "'>" +
-                            "<span class='title'>" + title + "</span><br />" +
-                            "<span class='body'>"+ body +"</span><br />" +
-                            "<span class='url'>"+ url +"</span>" +
-                        "</a>" +
-                    "</li>";
-
+                    `<li class='lunrsearchresult'>` +
+                        `<a href='${url}'>` +
+                            `<span class='title'>${title}</span><br />` +
+                            `<span class='body'>${body}</span><br />` +
+                            `<span class='url'>${url}</span>` +
+                        `</a>` +
+                    `</li>`;
             });
         } else {
             document.querySelectorAll('#lunrsearchresults ul')[0].innerHTML =
-                "<li class='lunrsearchresult'>No results found...</li>";
+                "<li class='lunrsearchresult'>검색 결과가 없습니다.</li>";
         }
     }
     return false;
@@ -103,7 +102,10 @@ function lunr_search(term) {
 
 
 <form id="lunrsearch-form" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
-    <p><input type="text" class="form-control" id="lunrsearch" name="q" maxlength="255" value="" placeholder="검색어를 입력하세요" /></p>
+    <p>
+        <input type="text" class="form-control" id="lunrsearch" name="q" maxlength="255"
+            value="" placeholder="검색어를 입력하세요" />
+    </p>
 </form>
 <div id="lunrsearchresults">
     <ul></ul>
