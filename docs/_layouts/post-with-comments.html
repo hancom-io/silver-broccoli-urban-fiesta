@@ -10,8 +10,11 @@ layout: default
 
       {%- if author and authorId -%}
       <span class="author-avatar">{%- avatar user=authorId size=40 -%}</span>
-      <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ author }}</span></span>
-      • {%- endif -%}
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-author h-card" itemprop="name">{{ author }}</span>
+      </span>
+      <img class="dot-sep" src="{{ site.assets }}/site-img/oval.svg" />
+      {%- endif -%}
       <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
         {%- assign date_format = site.minima.date_format | default: "%Y. %m. %d" -%}
         {{ page.date | date: date_format }}

@@ -1,0 +1,134 @@
+@import 'custom.scss';
+
+@media (max-width: $max-tablet-width) {
+  $banner-height: 320px;
+  $menu-height: 56px;
+  $footer-height: 204px;
+
+  .page-content {
+    &.home-parent,
+    &.post-parent {
+      background: none;
+    }
+  }
+
+  .site-header {
+    &.site-header-big {
+      height: $banner-height;
+    }
+
+    .nav-menu {
+      height: $menu-height;
+
+      &-inner-box {
+        margin-left: 24px;
+
+        .bi-white {
+          height: 22px;
+          margin-left: 0;
+        }
+
+        .nav-menu-item {
+          height: 28px;
+          font-size: 19px;
+        }
+      }
+    }
+
+    .site-title-banner {
+      height: calc(#{$banner-height} - #{$menu-height});
+
+      .site-title-box {
+        height: 40px;
+
+        .img-tech {
+          height: 38px;
+          margin-right: 9px;
+        }
+
+        .site-title {
+          font-size: 40px;
+        }
+      }
+
+      .site-desc {
+        font-size: 18px;
+        margin-top: 18px;
+        height: calc(56px / 2);   // enough for one line
+      }
+    }
+  }
+
+  .home {
+    padding-top: 0;
+
+    .post-list-marker {
+      display: none;
+    }
+
+    .post-list {
+      .post-item {
+        flex-direction: column;
+        padding: 56px 88px 56px 40px;
+
+        .post-title-box {
+          margin: 0 0 24px;
+
+          .post-excerpt {
+            margin-bottom: 0;
+          }
+
+          .tag-list {
+            display: none;
+          }
+        }
+
+        .post-meta {
+          flex-direction: row;
+          justify-content: flex-start;
+          align-items: center;
+          min-height: 0;
+          margin-left: 0;
+
+          .author-avatar {
+            margin: 0 8px 0 0;
+
+            > .avatar {
+              width: 40px;
+              height: 40px;
+            }
+          }
+
+          .dot-sep {
+            display: inline-block;
+            margin: 0 8px;
+          }
+
+          .post-date {
+            color: #999999;
+          }
+        }
+      }
+    }
+  }
+
+  .site-footer {
+    height: $footer-height;
+
+    .footer-inner-box {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-left: 40px;
+
+      .family-site-box {
+        margin-top: 24px;
+      }
+    }
+  }
+
+  .btn-top-box .btn-top {
+    right: 24px;
+    bottom: 24px;
+  }
+}

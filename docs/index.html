@@ -12,7 +12,7 @@ layout: default
 
         {%- assign date_format = "%Y. %m. %d" -%}
         <div class="post-title-box">
-          <a class="post-link one-line"
+          <a class="post-link"
             href="{{ post.url | relative_url }}">
             {{ post.title | escape }}
           </a>
@@ -36,6 +36,7 @@ layout: default
             {%- avatar user=authorId size=56 -%}
           </div>
           <div class="author-name">{{ author }}</div>
+          <img class="dot-sep" src="{{ site.assets }}/site-img/oval.svg" />
           {%- endif -%}
           <div class="post-date">{{ post.date | date: date_format }}</div>
         </div>
