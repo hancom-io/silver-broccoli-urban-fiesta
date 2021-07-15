@@ -227,19 +227,26 @@ $bg4-y: calc(100% - 224px);
     }
 
     .family-site-box {
-      display: flex;
-      align-items: center;
+      > select {
+        // reset default style
+        appearance: none;
+        -webkit-appearance: none;
+        border: none;
+        outline: none;
 
-      select {
         width: 200px;
         height: 32px;
         padding-left: 16px;
         background-color: rgba(204, 204, 204, 0.2);
+        background-image: url("site-img/ic-open.svg");
+        background-repeat: no-repeat;
+        background-position: 95% 50%;
         color: rgba(255, 255, 255, 0.8);
         font-family: NotoSansCJKkr, sans-serif;
+        font-size: 14px;
 
         option {
-          font-size: 14px;
+          background-color: #444444;  // for firefox
         }
       }
     }
