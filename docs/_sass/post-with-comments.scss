@@ -1,5 +1,9 @@
 @import 'common.scss';
 
+.site-header {
+  z-index: 1;
+}
+
 .post {
   margin-top: 128px;
 
