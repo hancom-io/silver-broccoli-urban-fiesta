@@ -3,9 +3,15 @@
 
     <div class="footer-info-box">
       <ul class="stipulation">
-        <li>이용약관</li>
-        <li>개인정보처리방침</li>
-        <li>전자금융거래이용약관</li>
+        <li>
+          <a href="https://www.hancom.com/member/agreement.do">이용약관</a>
+        </li>
+        <li>
+          <a href="https://www.hancom.com/member/treatInfoAgreement.do">개인정보처리방침</a>
+        </li>
+        <li>
+          <a href="https://www.hancom.com/member/elecTradeAgreement.do">전자금융거래이용약관</a>
+        </li>
       </ul>
 
       <div class="company-info">
@@ -23,10 +29,23 @@
     </div>
 
     <div class="family-site-box">
-      <select>
-        <option>Family site</option>
-        <option>site 1</option>
-        <option>site 2</option>
+      <select
+        onchange="window.open(this.value); this.value=null;"
+        >
+        <option value=null>한컴계열사 사이트</option>
+        <option value="https://www.hancomgroup.com/">한컴그룹</option>
+        <option value="https://www.hancom.com/">한글과컴퓨터</option>
+        <option value="http://www.hancommds.com/">한컴MDS</option>
+        <option value="http://www.hancomit.com/">한컴인텔리전스</option>
+        <option value="http://hancomwith.com/">한컴위드</option>
+        <option value="http://www.interfree.com/">한컴인터프리</option>
+        <option value="http://www.talkafe.net/">한컴톡카페</option>
+        <option value="http://www.sancheong.com/">한컴라이프케어</option>
+        <option value="http://teladin.com/">한컴텔라딘</option>
+        <option value="http://www.hancomrobotics.com/">한컴로보틱스</option>
+        <option value="http://www.hmobility.co.kr/index">한컴모빌리티</option>
+        <option value="http://www.hancomacademy.co.kr/">한컴아카데미</option>
+        <option value="http://www.accufly.ai/">Accufly.AI</option>
       </select>
     </div>
 

@@ -1,7 +1,11 @@
 @import 'common.scss';
 
+.site-header {
+  z-index: 1;
+}
+
 .post {
-  margin-top: calc(128px - 30px);  // considered page-content padding (30px)
+  margin-top: 128px;
 
   .post-header {
     margin: 0;
@@ -21,13 +25,10 @@
       padding-bottom: 72px;
       margin: 0;
 
-      .author-avatar {
-        // TODO: properly implement getting avatar image
-        .avatar {
+      .author-avatar > .avatar {
           width: 40px;
           height: 40px;
           border-radius: 50%;
-        }
       }
 
       .p-author {
@@ -85,13 +86,23 @@
   }
 }
 
+@media (max-width: $max-tablet-width) {
+  .wrapper {
+    margin: 0 40px;
+  }
+}
+
 @media (max-width: $max-phone-width) {
+  .wrapper {
+    margin: 0 16px;
+  }
+
   .tag-list {
-    display: inline;
+    display: inline-block;
 
     .tag-item {
-      margin: 4px 0;
-      display: table;
+      margin: 4px;
+      width: fit-content;
     }
   }
 }
