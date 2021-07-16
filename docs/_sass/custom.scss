@@ -337,11 +337,12 @@ $bg4-y: calc(100% - 224px);
   list-style-type: none;
   display: flex;
   justify-content: flex-start;
+  flex-wrap: wrap;
   margin: 0;
 
   .tag-item {
     height: 30px;
-    margin-right: 6px;
+    margin: 0 6px 6px 0;
     padding: 0 16px;
     border-radius: 16px;
     background-color: #f0f0f0;
@@ -351,6 +352,7 @@ $bg4-y: calc(100% - 224px);
     font-family: NotoSansCJKkr, sans-serif;
     font-size: 13px;
     color: #333333;
+    white-space: nowrap;
   }
 }
 
