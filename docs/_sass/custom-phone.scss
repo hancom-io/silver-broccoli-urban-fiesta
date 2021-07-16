@@ -66,6 +66,7 @@
 
           .post-link {
             font-size: 18px;
+            height: 18px;
           }
 
           .post-excerpt {
@@ -77,12 +78,12 @@
         .post-meta {
           .author-avatar {
             margin: 0 8px 0 0;
-  
+
             > .avatar {
               width: 24px;
               height: 24px;
             }
-          }  
+          }
         }
       }
     }
