@@ -48,11 +48,6 @@ $bg4-y: calc(100% - 224px);
     background-position:
       $bg1-x $bg1-y,
       $bg2-x $bg2-y;
-
-    > .wrapper {
-      max-width: $post-item-width;
-      padding: 0;
-    }
   }
 
   &.post-parent {
@@ -62,11 +57,11 @@ $bg4-y: calc(100% - 224px);
     background-position:
       $bg3-x $bg3-y,
       $bg4-x $bg4-y;
+  }
 
-    > .wrapper {
-      max-width: $content-width;
-      padding: 0;
-    }
+  > .wrapper {
+    max-width: $content-width;
+    padding: 0;
   }
 }
 
@@ -273,6 +268,7 @@ $bg4-y: calc(100% - 224px);
 
       .post-title-box {
         margin: 64px 0;
+        max-width: 720px;
 
         .post-link {
           @extend .one-line;
@@ -295,9 +291,8 @@ $bg4-y: calc(100% - 224px);
       }
 
       .post-meta {
-        min-width: 200px;
+        min-width: 180px;
         min-height: 100px;
-        margin-left: 40px;
         display: flex;
         flex-direction: column;
         justify-content: center;

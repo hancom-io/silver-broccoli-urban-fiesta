@@ -2,11 +2,11 @@ $min-phone-width: 320px;
 $min-tablet-width: 768px;
 $min-desktop-width: 1024px;
 
-$max-tablet-width: 1023px;  // $min-desktop-width - 1
-$max-phone-width: 767px;    // $min-tablet-width - 1
+$max-tablet-width: calc(#{$min-desktop-width} - 1px);
+$max-phone-width: calc(#{$min-tablet-width} - 1px);
 
-$post-item-width: 1028px;
-$content-width: 960px;
+$content-width: 1028px;
+$content-text-width: 960px;
 
 .hide {
   visibility: hidden;
