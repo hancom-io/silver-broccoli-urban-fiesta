@@ -7,6 +7,10 @@
 .post {
   margin-top: 128px;
 
+  p, h1, h2, h3, h4, h5, h6 {
+    max-width: $content-text-width;
+  }
+
   .post-header {
     margin: 0;
 
@@ -73,7 +77,7 @@
 .button-box {
   display: flex;
   justify-content: center;
-  margin: 52px 0 90px;
+  margin: 56px 0 120px;
 
   .button-to-list {
     width: 144px;
@@ -83,6 +87,8 @@
     border: solid 1px #bdbdbd;
     background-color: white;
     cursor: pointer;
+    font-size: 14px;
+    font-family: NotoSansCJKkr, sans-serif;
   }
 }
 
