@@ -2,7 +2,11 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  {%- if page.title -%}
+  <title>{{ page.title | append: " - " | append: site.title }}</title>
+  {%- else -%}
   <title>{{ site.title }}</title>
+  {%- endif -%}
 
   <!-- TODO: remove 'robots' meta tag and use the original code -->
   <meta name="robots" content="noindex, nofollow">
