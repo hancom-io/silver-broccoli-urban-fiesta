@@ -12,8 +12,11 @@
   <meta name="robots" content="noindex, nofollow">
 
   <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
-  <link rel="shortcut icon" type="image/png" href="{{ site.baseurl }}/assets/site-img/favicon-32.png">
-  <link rel="apple-touch-icon" sizes="360x360" href="{{ '/assets/site-img/yaya.png' | relative_url }}">
+  <link rel="shortcut icon" type="image/png" sizes="32x32" href="{{ '/assets/site-img/favicon_developers@1x.png' | relative_url }}">
+  <link rel="shortcut icon" type="image/png" sizes="64x64" href="{{ '/assets/site-img/favicon_developers@2x.png' | relative_url }}">
+  <link rel="shortcut icon" type="image/png" sizes="96x96" href="{{ '/assets/site-img/favicon_developers@3x.png' | relative_url }}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/site-img/homeicon-180.png' | relative_url }}">
+  <link rel="apple-touch-icon" sizes="512x512" href="{{ '/assets/site-img/homeicon-512.png' | relative_url }}">
   {%- feed_meta -%}
   {%- if jekyll.environment == 'production' and site.google_analytics -%}
     {%- include google-analytics.html -%}
