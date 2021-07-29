@@ -3,6 +3,7 @@
 
 @media (max-width: $max-phone-width) {
   $banner-height: 240px;
+  $footer-height: 340px;
 
   .site-header {
     &.site-header-big {
@@ -90,6 +91,8 @@
   }
 
   .site-footer {
+    height: $footer-height;
+
     .footer-inner-box {
       margin: 0 16px;
       width: 100%;
@@ -97,8 +100,14 @@
       .footer-info-box {
         width: 100%;
 
-        .stipulation {
+        .links {
           width: 100%;
+          margin-bottom: 8px;
+
+          li {
+            margin-right: 16px;
+            margin-bottom: 16px;
+          }
         }
 
         .company-info {
@@ -107,10 +116,15 @@
             flex-direction: column;
           }
         }
+
+        .copyright {
+          margin-top: 8px;
+        }
       }
 
       .family-site-box {
         width: 100%;
+        margin-top: 42px;
 
         select {
           width: 100%;
