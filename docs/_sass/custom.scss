@@ -201,6 +201,10 @@ $bg4-y: calc(100% - 224px);
         font-family: NotoSansCJKkr, sans-serif;
         font-size: 14px;
 
+        .emphasize {
+          font-weight: bold;
+        }
+
         a {
           color: inherit;
         }
@@ -208,7 +212,7 @@ $bg4-y: calc(100% - 224px);
 
       .company-info,
       .copyright {
-        opacity: 0.4;
+        color: #aaaaaa;
         font-family: NotoSansCJKkr, sans-serif;
         font-size: 12px;
         line-height: 1.67;
