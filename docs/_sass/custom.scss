@@ -175,6 +175,8 @@ $bg4-y: calc(100% - 224px);
 .site-footer {
   height: $footer-height;
   background-color: #313131;
+  padding: 0;
+  border: none;
 
   display: flex;
   align-items: center;
@@ -189,39 +191,48 @@ $bg4-y: calc(100% - 224px);
     .footer-info-box {
       color: #ffffff;
 
-      .stipulation {
-        margin: 0 0 16px;
-        width: 360px;
+      .links {
+        margin: 0;
 
         list-style-type: none;
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-start;
+        flex-wrap: wrap;
 
         opacity: 0.88;
         font-family: NotoSansCJKkr, sans-serif;
         font-size: 14px;
 
-        .emphasize {
-          font-weight: bold;
-        }
+        li {
+          margin-right: 24px;
+          margin-bottom: 16px;
+          white-space: nowrap;
 
-        a {
-          color: inherit;
+          &.emphasize {
+            font-weight: bold;
+          }
+
+          a {
+            color: inherit;
+          }
         }
       }
 
-      .company-info,
-      .copyright {
+      .company-info {
         color: #aaaaaa;
         font-family: NotoSansCJKkr, sans-serif;
         font-size: 12px;
         line-height: 1.67;
-
-        margin: 0 0 4px;
+        margin: 0;
 
         p {
           margin: 0;
         }
+      }
+
+      .copyright {
+        @extend .company-info;
+        margin-top: 4px;
       }
     }
 
@@ -390,16 +401,9 @@ $bg4-y: calc(100% - 224px);
   // TODO: (to be redesigned)
   position: relative;
 
-  .rss-subscribe {
-    color: gray;
-    position: absolute;
-    bottom: -120px;
-  }
-
   .search-link {
     position: absolute;
     bottom: -120px;
-    left: 200px;
   }
 }
 
