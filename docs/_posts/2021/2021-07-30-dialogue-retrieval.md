@@ -29,8 +29,10 @@ Bi-Encoder, Cross-Encoder, Poly-Encoder 모두 이제는 일반화된 자연어�
 
 Bi-Encoder는 먼저 input과 candidate label에 대해 별도의 벡터로 인코드됩니다. 여기서 input과 label이 별도로 인코드 된것 처럼, 세그먼트 토큰들은 모두 0 입니다. 즉 각각의 input과 candiate를 사전학습 언어모델에 입력으로 전달하여 벡터 표현을 얻도록 합니다. 그 후 이 출력을 matrix를 통해 차원을 축소하는 작업을 거칩니다. 이는 아래와 같이 표현이 가능합니다.
 
-$$y_{ctxt} = red(T_1(ctxt)) \\
-y_{cand} = red(T_2(cand))$$
+$$\displaylines{
+  y_{ctxt} = red(T_1(ctxt)) \\
+  y_{cand} = red(T_2(cand))
+}$$
 
 $T_1$과 $T_2$는 앞서 설명한 사전학습된 언어모델(BERT) 입니다. 당연히 처음에는 동일하게 초기화 되어있을 수 있지만 파인튜닝을 거치면서 별도로 업데이트가 될 것입니다. 그리고 이 $T$의 출력은 입력길이가 $N$이라면 입력 $x$에 대해 $T(x) = h_1, .., h_N$를 출력으로 내게 됩니다. 결과적으로 입력 $x$간에 self-attention을 수행하여 $N$개의 표현을 내게 됩니다. 이 후 $red()$로 표현된 weighted-sum을 처리하여 멀티 표현으로되어 있는 벡터를 하나의 벡터로 축소하여 학습하는 내용을 좀 더 선명해지도록 하는 효과를 가져옵니다.
 
@@ -52,10 +54,12 @@ Cross-encoder는 input과 label을 스페셜 토큰 [S]를 사이로 하나의 �
 
 ![cross-encoder]({{ site.assets }}/2021/2021-07-30-cross-encoder.png)
 
-셀프 어센텬 후에, BERT의 모든 입력 토큰에 대한 인코딩 출력 중에 첫번째 토큰 (즉 [S] 토큰, [CLS]이기도 합니다)에 해당하는 임베딩을 사용하여 single representation으로 줄입니다. 그 후 linear projection을 수행하여 스칼라 점수로 변환합니다.
+셀프 어텐션 후에, BERT의 모든 입력 토큰에 대한 인코딩 출력 중에 첫번째 토큰 (즉 [S] 토큰, [CLS]이기도 합니다)에 해당하는 임베딩을 사용하여 single representation으로 줄입니다. 그 후 linear projection을 수행하여 스칼라 점수로 변환합니다.
 
-$$y_{ctxt,cand} = h_1 = f irst(T(ctxt, cand) \\
-s(ctxt, cand_i) = y_{ctxt, cand_i} \cdot W$$
+$$\displaylines{
+  y_{ctxt,cand} = h_1 = f irst(T(ctxt, cand) \\
+  s(ctxt, cand_i) = y_{ctxt, cand_i} \cdot W
+}$$
 
 마찬가지로 주어진 logits과 Cross-Entropy loss를 최소화하여 학습이 진행됩니다. Cross-Encoder는 Bi-Encoder보다 입력에 대해 더 풍부한 attend 계산이 가능함에 따라 Bi-Encoder보다 높은 정확도를 제공합니다. 하지만 후보 레이블드을  Bi-Encoder처럼 별도로 인코딩 할 수 없기 때문에 사전에 캐시할 수 없어 추론이 매우 느릴 수 밖에 없습니다. 이런 이유로 Cross-Encoder는 서비스보다는 연구용으로 많이 쓰입니다.
 
