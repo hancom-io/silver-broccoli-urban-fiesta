@@ -7,15 +7,17 @@ excerpt: 대화 모델에서 사용하는 Retriever에 대해 살펴봅니다
 use_math: true
 ---
 
-# 좀 더 정확하고 빠른 Dialogue Retrieval 방법 - 1
+대화 태스크(Dialogue task)는 입력에 대해 적절한 답변을 선택하는 태스크로 간단히 생각해 볼 수 있습니다. 이를 모델 입장에서 말하면, 적절한 답변을 출력하기 위해 입력(input)과 답변 후보(response candidate)들 간에 적절한 스코어링(scoring) 작업을 수행하여 높은 스코어링을 갖는 답변을 출력하는 것으로도 얘기할 수 있습니다.
 
-Dialogue task는 입력에 대해 적절한 답변을 선택하는 task로 간단히 생각해 볼 수 있습니다. 이를 모델 입장에서 말하면,  적절한 답변을 출력하기 위해 input 과 response candidate들 간에 적절한 scoring 작업을 수행한다고 얘기할 수 있습니다.
-
-예를들어 아래와 같이 "다음 주에 가족끼리 놀러 갈려고"라는 1개의 input이 있고 {"친구들끼리 좋은 시간 되세요.", "오랜만에 가족끼리 놀러가니 기분이 좋으시겠어요.", "피곤하시군요 좀 쉬세요" ...} 등과 같은 response candidate set이 있다고 한다면 적절한 response를 선택하기 위해 input과 각 candidate에 스코어링을 진행하는 것으로 설명 할 수 있습니다.(multi sentence scoring)
-
-이처럼 검색(Retrieval)은 입력에 대해 관련 높은 여러 후보에서 적합한 답변을 선택하는 Multi sentence scoring을 요구하는 task입니다. 앞서 말씀드린 적절한 답변을 선택하는 문제나 혹은 질의에 대한 문서 검색 영역에도 해당합니다.
+예를들어 아래와 같이 "다음 주에 가족끼리 놀러 갈려고"라는 1개의 input이 있고 {"친구들끼리 좋은 시간 되세요.", "오랜만에 가족끼리 놀러가니 기분이 좋으시겠어요.", "피곤하시군요 좀 쉬세요" ...} 등과 같은 response candidate set이 있다고 하면 가장 적절한 답변은 "오랜만에 가족끼리 놀러가니 기분이 좋으시겠어요."이라고 할 수 있습니다.
 
 ![selection_response]({{ site.assets }}/2021/2021-07-30-dialogue-retrieval.png)
+
+
+그럼 여기서 적절한 답변인 "오랜만에 가족끼리 놀러가니 기분이 좋으시겠어요."를 선택하기 위해 input과 각 candidate에 스코어링을 진행하는 것으로 설명 할 수 있습니다.
+이처럼 검색(Retrieval)은 입력에 대해 관련 높은 여러 후보에서 적합한 답변을 선택하는 Multi sentence scoring을 요구하는 태스크입니다. 이러한 Multi sentence scoring은 앞서 말씀드린 적절한 답변을 선택하는 작업이나 질의에 대해 적절한 문서를 검색하는 작업을 포함합니다.
+
+![scoring]]({{ site.assets }}/2021/2021-07-30-scoring.png)
 
 검색(retrieval)의 방법, 즉 입력 시퀀스와 이에 대응하는 레이블 시퀀스 간에 비교를 수행하는 방법에는 Bi-Encoder와 Cross-Encoder 방식이 있습니다. 아래 부터는 기존 방식에 대해 속도와 성능 면에서 장단점과 지난 2020년 Facebook AI Research에서 릴리즈한 Blender bot 1.0의 Poly-Encoder 모델에 대해 설명하고, 실용적인 부분에서 Poly-Encoder가 어떤 점을 기여했는지를 설명하고자 합니다.
 
@@ -63,8 +65,9 @@ representation이 분리되어 있기 때문에, Bi-encoder는 인코드된 cand
 
 결론부터 말씀드리면 Poly-Endoer가 Bi-Encoder와 Cross-Encoder의 좋은 점만 취함으로써 Cross-Encoder보다는 빠르고 Bi-Encoder보다는 정확합니다.
 
-먼저 입력은 Bi-Encoder처럼 input과 label이 별도로 인코딩 됩니다.
+![poly-encoder]({{ site.assets }}/2021/2021-07-30-poly-encoder.png)
 
+먼저 입력은 Bi-Encoder처럼 input과 label이 별도로 인코딩 됩니다.
 이후 총 3개의 attention 계산을 합니다.
 
 1. Self-attention
@@ -74,3 +77,5 @@ representation이 분리되어 있기 때문에, Bi-encoder는 인코드된 cand
 위의 3가지 attention과 Poly-Encoder에 대한 설명은 이후 post에서 이어서 하겠습니다.
 
 ## Reference
+![Recipes for building an open-domain chatbot (Roller, 2020)](https://arxiv.org/abs/2004.13637)
+![Poly-encoders: architectures and pre-training strategies for fast and accurate multi-sentence scoring (Humeau 2019)](https://arxiv.org/abs/1905.01969)
