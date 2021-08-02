@@ -2,8 +2,9 @@
 title: 좀 더 정확하고 빠른 Dialogue Retrieval 방법 - 1
 author: 김대규
 author_id: hnc-daekyoo
-tags: NLP Dialog-System Retriever Bi-Encoder Cross-Encoder 
+tags: NLP Dialog-System Retriever Bi-Encoder Cross-Encoder
 excerpt: 대화 모델에서 사용하는 Retriever에 대해 살펴봅니다
+use_math: true
 ---
 
 # 좀 더 정확하고 빠른 Dialogue Retrieval 방법 - 1
@@ -33,7 +34,7 @@ $T_1$과 $T_2$는 앞서 설명한 사전학습된 언어모델(BERT) 입니다.
 
 ![bi-encoder]({{ site.assets }}/2021/2021-07-30-bi-encoder.png)
 
-이제 후보 $cand_i$의 점수는 $s(ctxt, cand_i) = y_{ctxt} \cdot y_{cand_i}$인 dot-product로 계산됩니다. 모델은 $cand_1$은 정답 레이블이고 다른 것들은 학습 셋에서 가져온 $y_{ctxt} \cdot y_{cand_1} , ..., y_{ctxt} \cdot y_{cand_n}$인 $s(ctxt, cand_i)$ logit의 cross-entropy loss를 최소화하도록 학습됩니다. 여기서 $cand_1$은 올바른 후보(label)이고 나머지는 훈련 세트에서 가져온 negative samples입니다. 
+이제 후보 $cand_i$의 점수는 $s(ctxt, cand_i) = y_{ctxt} \cdot y_{cand_i}$인 dot-product로 계산됩니다. 모델은 $cand_1$은 정답 레이블이고 다른 것들은 학습 셋에서 가져온 $y_{ctxt} \cdot y_{cand_1} , ..., y_{ctxt} \cdot y_{cand_n}$인 $s(ctxt, cand_i)$ logit의 cross-entropy loss를 최소화하도록 학습됩니다. 여기서 $cand_1$은 올바른 후보(label)이고 나머지는 훈련 세트에서 가져온 negative samples입니다.
 
 $$[s(ctxt, cand_1), s(ctxt, cand_2), s(ctxt, cand_3), \dots, s(ctxt, cand_n)]$$
 
@@ -45,7 +46,7 @@ Cross-encoder는 input과 label을 스페셜 토큰 [S]를 사이로 하나의 �
 
 ![input-label]({{ site.assets }}/2021/2021-07-30-input-label.png)
 
-따라서 input과 label이 합쳐진 하나의 표현이 입력으로 feed되어 full self attion을 수행합니다. 즉  input의 모든 토큰들과 label의 모든 토큰들은 서로서로 attention 계산에 참여하게 됩니다. 따라서 BERT스스로가 input과 label사이에 풍부한 상호작용을 하도록 합니다. 
+따라서 input과 label이 합쳐진 하나의 표현이 입력으로 feed되어 full self attion을 수행합니다. 즉  input의 모든 토큰들과 label의 모든 토큰들은 서로서로 attention 계산에 참여하게 됩니다. 따라서 BERT스스로가 input과 label사이에 풍부한 상호작용을 하도록 합니다.
 
 ![cross-encoder]({{ site.assets }}/2021/2021-07-30-cross-encoder.png)
 
