@@ -14,7 +14,7 @@ Dialogue task는 입력에 대해 적절한 답변을 선택하는 task로 간�
 
 이처럼 검색(Retrieval)은 입력에 대해 관련 높은 여러 후보에서 적합한 답변을 선택하는 Multi sentence scoring을 요구하는 task입니다. 앞서 말씀드린 적절한 답변을 선택하는 문제나 혹은 질의에 대한 문서 검색 영역에도 해당합니다.
 
-![selection_response]({{ site.assets }}/2021/2021-07-30-dialouge-retrieval.png)
+![selection_response]({{ site.assets }}/2021/2021-07-30-dialogue-retrieval.png)
 
 검색(retrieval)의 방법, 즉 입력 시퀀스와 이에 대응하는 레이블 시퀀스 간에 비교를 수행하는 방법에는 Bi-Encoder와 Cross-Encoder 방식이 있습니다. 아래 부터는 기존 방식에 대해 속도와 성능 면에서 장단점과 지난 2020년 Facebook AI Research에서 릴리즈한 Blender bot 1.0의 Poly-Encoder 모델에 대해 설명하고, 실용적인 부분에서 Poly-Encoder가 어떤 점을 기여했는지를 설명하고자 합니다.
 
@@ -31,7 +31,7 @@ y_{cand} = red(T_2(cand))$$
 
 $T_1$과 $T_2$는 앞서 설명한 사전학습된 언어모델(BERT) 입니다. 당연히 처음에는 동일하게 초기화 되어있을 수 있지만 파인튜닝을 거치면서 별도로 업데이트가 될 것입니다. 그리고 이 $T$의 출력은 입력길이가 $N$이라면 입력 $x$에 대해 $T(x) = h_1, .., h_N$를 출력으로 내게 됩니다. 결과적으로 입력 $x$간에 self-attention을 수행하여 $N$개의 표현을 내게 됩니다. 이 후 $red()$로 표현된 weighted-sum을 처리하여 멀티 표현으로되어 있는 벡터를 하나의 벡터로 축소하여 학습하는 내용을 좀 더 선명해지도록 하는 효과를 가져옵니다.
 
-![bi-encoder]({{ site.assets }}/2021/2021-07-30-dialouge-retrieval.png)
+![bi-encoder]({{ site.assets }}/2021/2021-07-30-bi-encoder.png)
 
 이제 후보 $cand_i$의 점수는 $s(ctxt, cand_i) = y_{ctxt} \cdot y_{cand_i}$인 dot-product로 계산됩니다. 모델은 $cand_1$은 정답 레이블이고 다른 것들은 학습 셋에서 가져온 $y_{ctxt} \cdot y_{cand_1} , ..., y_{ctxt} \cdot y_{cand_n}$인 $s(ctxt, cand_i)$ logit의 cross-entropy loss를 최소화하도록 학습됩니다. 여기서 $cand_1$은 올바른 후보(label)이고 나머지는 훈련 세트에서 가져온 negative samples입니다. 
 
