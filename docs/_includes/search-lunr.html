@@ -100,13 +100,6 @@ function lunr_search(term) {
     .lunrsearchresult a:hover .title {text-decoration: underline;}
 </style>
 
-
-<form id="lunrsearch-form" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
-    <p>
-        <input type="text" class="form-control" id="lunrsearch" name="q" maxlength="255"
-            value="" placeholder="검색어를 입력하세요" />
-    </p>
-</form>
 <div id="lunrsearchresults">
     <ul></ul>
 </div>

@@ -33,6 +33,13 @@
           font-size: 19px;
         }
       }
+
+      .search-bar {
+        // TODO
+        &-form {
+          min-width: 180px;
+        }
+      }
     }
 
     .site-title-banner {

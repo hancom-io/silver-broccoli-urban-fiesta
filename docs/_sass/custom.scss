@@ -122,6 +122,41 @@ $bg4-y: calc(100% - 224px);
         overflow: hidden;
       }
     }
+
+    .search-bar {
+      height: 36px;
+      margin-right: 40px;   // TODO
+
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+
+      &-form {
+        width: 240px;
+        height: inherit;
+
+        input {
+          width: 190px;
+          height: inherit;
+          background-color: rgba(255, 255, 255, 0.1);
+          background-image: url("site-img/ic-search-24.svg");
+          background-repeat: no-repeat;
+          background-position: 95% 50%;
+          border-radius: 18px;
+
+          border: none;
+          outline: none;
+          margin: 0;
+          padding: 0 20px;
+          color: white;
+        }
+      }
+
+      &-open,
+      &-close {
+        display: none;
+      }
+    }
   }
 }
 

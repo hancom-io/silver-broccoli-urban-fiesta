@@ -2,11 +2,11 @@
 // - https://css-tricks.com/styling-based-on-scroll-position/
 // - https://gomakethings.com/how-to-check-if-any-part-of-an-element-is-out-of-the-viewport-with-vanilla-js/
 
+import { addClass, removeClass } from './util.js';
+
 if ('IntersectionObserver' in window &&
   'IntersectionObserverEntry' in window &&
   'intersectionRatio' in window.IntersectionObserverEntry.prototype) {
-  const addClass = ({target, className}) => document.querySelector(target)?.classList.add(className);
-  const removeClass = ({target, className}) => document.querySelector(target)?.classList.remove(className);
 
   const topObserver = new IntersectionObserver(entries => {
     if (entries[0].boundingClientRect.y < 0) {
