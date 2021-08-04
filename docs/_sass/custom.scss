@@ -432,16 +432,6 @@ $bg4-y: calc(100% - 224px);
   }
 }
 
-.extra-box {
-  // TODO: (to be redesigned)
-  position: relative;
-
-  .search-link {
-    position: absolute;
-    bottom: -120px;
-  }
-}
-
 #lunrsearch-form {
   display: flex;
   justify-content: center;
