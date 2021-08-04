@@ -4,3 +4,14 @@ layout: default
 <div id="search-by-lunr">
   {% include search-lunr.html %}
 </div>
+
+<script>
+// assumption: lunr_search() is defined in search-lunr.html above
+if (typeof lunr_search === 'function') {
+  const url = new URL(window.location.href);
+  const q = url.searchParams.get('q');
+  if (q) {
+    lunr_search(q);
+  }
+}
+</script>

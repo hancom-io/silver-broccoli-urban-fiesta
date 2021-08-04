@@ -1,0 +1,30 @@
+<div class="search-bar">
+  <form class="search-bar-form" action="search.html">
+    <input type="text" name="q" placeholder="검색어 입력..."/>
+  </form>
+  <img class="search-bar-open" src="{{ site.assets }}/site-img/ic-search-24.svg" />
+  <img class="search-bar-close" src="{{ site.assets }}/site-img/ic-close-24.svg" />
+</div>
+
+<script type="module">
+  import { showElem, hideElem } from '{{ site.assets }}/js/util.js';
+
+  const btnOpen = document.querySelector('.search-bar-open');
+  const btnClose = document.querySelector('.search-bar-close');
+
+  btnOpen.addEventListener('click', () => {
+    hideElem('.search-bar-open');
+    hideElem('.nav-menu-inner-box');
+
+    showElem('.search-bar-form');
+    showElem('.search-bar-close');
+  });
+
+  btnClose.addEventListener('click', () => {
+    showElem('.search-bar-open');
+    showElem('.nav-menu-inner-box');
+
+    hideElem('.search-bar-form');
+    hideElem('.search-bar-close');
+  });
+</script>

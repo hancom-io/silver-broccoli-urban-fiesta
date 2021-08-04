@@ -29,6 +29,25 @@
           font-size: 15px;
         }
       }
+
+      .search-bar {
+        // TODO
+        min-width: 40px;
+
+        &-form {
+          display: none;
+        }
+
+        &-open {
+          display: block;
+          cursor: pointer;
+        }
+
+        &-close {
+          display: none;
+          cursor: pointer;
+        }
+      }
     }
 
     .site-title-banner {
