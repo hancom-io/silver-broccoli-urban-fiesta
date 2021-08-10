@@ -21,14 +21,14 @@
       height: $menu-height;
 
       &-inner-box {
-        margin-left: 24px;
+        margin: 0 24px;
 
         .bi-white {
           height: 22px;
           margin-left: 0;
         }
 
-        .nav-menu-item {
+        .menu-item {
           height: 28px;
           font-size: 19px;
         }
