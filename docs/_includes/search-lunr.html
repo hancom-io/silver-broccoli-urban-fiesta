@@ -71,13 +71,13 @@ function lunr_search(term) {
 
                 const url = documents[ref]['url'];
                 const title = documents[ref]['title'];
-                const body = documents[ref]['body'].substring(0, 160) + '...';
+                const matchedBody = getMatchedContent(term, documents[ref]['body']);
 
                 document.querySelectorAll('#lunrsearchresults ul')[0].innerHTML +=
                     `<li class='lunrsearchresult'>` +
                         `<a href='${url}'>` +
                             `<span class='title'>${title}</span><br />` +
-                            `<span class='body'>${body}</span><br />` +
+                            `<span class='matched-body'>${matchedBody}</span><br />` +
                             `<span class='url'>${url}</span>` +
                         `</a>` +
                     `</li>`;
@@ -89,11 +89,38 @@ function lunr_search(term) {
     }
     return false;
 }
+
+function getMatchedContent(needle, haystack) {
+    const startIndex = haystack.indexOf(needle);
+    if (startIndex > -1) {
+        const endIndex = startIndex + needle.length;
+
+        const beforeString = haystack.substring(0, startIndex);
+        const matchedString = needle;
+        const afterString = haystack.substring(endIndex);
+
+        return '...' +
+            beforeString.substring(beforeString.length - 20, beforeString.length) +
+            '<mark>' + needle + '</mark>' +
+            afterString.substring(0, 60) +
+            '...';
+    } else {
+        return haystack.substring(0, 80);
+    }
+}
+
 </script>
 <style>
     #lunrsearchresults {padding-top: 0.2rem;}
     .lunrsearchresult {padding-bottom: 1rem;}
     .lunrsearchresult .title {color: #d9230f;}
+
+    .lunrsearchresult .matched-body {color: #888888;}
+    .lunrsearchresult .matched-body mark {
+        color: #2e5fd8;
+        background-color: transparent;
+    }
+
     .lunrsearchresult .url {color: silver;}
     .lunrsearchresult a {display: block; color: #777;}
     .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
