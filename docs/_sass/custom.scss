@@ -153,6 +153,12 @@ $bg4-y: calc(100% - 224px);
             margin: 0;
             padding: 0 20px;
             color: white;
+            font-size: 14px;
+
+            &::placeholder {
+              color: white;
+              opacity: 0.6;
+            }
           }
         }
 
