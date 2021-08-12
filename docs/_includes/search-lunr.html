@@ -7,7 +7,13 @@
     - supporting multi languages: English and Korean
     - limiting search boundary only for site.posts
     - refactoring for ES6
+    - modifying for keyword highlighting in matched text
 -->
+
+<div id="search-results">
+    <div class="post-list-marker"></div>
+    <ul class="post-list"></ul>
+</div>
 
 <script src="{{ site.assets }}/lib/lunr.js"></script>
 <script src="{{ site.assets }}/lib/lunr.stemmer.support.js"></script>
@@ -21,7 +27,10 @@ const documents = [
         "id": {{ counter }},
         "url": "{{ page.url | relative_url }}",
         "title": "{{ page.title | replace: '"', ''}}",
-        "body": "{{ page.date | date: "%Y. %m. %d" }} - {{ page.content | markdownify | replace: '.', '. ' | replace: '</h2>', ': ' | replace: '</h3>', ': ' | replace: '</h4>', ': ' | replace: '</p>', ' ' | strip_html | strip_newlines | replace: '  ', ' ' | replace: '"', ' ' }}"
+        "author": "{{ page.author }}",
+        "author_id": "{{ page.author_id }}",
+        "date": "{{ page.date | date: "%Y. %m. %d" }}",
+        "body": "{{ page.content | markdownify | replace: '.', '. ' | replace: '</h2>', ': ' | replace: '</h3>', ': ' | replace: '</h4>', ': ' | replace: '</p>', ' ' | strip_html | strip_newlines | replace: '  ', ' ' | replace: '"', ' ' }}"
     },
     {% assign counter = counter | plus: 1 %}
 {% endfor %}
@@ -46,48 +55,59 @@ langs.forEach(lang => {
 });
 
 function lunr_search(term) {
-    document.getElementById('lunrsearchresults').innerHTML = '<ul></ul>';
-
-    if (term) {
-        document.getElementById('lunrsearchresults').innerHTML =
-            `<p>'${term}'에 대한 검색 결과:</p>` +
-            document.getElementById('lunrsearchresults').innerHTML;
-
-        //put results on the screen.
-        const results = Array.from(idxMap, ([lang, idx]) => idx)
-                        .flatMap(idx => idx.search(term));
-
-        if (results.length > 0) {
-            let refSet = new Set();
-
-            results.forEach(result => {
-                // more statements
-                const ref = result['ref'];
-                if (refSet.has(ref)) {
-                    // skip duplicated result
-                    return;
-                }
-                refSet.add(ref);
-
-                const url = documents[ref]['url'];
-                const title = documents[ref]['title'];
-                const matchedBody = getMatchedContent(term, documents[ref]['body']);
-
-                document.querySelectorAll('#lunrsearchresults ul')[0].innerHTML +=
-                    `<li class='lunrsearchresult'>` +
-                        `<a href='${url}'>` +
-                            `<span class='title'>${title}</span><br />` +
-                            `<span class='matched-body'>${matchedBody}</span><br />` +
-                            `<span class='url'>${url}</span>` +
-                        `</a>` +
-                    `</li>`;
-            });
-        } else {
-            document.querySelectorAll('#lunrsearchresults ul')[0].innerHTML =
-                "<li class='lunrsearchresult'>검색 결과가 없습니다.</li>";
-        }
+    if (!term) {
+        return false;
     }
-    return false;
+
+    //put results on the screen.
+    const results = Array.from(idxMap, ([lang, idx]) => idx)
+                    .flatMap(idx => idx.search(term));
+
+    if (results.length > 0) {
+        let refSet = new Set();
+
+        results.forEach(result => {
+            // more statements
+            const ref = result['ref'];
+            if (refSet.has(ref)) {
+                // skip duplicated result
+                return;
+            }
+            refSet.add(ref);
+
+            const url = documents[ref]['url'];
+            const title = documents[ref]['title'];
+            const author = documents[ref]['author'];
+            const date = documents[ref]['date'];
+            const matchedBody = getMatchedContent(term, documents[ref]['body']);
+
+            document.querySelector('#search-results > ul').innerHTML +=
+            `<li class="post-item">` +
+                `<div class="post-title-box">` +
+                    `<a class="post-link" href="${url}">${title}</a>` +
+                    `<div class="post-excerpt two-lines">${matchedBody}</div>` +
+                    // TODO: insert tag-list
+                `</div>` +
+                `<div class="post-meta">` +
+                    `<div class="author-avatar">` +
+                    `</div>` +
+                    `<div class="author-name">${author}</div>` +
+                    `<img class="dot-sep" src="{{ site.assets }}/site-img/oval.svg" />` +
+                    `<div class="post-date">${date}</div>` +
+                `</div>` +
+            `</li>`;
+        });
+
+        document.getElementById('search-results').innerHTML =
+            `<p id="search-results-title">` +
+                `<mark>&lsquo;${term}&rsquo;</mark>에 대한 검색 결과: 총 <mark>${refSet.size}</mark>건` +
+            `</p>` +
+            document.getElementById('search-results').innerHTML;
+
+    } else {
+        document.querySelector('#search-results > ul').innerHTML =
+            "<li class='lunrsearchresult'>검색 결과가 없습니다.</li>";
+    }
 }
 
 function getMatchedContent(needle, haystack) {
@@ -99,34 +119,16 @@ function getMatchedContent(needle, haystack) {
         const matchedString = needle;
         const afterString = haystack.substring(endIndex);
 
+        const BEFORE_CHAR_COUNT = 30;
+        const AFTER_CHAR_COUNT = 200;
         return '...' +
-            beforeString.substring(beforeString.length - 20, beforeString.length) +
+            beforeString.substring(beforeString.length - BEFORE_CHAR_COUNT, beforeString.length) +
             '<mark>' + needle + '</mark>' +
-            afterString.substring(0, 60) +
+            afterString.substring(0, AFTER_CHAR_COUNT) +
             '...';
     } else {
-        return haystack.substring(0, 80);
+        return haystack.substring(0, BEFORE_CHAR_COUNT + AFTER_CHAR_COUNT);
     }
 }
 
 </script>
-<style>
-    #lunrsearchresults {padding-top: 0.2rem;}
-    .lunrsearchresult {padding-bottom: 1rem;}
-    .lunrsearchresult .title {color: #d9230f;}
-
-    .lunrsearchresult .matched-body {color: #888888;}
-    .lunrsearchresult .matched-body mark {
-        color: #2e5fd8;
-        background-color: transparent;
-    }
-
-    .lunrsearchresult .url {color: silver;}
-    .lunrsearchresult a {display: block; color: #777;}
-    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
-    .lunrsearchresult a:hover .title {text-decoration: underline;}
-</style>
-
-<div id="lunrsearchresults">
-    <ul></ul>
-</div>

@@ -309,7 +309,8 @@ $bg4-y: calc(100% - 224px);
   }
 }
 
-.home {
+.home,
+#search-results {
   padding: 80px 0 120px;
 
   .post-list-marker {
@@ -389,6 +390,17 @@ $bg4-y: calc(100% - 224px);
   }
 }
 
+mark {
+  color: $highlight-blue;
+  background-color: transparent;
+}
+
+#search-results {
+  &-title {
+    font-size: 32px;
+  }
+}
+
 .tag-list {
   list-style-type: none;
   display: flex;
@@ -439,23 +451,6 @@ $bg4-y: calc(100% - 224px);
       width: 32px;
       height: 32px;
       object-fit: contain;
-    }
-  }
-}
-
-#lunrsearch-form {
-  display: flex;
-  justify-content: center;
-
-  #lunrsearch {
-    width: 60vw;
-    height: 40px;
-    margin: 20px;
-    font-size: large;
-    border: 1px solid lightgray;
-
-    &:focus {
-      border-color: transparent;
     }
   }
 }
