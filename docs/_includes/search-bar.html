@@ -1,5 +1,5 @@
 <div class="search-bar">
-  <form class="search-bar-form" action="search.html">
+  <form class="search-bar-form" action="{{ 'search.html' | relative_url }}">
     <input type="text" name="q" placeholder="검색어 입력..."/>
   </form>
   <img class="search-bar-open" src="{{ site.assets }}/site-img/ic-search-24.svg" />
