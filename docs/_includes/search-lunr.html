@@ -28,6 +28,7 @@ const documents = [
         "title": "{{ page.title | replace: '"', ''}}",
         "author": "{{ page.author }}",
         "author_id": "{{ page.author_id }}",
+        "avatar_img": `{%- avatar user=page.author_id size=56 -%}`,
         "tags": [
             {% for tag in page.tags %}"{{ tag }}",{% endfor %}
         ],
@@ -95,6 +96,7 @@ function lunr_search(term) {
                     `</div>` +
                     `<div class="post-meta">` +
                         `<div class="author-avatar">` +
+                            documents[ref]['avatar_img'] +
                         `</div>` +
                         `<div class="author-name">${author}</div>` +
                         `<img class="dot-sep" src="{{ site.assets }}/site-img/oval.svg" />` +
@@ -121,8 +123,6 @@ function getMarkedBody(keyword, bodyStr) {
     if (!splitObj) {
         return bodyStr.substring(0, BEFORE_CHAR_COUNT + AFTER_CHAR_COUNT);
     }
-
-    console.log(splitObj);
 
     return '...' +
         splitObj.before.substring(splitObj.before.length - BEFORE_CHAR_COUNT) +
