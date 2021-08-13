@@ -28,6 +28,9 @@ const documents = [
         "title": "{{ page.title | replace: '"', ''}}",
         "author": "{{ page.author }}",
         "author_id": "{{ page.author_id }}",
+        "tags": [
+            {% for tag in page.tags %}"{{ tag }}",{% endfor %}
+        ],
         "date": "{{ page.date | date: "%Y. %m. %d" }}",
         "body": "{{ page.content | markdownify | replace: '.', '. ' | replace: '</h2>', ': ' | replace: '</h3>', ': ' | replace: '</h4>', ': ' | replace: '</p>', ' ' | strip_html | strip_newlines | replace: '  ', ' ' | replace: '"', ' ' }}"
     },
@@ -75,26 +78,29 @@ function lunr_search(term) {
             refSet.add(ref);
 
             const url = documents[ref]['url'];
-            const title = documents[ref]['title'];
+            const markedTitle = markKeyword(term, documents[ref]['title']);
             const author = documents[ref]['author'];
             const date = documents[ref]['date'];
-            const matchedBody = getMatchedContent(term, documents[ref]['body']);
+            const markedTags = markKeyword(term, documents[ref]['tags']);
+            const markedBody = getMarkedBody(term, documents[ref]['body']);
 
             document.querySelector('#search-results > ul').innerHTML +=
-            `<li class="post-item">` +
-                `<div class="post-title-box">` +
-                    `<a class="post-link" href="${url}">${title}</a>` +
-                    `<div class="post-excerpt two-lines">${matchedBody}</div>` +
-                    // TODO: insert tag-list
-                `</div>` +
-                `<div class="post-meta">` +
-                    `<div class="author-avatar">` +
+                `<li class="post-item">` +
+                    `<div class="post-title-box">` +
+                        `<a class="post-link" href="${url}">${markedTitle}</a>` +
+                        `<div class="post-excerpt two-lines">${markedBody}</div>` +
+                        `<ul class="tag-list">` +
+                            markedTags.map(tag => `<li class="tag-item">#${tag}</li>`).join('') +
+                        `</ul>` +
                     `</div>` +
-                    `<div class="author-name">${author}</div>` +
-                    `<img class="dot-sep" src="{{ site.assets }}/site-img/oval.svg" />` +
-                    `<div class="post-date">${date}</div>` +
-                `</div>` +
-            `</li>`;
+                    `<div class="post-meta">` +
+                        `<div class="author-avatar">` +
+                        `</div>` +
+                        `<div class="author-name">${author}</div>` +
+                        `<img class="dot-sep" src="{{ site.assets }}/site-img/oval.svg" />` +
+                        `<div class="post-date">${date}</div>` +
+                    `</div>` +
+                `</li>`;
         });
 
         resultsCount = refSet.size;
@@ -107,26 +113,48 @@ function lunr_search(term) {
         document.getElementById('search-results').innerHTML;
 }
 
-function getMatchedContent(needle, haystack) {
+function getMarkedBody(keyword, bodyStr) {
     const BEFORE_CHAR_COUNT = 30;
     const AFTER_CHAR_COUNT = 200;
 
-    const startIndex = haystack.indexOf(needle);
-    if (startIndex > -1) {
-        const endIndex = startIndex + needle.length;
-
-        const beforeString = haystack.substring(0, startIndex);
-        const matchedString = needle;
-        const afterString = haystack.substring(endIndex);
-
-        return '...' +
-            beforeString.substring(beforeString.length - BEFORE_CHAR_COUNT, beforeString.length) +
-            '<mark>' + needle + '</mark>' +
-            afterString.substring(0, AFTER_CHAR_COUNT) +
-            '...';
-    } else {
-        return haystack.substring(0, BEFORE_CHAR_COUNT + AFTER_CHAR_COUNT);
+    const splitObj = splitByKeyword(keyword, bodyStr);
+    if (!splitObj) {
+        return bodyStr.substring(0, BEFORE_CHAR_COUNT + AFTER_CHAR_COUNT);
     }
+
+    console.log(splitObj);
+
+    return '...' +
+        splitObj.before.substring(splitObj.before.length - BEFORE_CHAR_COUNT) +
+        '<mark>' + splitObj.matched + '</mark>' +
+        splitObj.after.substring(0, AFTER_CHAR_COUNT) +
+        '...';
+}
+
+function markKeyword(keyword, target) {
+    if (!Array.isArray(target)) {
+        target = [ target ];
+    }
+
+    return target.map(haystack => {
+        const splitObj = splitByKeyword(keyword, haystack);
+        return splitObj ? `${splitObj.before}<mark>${splitObj.matched}</mark>${splitObj.after}` : haystack;
+    });
+}
+
+function splitByKeyword(keyword, targetStr) {
+    // ignore case
+    const startIndex = targetStr.toLowerCase().indexOf(keyword.toLowerCase());
+    if (startIndex < 0) {
+        return null;
+    }
+
+    // 'matched' might be different from 'keyword' only by case (ex: vba - VBA)
+    return {
+        before: targetStr.substring(0, startIndex),
+        matched: targetStr.substring(startIndex, startIndex + keyword.length),
+        after: targetStr.substring(startIndex + keyword.length),
+    };
 }
 
 </script>
