@@ -92,10 +92,15 @@
     }
   }
 
-  .home {
+  .home-parent > .wrapper {
+    margin: 0 16px;
+  }
+
+  .home,
+  #search-results {
     .post-list {
       .post-item {
-        padding: 40px 24px 40px 16px;
+        padding: 40px 8px 40px 0;
 
         .post-title-box {
           margin: 0 0 20px;
@@ -122,6 +127,13 @@
           }
         }
       }
+    }
+  }
+
+  #search-results {
+    &-title {
+      font-size: 20px;
+      margin: 48px 0 24px;
     }
   }
 

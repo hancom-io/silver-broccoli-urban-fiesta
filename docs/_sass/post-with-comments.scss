@@ -93,13 +93,13 @@
 }
 
 @media (max-width: $max-tablet-width) {
-  .wrapper {
+  .post-parent > .wrapper {
     margin: 0 40px;
   }
 }
 
 @media (max-width: $max-phone-width) {
-  .wrapper {
+  .post-parent > .wrapper {
     margin: 0 16px;
   }
 }
