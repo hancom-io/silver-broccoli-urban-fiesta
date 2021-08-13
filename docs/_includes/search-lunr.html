@@ -58,7 +58,7 @@ function lunr_search(term) {
         return false;
     }
 
-    //put results on the screen.
+    let resultsCount = 0;
     const results = Array.from(idxMap, ([lang, idx]) => idx)
                     .flatMap(idx => idx.search(term));
 
@@ -97,19 +97,20 @@ function lunr_search(term) {
             `</li>`;
         });
 
-        document.getElementById('search-results').innerHTML =
-            `<p id="search-results-title">` +
-                `<mark>&lsquo;${term}&rsquo;</mark> 검색 결과: 총 <mark>${refSet.size}</mark>건` +
-            `</p>` +
-            document.getElementById('search-results').innerHTML;
-
-    } else {
-        document.querySelector('#search-results > ul').innerHTML =
-            "<li class='lunrsearchresult'>검색 결과가 없습니다.</li>";
+        resultsCount = refSet.size;
     }
+
+    document.getElementById('search-results').innerHTML =
+        `<p id="search-results-title">` +
+            `<mark>&lsquo;${term}&rsquo;</mark> 검색 결과: <mark>${resultsCount}</mark>건` +
+        `</p>` +
+        document.getElementById('search-results').innerHTML;
 }
 
 function getMatchedContent(needle, haystack) {
+    const BEFORE_CHAR_COUNT = 30;
+    const AFTER_CHAR_COUNT = 200;
+
     const startIndex = haystack.indexOf(needle);
     if (startIndex > -1) {
         const endIndex = startIndex + needle.length;
@@ -118,8 +119,6 @@ function getMatchedContent(needle, haystack) {
         const matchedString = needle;
         const afterString = haystack.substring(endIndex);
 
-        const BEFORE_CHAR_COUNT = 30;
-        const AFTER_CHAR_COUNT = 200;
         return '...' +
             beforeString.substring(beforeString.length - BEFORE_CHAR_COUNT, beforeString.length) +
             '<mark>' + needle + '</mark>' +
