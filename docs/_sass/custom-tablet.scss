@@ -12,6 +12,10 @@
     }
   }
 
+  .home-parent > .wrapper {
+    margin: 0 40px;
+  }
+
   .site-header {
     &.site-header-big {
       height: $banner-height;
@@ -66,7 +70,8 @@
     }
   }
 
-  .home {
+  .home,
+  #search-results {
     padding-top: 0;
 
     .post-list-marker {
@@ -76,7 +81,7 @@
     .post-list {
       .post-item {
         flex-direction: column;
-        padding: 40px 88px 40px 40px;
+        padding: 40px 48px 40px 0;
 
         .post-title-box {
           margin: 0 0 24px;
@@ -116,6 +121,12 @@
           }
         }
       }
+    }
+  }
+
+  #search-results {
+    &-title {
+      margin-top: 80px;
     }
   }
 

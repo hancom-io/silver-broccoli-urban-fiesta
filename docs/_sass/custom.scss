@@ -398,6 +398,11 @@ mark {
 #search-results {
   &-title {
     font-size: 32px;
+    margin: 0 0 32px;
+  }
+
+  > .post-list {
+    border-top: solid 1px black;
   }
 }
 

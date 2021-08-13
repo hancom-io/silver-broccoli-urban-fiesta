@@ -11,7 +11,6 @@
 -->
 
 <div id="search-results">
-    <div class="post-list-marker"></div>
     <ul class="post-list"></ul>
 </div>
 
@@ -100,7 +99,7 @@ function lunr_search(term) {
 
         document.getElementById('search-results').innerHTML =
             `<p id="search-results-title">` +
-                `<mark>&lsquo;${term}&rsquo;</mark>에 대한 검색 결과: 총 <mark>${refSet.size}</mark>건` +
+                `<mark>&lsquo;${term}&rsquo;</mark> 검색 결과: 총 <mark>${refSet.size}</mark>건` +
             `</p>` +
             document.getElementById('search-results').innerHTML;
 
