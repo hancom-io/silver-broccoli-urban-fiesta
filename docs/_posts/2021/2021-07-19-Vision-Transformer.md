@@ -3,24 +3,26 @@ title: Vision Transformer
 author: 박호준
 author_id: hnc-hojunpark
 tags: Vision-Transformer, Swin-Transformer, Attention
+excerpt: Transformer를 이미지에 적용하는 방법에 대해 알아보자
 use_math: true
 ---
 
 # Vision Transformer
 
-
-최근 이미지 인식에 Transformer를 적용하여 높은 성능을 달성하는것이 화제가 되었습니다. 기존에는 Convolutional Layer를 겹겹이 쌓는 방식으로 이미지의 특징을 추출하고 이를 통해 이미지를 인식하는 방법이 대세였지만 Transformer 적용으로 인해 이미지 인식 패러다임이 바뀔 수 있다는걸 보여주고 있습니다.
+<br>
+최근 이미지 인식에 Transformer를 적용하여 높은 성능을 달성하는 것이 화제가 되었습니다. 기존에는 Convolutional Layer를 겹겹이 쌓는 방식으로 이미지의 특징을 추출하고 이를 통해 이미지를 인식하는 방법이 대세였지만 Transformer 적용으로 인해 이미지 인식 패러다임이 바뀔 수 있다는 걸 보여주고 있습니다.
 
 들어가기에 앞서 이 Transformer가 무엇인지 간략하게 알아보겠습니다.
-Transformer는 주로 자연어처리 분야에 적용되어 높은 성능을 이끌어왔습니다. 최근 몇년간 자연어처리에서 높은 성능을 보이는 BERT, GPT 등의 모델이 Transformer를 사용한 모델이라고 할 수 있습니다. Transformer의 특징은 RNN, CNN과는 다르게 Attention만을 활용해 모델을 구축한 것입니다. 그림 1과 같이 Encoder-Decoder 구조로 이루어졌으며, Attention이 적용되어 데이터간의 관계를 파악합니다.
-실제 적용은 많은 Text 데이터셋에 대해 pre-training한 다음 더 적은 Task별 데이터에서 fine-tuning하는 방식으로 적용이 되는편입니다.
+Transformer는 주로 자연어 처리 분야에 적용되어 높은 성능을 이끌어왔습니다. 최근 몇 년간 자연어 처리의 많은 Task에서 SOTA를 이룬 BERT, GPT 언어모델은 각각 Transformer의 Encoder와 Decoder를 기반한 모델입니다. Transformer의 특징은 RNN, CNN과는 다르게 Attention만을 활용해 모델을 구축한 것입니다. 그림 1과 같이 Encoder-Decoder 구조로 이루어졌으며, Attention이 적용되어 데이터 간의 관계를 파악합니다.
+자연어 처리 분야는 이제 Transformer를 기반한 이러한 BERT와 GPT와 같은 언어모델을 pre-training한 후 downstream task에 따라 fine-tuning하는 방식으로 일반화 되었다고 할 수 있습니다.
 
 >!["encoder-decoder"]({{ site.assets }}/2021/2021-08-01-encoder-decoder.jpg)
 >
 > 그림 1. Encoder-Decoder[1]
  
+
 그러면 이미지 인식 분야에서는 Transformer가 어떻게 적용이 될까요?
-자연어처리 분야에 적용되어 높은 성능을 내던 Transformer는 이미지 인식 분야에서는 제한된 범위에서 일부 요소 기술로만 적용되어왔을뿐, CNN의 성능을 대신할 수는 없었습니다. 이는 이미지의 특성이 Transformer보다는 Convolution이 특징을 추출하기 유리했기때문입니다. 하지만 Vision Transformer가 적용되어 CNN과 비견될정도로 높은 성능을 달성했다는 연구결과가 나왔고, 이는 이미지 인식 분야에서도 Transformer가 충분히 유용하다는 것이 입증되었습니다.
+자연어처리 분야에 적용되어 높은 성능을 내던 Transformer는 이미지 인식 분야에서는 제한된 범위에서 일부 요소 기술로만 적용되어왔을 뿐, CNN의 성능을 대신할 수는 없었습니다. 이는 이미지의 특성이 Transformer보다는 Convolution이 특징을 추출하기 유리했기 때문입니다. 하지만 Vision Transformer가 적용되어 CNN과 비견될 정도로 높은 성능을 달성했다는 연구결과가 나왔고, 이는 이미지 인식 분야에서도 Transformer가 충분히 유용하다는 것이 입증되었습니다.
 그렇다면 이미지에 Transformer가 어떻게 적용되는지 알아보겠습니다. 그림 2는 Vision Transformer 구조[2]입니다.
 
 >!["vision-transformer"]({{ site.assets }}/2021/2021-08-01-vision-transformer.png)
@@ -33,11 +35,12 @@ Vision Transformer에서는 이미지를 고정된 크기(16x16)의 패치로 �
 >
 > 그림 3. Vision Transformer Encoder
 
-Vision Transformer에서 사용하는 Transformer Encoder는 기존 Transformer Encoder와는 차이점이 있습니다. Transformer 같은 경우 일반적으로 Layer를 깊게 쌓을수록 학습이 힘들기때문에 Normalization 과정이 필요합니다. 일반 Transformer에서는 Multi-Head Attention을 수행한후 Normalization을 하지만 Vision Transforemr에서는 Layer Normalization을 수행하고 Multi-Head Attention을 적용합니다. Self-Attention 수행시 768차원이던 데이터가 64차원으로 줄어들기 때문에 Self-Attention을 12번 수행하여 768차원으로 출력을 내보냅니다. Transformer Encoder에서 Multi-Head Attention을 거치고 나온 출력은 Classification을 위한 MLP 모델에 넣고 최종적으로 Class를 예측하게 됩니다.
+Vision Transformer에서 사용하는 Transformer Encoder는 기존 Transformer Encoder와는 차이점이 있습니다. Transformer 같은 경우 일반적으로 Layer를 깊게 쌓을수록 학습이 힘들기 때문에 Normalization 과정이 필요합니다. 일반 Transformer에서는 Multi-Head Attention을 수행한후 Normalization을 하지만 Vision Transforemr에서는 Layer Normalization을 수행하고 Multi-Head Attention을 적용합니다. Self-Attention 수행시 768차원이던 데이터가 64차원으로 줄어들기 때문에 Self-Attention을 12번 수행하여 768차원으로 출력을 내보냅니다. Transformer Encoder에서 Multi-Head Attention을 거치고 나온 출력은 Classification을 위한 MLP 모델에 넣고 최종적으로 Class를 예측하게 됩니다.
 
-Vision Transformer는 위 과정을 거쳐서 이미지 Classification을 수행하게 됩니다. CNN과 Transformer를 비교하자면 CNN의 경우 지역적인 정보를 중요하게 생각하고 Transformer는 지역적인 정보를 상대적으로 덜 중요하게 여기면서 모델의 자유도를 높이게 됩니다. Vision Transformer는 CNN과 달리 inductive bias가 적은 관계로 좋은 성능을 내기 위해서는 굉장히 많은 데이터가 필요하거나 Augmentation과 Regularization을 신경써야합니다. 충분한 양의 데이터가 있다면 기존의 CNN 모델을 뛰어넘는 성능을 낼 수 있지만 적은 수의 데이터에서는 Transformer가 오히려 성능이 떨어질 수 있다는게 단점입니다. 따라서 학습 데이터가 충분할 때 사용하는 것이 좋습니다. 최근에는 Transformer를 보완하기 위한 연구가 활발히 진행되고 있고 적은 데이터 수로도 높은 성능을 내는 Data Efficient Transformer[2] 기술도 연구가 되고있습니다.
+Vision Transformer는 위 과정을 거쳐서 이미지 Classification을 수행하게 됩니다. CNN과 Transformer를 비교하자면 CNN의 경우 지역적인 정보를 중요하게 생각하고 Transformer는 지역적인 정보를 상대적으로 덜 중요하게 여기면서 모델의 자유도를 높이게 됩니다. Vision Transformer는 CNN과 달리 inductive bias가 적은 관계로 좋은 성능을 내기 위해서는 굉장히 많은 데이터가 필요하거나 Augmentation과 Regularization을 신경써야합니다. 충분한 양의 데이터가 있다면 기존의 CNN 모델을 뛰어넘는 성능을 낼 수 있지만 적은 수의 데이터에서는 Transformer가 오히려 성능이 떨어질 수 있다는게 단점입니다. 따라서 학습 데이터가 충분할 때 사용하는 것이 좋습니다. 최근에는 Transformer를 보완하기 위한 연구가 활발히 진행되고 있고 적은 데이터 수로도 높은 성능을 내는 Data Efficient Transformer 기술도 연구가 되고있습니다.
 
 
+<br>
 # Swin Transformer
 
 
@@ -74,5 +77,7 @@ cyclic shift는 그림 7과 같이 기존 window 크기보다 작은 sub-window�
 
 ## Reference
 [1]. [Attention Is All You Need](https://arxiv.org/abs/1706.03762)
+
 [2]. [AN IMAGE IS WORTH 16X16 WORDS: TRANSFORMERS FOR IMAGE RECOGNITION AT SCALE](https://arxiv.org/abs/2010.11929)
+
 [3]. [Swin Transformer: Hierarchical Vision Transformer using Shifted Windows](https://arxiv.org/abs/2103.14030)
