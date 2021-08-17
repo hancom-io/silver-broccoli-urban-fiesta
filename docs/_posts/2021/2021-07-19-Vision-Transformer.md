@@ -3,12 +3,13 @@ title: Vision Transformer
 author: 박호준
 author_id: hnc-hojunpark
 tags: Vision-Transformer, Swin-Transformer, Attention
+excerpt: Transformer를 이미지에 적용하는 방법에 대해 알아보자
 use_math: true
 ---
 
 # Vision Transformer
 
-
+<br>
 최근 이미지 인식에 Transformer를 적용하여 높은 성능을 달성하는것이 화제가 되었습니다. 기존에는 Convolutional Layer를 겹겹이 쌓는 방식으로 이미지의 특징을 추출하고 이를 통해 이미지를 인식하는 방법이 대세였지만 Transformer 적용으로 인해 이미지 인식 패러다임이 바뀔 수 있다는걸 보여주고 있습니다.
 
 들어가기에 앞서 이 Transformer가 무엇인지 간략하게 알아보겠습니다.
@@ -74,5 +75,7 @@ cyclic shift는 그림 7과 같이 기존 window 크기보다 작은 sub-window�
 
 ## Reference
 [1]. [Attention Is All You Need](https://arxiv.org/abs/1706.03762)
+
 [2]. [AN IMAGE IS WORTH 16X16 WORDS: TRANSFORMERS FOR IMAGE RECOGNITION AT SCALE](https://arxiv.org/abs/2010.11929)
+
 [3]. [Swin Transformer: Hierarchical Vision Transformer using Shifted Windows](https://arxiv.org/abs/2103.14030)
