@@ -107,7 +107,8 @@
 
           .post-link {
             font-size: 18px;
-            height: 18px;
+            height: 20px;
+            line-height: 1.1em;   // needed to remove clutters of next line in zoom-in
           }
 
           .post-excerpt {
