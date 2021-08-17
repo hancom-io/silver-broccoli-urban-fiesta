@@ -20,6 +20,7 @@ Transformer는 주로 자연어 처리 분야에 적용되어 높은 성능을 �
 >
 > 그림 1. Encoder-Decoder[1]
  
+
 그러면 이미지 인식 분야에서는 Transformer가 어떻게 적용이 될까요?
 자연어처리 분야에 적용되어 높은 성능을 내던 Transformer는 이미지 인식 분야에서는 제한된 범위에서 일부 요소 기술로만 적용되어왔을 뿐, CNN의 성능을 대신할 수는 없었습니다. 이는 이미지의 특성이 Transformer보다는 Convolution이 특징을 추출하기 유리했기 때문입니다. 하지만 Vision Transformer가 적용되어 CNN과 비견될 정도로 높은 성능을 달성했다는 연구결과가 나왔고, 이는 이미지 인식 분야에서도 Transformer가 충분히 유용하다는 것이 입증되었습니다.
 그렇다면 이미지에 Transformer가 어떻게 적용되는지 알아보겠습니다. 그림 2는 Vision Transformer 구조[2]입니다.
@@ -36,9 +37,10 @@ Vision Transformer에서는 이미지를 고정된 크기(16x16)의 패치로 �
 
 Vision Transformer에서 사용하는 Transformer Encoder는 기존 Transformer Encoder와는 차이점이 있습니다. Transformer 같은 경우 일반적으로 Layer를 깊게 쌓을수록 학습이 힘들기 때문에 Normalization 과정이 필요합니다. 일반 Transformer에서는 Multi-Head Attention을 수행한후 Normalization을 하지만 Vision Transforemr에서는 Layer Normalization을 수행하고 Multi-Head Attention을 적용합니다. Self-Attention 수행시 768차원이던 데이터가 64차원으로 줄어들기 때문에 Self-Attention을 12번 수행하여 768차원으로 출력을 내보냅니다. Transformer Encoder에서 Multi-Head Attention을 거치고 나온 출력은 Classification을 위한 MLP 모델에 넣고 최종적으로 Class를 예측하게 됩니다.
 
-Vision Transformer는 위 과정을 거쳐서 이미지 Classification을 수행하게 됩니다. CNN과 Transformer를 비교하자면 CNN의 경우 지역적인 정보를 중요하게 생각하고 Transformer는 지역적인 정보를 상대적으로 덜 중요하게 여기면서 모델의 자유도를 높이게 됩니다. Vision Transformer는 CNN과 달리 inductive bias가 적은 관계로 좋은 성능을 내기 위해서는 굉장히 많은 데이터가 필요하거나 Augmentation과 Regularization을 신경써야합니다. 충분한 양의 데이터가 있다면 기존의 CNN 모델을 뛰어넘는 성능을 낼 수 있지만 적은 수의 데이터에서는 Transformer가 오히려 성능이 떨어질 수 있다는게 단점입니다. 따라서 학습 데이터가 충분할 때 사용하는 것이 좋습니다. 최근에는 Transformer를 보완하기 위한 연구가 활발히 진행되고 있고 적은 데이터 수로도 높은 성능을 내는 Data Efficient Transformer[2] 기술도 연구가 되고있습니다.
+Vision Transformer는 위 과정을 거쳐서 이미지 Classification을 수행하게 됩니다. CNN과 Transformer를 비교하자면 CNN의 경우 지역적인 정보를 중요하게 생각하고 Transformer는 지역적인 정보를 상대적으로 덜 중요하게 여기면서 모델의 자유도를 높이게 됩니다. Vision Transformer는 CNN과 달리 inductive bias가 적은 관계로 좋은 성능을 내기 위해서는 굉장히 많은 데이터가 필요하거나 Augmentation과 Regularization을 신경써야합니다. 충분한 양의 데이터가 있다면 기존의 CNN 모델을 뛰어넘는 성능을 낼 수 있지만 적은 수의 데이터에서는 Transformer가 오히려 성능이 떨어질 수 있다는게 단점입니다. 따라서 학습 데이터가 충분할 때 사용하는 것이 좋습니다. 최근에는 Transformer를 보완하기 위한 연구가 활발히 진행되고 있고 적은 데이터 수로도 높은 성능을 내는 Data Efficient Transformer 기술도 연구가 되고있습니다.
 
 
+<br>
 # Swin Transformer
 
 
