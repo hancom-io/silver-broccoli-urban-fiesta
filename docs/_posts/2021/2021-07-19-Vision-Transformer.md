@@ -13,8 +13,8 @@ use_math: true
 최근 이미지 인식에 Transformer를 적용하여 높은 성능을 달성하는 것이 화제가 되었습니다. 기존에는 Convolutional Layer를 겹겹이 쌓는 방식으로 이미지의 특징을 추출하고 이를 통해 이미지를 인식하는 방법이 대세였지만 Transformer 적용으로 인해 이미지 인식 패러다임이 바뀔 수 있다는 걸 보여주고 있습니다.
 
 들어가기에 앞서 이 Transformer가 무엇인지 간략하게 알아보겠습니다.
-Transformer는 주로 자연어 처리 분야에 적용되어 높은 성능을 이끌어왔습니다. 최근 몇 년간 자연어 처리에서 높은 성능을 보이는 BERT, GPT 등의 모델이 Transformer를 사용한 모델이라고 할 수 있습니다. Transformer의 특징은 RNN, CNN과는 다르게 Attention만을 활용해 모델을 구축한 것입니다. 그림 1과 같이 Encoder-Decoder 구조로 이루어졌으며, Attention이 적용되어 데이터 간의 관계를 파악합니다.
-실제 적용은 많은 Text 데이터셋에 대해 pre-training한 다음 더 적은 Task별 데이터에서 fine-tuning하는 방식으로 적용이 되는편입니다.
+Transformer는 주로 자연어 처리 분야에 적용되어 높은 성능을 이끌어왔습니다. 최근 몇 년간 자연어 처리의 많은 Task에서 SOTA를 이룬 BERT, GPT 언어모델은 각각 Transformer의 Encoder와 Decoder를 기반한 모델입니다. Transformer의 특징은 RNN, CNN과는 다르게 Attention만을 활용해 모델을 구축한 것입니다. 그림 1과 같이 Encoder-Decoder 구조로 이루어졌으며, Attention이 적용되어 데이터 간의 관계를 파악합니다.
+자연어 처리 분야는 이제 Transformer를 기반한 이러한 BERT와 GPT와 같은 언어모델을 pre-training한 후 downstream task에 따라 fine-tuning하는 방식으로 일반화 되었다고 할 수 있습니다.
 
 >!["encoder-decoder"]({{ site.assets }}/2021/2021-08-01-encoder-decoder.jpg)
 >
