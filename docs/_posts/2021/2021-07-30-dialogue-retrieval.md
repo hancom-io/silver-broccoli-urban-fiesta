@@ -38,7 +38,7 @@ $T_1$과 $T_2$는 앞서 설명한 사전학습된 언어모델(BERT) 입니다.
 
 ![bi-encoder]({{ site.assets }}/2021/2021-07-30-bi-encoder.png)
 
-이제 후보 $cand_i$의 점수는 $s(ctxt, cand_i) = y_{ctxt} \cdot y_{cand_i}$인 dot-product로 스코어링합니다. 여기서 $cand_1$은 정답 레이블이고 나머지는 학습 데이터에서 가져온 negative samples입니다. 이제 모든 후보셋에 대해 스코어링을 계산한 $y_{ctxt} \cdot y_{cand_1} , ..., y_{ctxt} \cdot y_{cand_n}$인 $s(ctxt, cand_i)$ logit에 대해 모델은 cross-entropy loss가 최소화하도록 학습됩니다. 즉, 다시말해 $y_{ctxt} \cdot y_{cand_1}$의 스코어링 점수는 높게, 나머지 negative 점수는 낮아지도록 학습이 진행됩니다. 
+이제 후보 $cand_i$의 점수는 $s(ctxt, cand_i) = y_{ctxt} \cdot y_{cand_i}$인 dot-product로 스코어링합니다. 여기서 $cand_1$은 정답 레이블이고 나머지는 학습 데이터에서 가져온 negative samples입니다. 이제 모든 후보셋에 대해 스코어링을 계산한 $y_{ctxt} \cdot y_{cand_1} , ..., y_{ctxt} \cdot y_{cand_n}$인 $s(ctxt, cand_i)$ logit에 대해 모델은 cross-entropy loss가 최소화하도록 학습됩니다. 즉, 다시말해 $y_{ctxt} \cdot y_{cand_1}$의 스코어링 점수는 높게, 나머지 negative 점수는 낮아지도록 학습이 진행됩니다.
 
 $$[s(ctxt, cand_1), s(ctxt, cand_2), s(ctxt, cand_3), \dots, s(ctxt, cand_n)]$$
 
@@ -49,13 +49,13 @@ Bi-Encoder의 최대 장점은 계산이 비교적 간단하고, input과 label�
 
 Cross-encoder는 input과 label을 스페셜 토큰 [S]를 사이로 하나의 입력으로 합쳐(concat) 사용합니다. 아까 input 임베딩은 토큰 임베딩 + 세그먼트 임베딩 + 포지션 임베딩의 조합이라고 했는데. 여기에서는 input과 label이 합쳐져 있으므로 input과 label을 분리하여 표현하기 위해 세그먼트 값이 input 토큰은 0, label 토큰은 1로 표현됩니다.
 
-![input-label]({{ site.assets }}/2021/2021-07-30-input-label.png)
+![input-label]({{ site.assets }}/2021/2021-07-30-input-label.png){: .center }
 
 따라서 input과 label이 합쳐진 하나의 표현이 입력으로 feed되어 full self attion을 수행합니다. 즉 input의 모든 토큰들과 label의 모든 토큰들은 서로서로 attention 계산에 참여하게 됩니다. 따라서 BERT 스스로가 input과 label사이에 풍부한 상호작용을 하도록 합니다.
 
 ![cross-encoder]({{ site.assets }}/2021/2021-07-30-cross-encoder.png)
 
-셀프 어텐션 후, BERT의 인코딩 출력 중에 첫번째 토큰 (즉 [S] 토큰, [CLS]이기도 합니다)에 해당하는 임베딩을 사용합니다. 그 후 linear projection을 수행하여 스칼라 점수로 변환합니다. 물론 첫번째 토큰을 사용하는 것 대신, 모든 임베딩 값에 대해 적당한 매트릭스로 projection하여 표현으로 줄이는 방법도 있겠지만, 논문에서는 부록을 통해 첫번째 토큰을 사용하는게 성능적으로 약간(slight)의 이점이 있다고 합니다. 
+셀프 어텐션 후, BERT의 인코딩 출력 중에 첫번째 토큰 (즉 [S] 토큰, [CLS]이기도 합니다)에 해당하는 임베딩을 사용합니다. 그 후 linear projection을 수행하여 스칼라 점수로 변환합니다. 물론 첫번째 토큰을 사용하는 것 대신, 모든 임베딩 값에 대해 적당한 매트릭스로 projection하여 표현으로 줄이는 방법도 있겠지만, 논문에서는 부록을 통해 첫번째 토큰을 사용하는게 성능적으로 약간(slight)의 이점이 있다고 합니다.
 
 $$\displaylines{
   y_{ctxt,cand} = h_1 = f irst(T(ctxt, cand) \\
