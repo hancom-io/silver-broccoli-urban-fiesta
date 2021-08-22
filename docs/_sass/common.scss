@@ -30,3 +30,24 @@ $highlight-blue: #2e5fd8;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 }
+
+// for image align in markdown text
+img {
+  &.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &.right {
+    display: block;
+    margin-left: auto;
+    margin-right: 0;
+  }
+
+  &.left {
+    display: block;
+    margin-left: 0;
+    margin-right: auto;
+  }
+}
