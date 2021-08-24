@@ -2,17 +2,17 @@
 title: VBA와 오피스 자동화(Automation)
 author: 박광용
 author_id: hnc-kypark
-tag: 
-- VBA 
-- Automation 
-- HancomOffice 
+tag:
+- VBA
+- Automation
+- HancomOffice
 - HCell
 excerpt: VBA의 개요와 한셀을 이용한 자동화 기본 예제
 ---
 # Visual Basic for Application
 - - -
 <br>
-  VBA는 1993년 MS Excel 5.0 에서 처음 공개된 언어로 **Visual Basic for Application** 이란 이름 그대로 특정 Application을 위한 
+  VBA는 1993년 MS Excel 5.0 에서 처음 공개된 언어로 **Visual Basic for Application** 이란 이름 그대로 특정 Application을 위한
  Visual Basic이다. 프로그래밍 언어인 VBA 코드를 작성하여 Application의 특정 기능을 실행시킬 수 있다.
 
 ```vb
@@ -60,7 +60,7 @@ End Sub
 
 한셀 객체 모델의 대표적인 객체들을 보자면 다음과 같다.
 ### Application
- 제일 상위 객체로 한셀 프로그램 그 자체를 나타낸다. 
+ 제일 상위 객체로 한셀 프로그램 그 자체를 나타낸다.
  > ![한셀 Application]({{ site.assets }}/2021/2021-06-09-hcellApplication.png)
  >
  > 그림 3. 한셀 Application
@@ -71,14 +71,14 @@ Sub ApplicationScreenUpdatingPropertyTest()
     Appication.ScreenUpdating = false
 
     ''''''''''''''''''''''''''''
-    ''' 문서를 편집 하는 내용 '''
+    '''   문서를 편집하는 내용    '''
     ''''''''''''''''''''''''''''
 
     Appication.ScreenUpdating = true
 End Sub
 ```
 
-VBA 코드를 이용하여 문서 편집에 대해 자동화를 구현하는 경우 셀에 값을 수정하고 그림을 그리는 내용 등의 동작이 연속적으로 발생하여 불편함을 느끼는 경우도 있다. 이럴 땐 위의 코드와 같이 `Application` 객체의 `ScreenUpdating` 속성값을 `false`로 설정하여 실제 데이터들이 수정되는 동안 화면 갱신이 발생하지 않도록 수정한 뒤 문서를 편집하는 동작이 모두 종료가 되면 `ScreenUpdating` 속성값을 `true`로 설정하여 수정내역을 한 번에 확인할 수 있다.
+VBA 코드를 이용하여 문서 편집에 대해 자동화를 구현하는 경우 셀에 값을 수정하고 그림을 그리는 내용 등의 동작이 연속적으로 발생하여 불편함을 느끼는 경우도 있다. 이럴 땐 위의 코드와 같이 `Application` 객체의 `ScreenUpdating` 속성값을 `false`로 설정하여 실제 데이터들이 수정되는 동안 화면 갱신이 발생하지 않도록 수정한 뒤 문서를 편집하는 동작이 모두 종료가 되면 `ScreenUpdating` 속성값을 `true`로 설정하여 수정 내역을 한 번에 확인할 수 있다.
 
 ### Workbooks
 `Workbook`의 집합을 나타내는 객체로 `Workbook` 객체를 관리할 수 있다.
@@ -93,11 +93,11 @@ Sub WorkbooksOpenTest()
     Workbooks.Open ThisWorkbook.Path & "\" & workbookName
 
     ''''''''''''''''''''''''''''
-    ''' 문서를 편집 하는 내용 '''
+    '''   문서를 편집하는 내용    '''
     ''''''''''''''''''''''''''''
 
     Workbooks(workbookName).Close
-    
+
     Appication.ScreenUpdating = true
 End Sub
 ```
@@ -105,10 +105,10 @@ End Sub
 여러 개의 문서에서 특정 데이터들을 취합해야 하는가? 그럴 땐 위와 같이 VBA 코드를 이용하여 문서를 여닫는 동작을 자동화해보자. 위에서는 `Workbooks` 객체의 `Open` 함수와 `Workbook` 객체의 `Path` 속성을 이용하여 현재 문서와 같은 경로에 있는 문서의 이름을 받아 문서를 열고 원하는 작업을 수행한 뒤 열었던 문서를 닫는 동작을 보여준다. 이를 응용하여 반복문으로 위와 같은 동작을 실행한다면 여러 개의 문서 편집 또는 데이터 추출을 자동화 할 수 있다.
 
 ### Workbook
-스프레드시트 문서를 나타내는 객체이다. 
+스프레드시트 문서를 나타내는 객체이다.
 
 ```vb
-'문서을 열고 수정, 저장 후 닫기
+'문서를 열고 수정, 저장 후 닫기
 Sub WorkbooksOpenTest()
     Appication.ScreenUpdating = false
 
@@ -120,7 +120,7 @@ Sub WorkbooksOpenTest()
     set testWorkbook = Workbooks(workbookName)
 
     ''''''''''''''''''''''''''''
-    ''' 문서를 편집 하는 내용 '''
+    '''   문서를 편집하는 내용    '''
     ''''''''''''''''''''''''''''
 
     testWorkbook.Save
@@ -154,7 +154,7 @@ Sub WorkbooksOpenTest()
     set dataSheet = testWorkbook.Worksheets(dataSheetName)
 
     ''''''''''''''''''''''''''''
-    ''' 문서를 편집 하는 내용 '''
+    '''   문서를 편집하는 내용    '''
     ''''''''''''''''''''''''''''
 
     testWorkbook.Save
@@ -164,10 +164,10 @@ Sub WorkbooksOpenTest()
 End Sub
 ```
 
-이 예제에서는 문서에서 특정 시트에 접근하기 위해 `Wroksheets` 객체를 이용하여 원하는 `Worksheet` 객체를 얻었다. 
+이 예제에서는 문서에서 특정 시트에 접근하기 위해 `Wroksheets` 객체를 이용하여 원하는 `Worksheet` 객체를 얻었다.
 
 
-### Worksheet 
+### Worksheet
 시트를 나타내는 객체이다.
  > ![Worksheet]({{ site.assets }}/2021/2021-06-09-worksheet.png)
  > 그림 4. Worksheet
@@ -192,7 +192,7 @@ Sub WorkbooksOpenTest()
     dataSheet.Visible = xlSheetVeryHidden
 
     ''''''''''''''''''''''''''''
-    ''' 문서를 편집 하는 내용 '''
+    '''   문서를 편집하는 내용    '''
     ''''''''''''''''''''''''''''
 
     testWorkbook.Save
@@ -208,7 +208,7 @@ End Sub
 시트 내에 셀들의 영역을 관리할 수 있는 객체이다. 셀의 특정 범위에 대한 데이터를 다룰 수 있다.
  > ![Range]({{ site.assets }}/2021/2021-06-09-range.png)
  > 그림 5. Range
-  
+
 ```vb
 '특정 범위의 값 데이터 얻기
 Sub WorkbooksOpenTest()
@@ -231,7 +231,7 @@ Sub WorkbooksOpenTest()
     dataSheet.Range("A1:B10").Copy Workbooks("Collection.xlsx").Worksheets("result").Range("A1")
 
     ''''''''''''''''''''''''''''
-    ''' 문서를 편집 하는 내용 '''
+    '''   문서를 편집하는 내용    '''
     ''''''''''''''''''''''''''''
 
     testWorkbook.Save
@@ -241,11 +241,11 @@ Sub WorkbooksOpenTest()
 End Sub
 ```
 
-이 예제에서는 위에 있는 모든 예제가 사용되었다. *test.xlsm* 문서를 연 뒤 *data* 시트의 *A1:B10* 범위의 값을 복사하여 *Collection.xlsx* 문서에 *result* 시트의 *A1* 셀에 붙여넣었다.  
+이 예제에서는 위에 있는 모든 예제가 사용되었다. *test.xlsm* 문서를 연 뒤 *data* 시트의 *A1:B10* 범위의 값을 복사하여 *Collection.xlsx* 문서에 *result* 시트의 *A1* 셀에 붙여넣었다.
 
-# 정리 
+# 정리
 - - -
-위에서 VBA의 간단한 개요와 오피스 자동화에 대해 살펴보았다. 이를 활용하기 위한 한셀의 대표적인 객체 모델과 함께 예제 코드를 통하여 활용 방안을 제시했다. 
+위에서 VBA의 간단한 개요와 오피스 자동화에 대해 살펴보았다. 이를 활용하기 위한 한셀의 대표적인 객체 모델과 함께 예제 코드를 통하여 활용 방안을 제시했다.
 
 이처럼 VBA와 오피스 자동화는 매우 밀접한 관계가 있다.
 
