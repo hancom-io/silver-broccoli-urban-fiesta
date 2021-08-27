@@ -49,22 +49,14 @@
     .site-title-banner {
       height: calc(#{$banner-height} - #{$menu-height});
 
-      .site-title-box {
-        height: 40px;
-
-        .img-tech {
-          height: 38px;
-          margin-right: 9px;
-        }
-
-        .site-title {
-          font-size: 40px;
-        }
+      .site-title {
+        width: 320px;
+        height: 48px;
       }
 
       .site-desc {
         font-size: 18px;
-        margin-top: 18px;
+        margin-top: 10px;
         height: calc(56px / 2);   // enough for one line
       }
     }
