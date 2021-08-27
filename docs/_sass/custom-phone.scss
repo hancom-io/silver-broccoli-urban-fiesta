@@ -70,23 +70,17 @@
       height: calc(#{$banner-height} - #{$menu-height});
       align-items: flex-start;
 
-      .site-title-box {
-        height: 24px;
+      .site-title {
+        width: 240px;
+        // note: a smaller height may raise a cross-browging problem (Safari vs Chrome)
+        height: 34px;
+
         margin-left: 24px;
-
-        .img-tech {
-          height: 23px;
-          margin-right: 6px;
-        }
-
-        .site-title {
-          font-size: 24px;
-        }
       }
 
       .site-desc {
         font-size: 14px;
-        margin-top: 13px;
+        margin-top: 10px;
         height: 40px;
       }
     }

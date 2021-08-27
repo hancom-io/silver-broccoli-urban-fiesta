@@ -11,14 +11,17 @@
   </div>
 
   {% if isHome %}
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@0.4.0/dist/lottie-player.js"></script>
   <div class="site-title-banner">
-    <div class="site-title-box">
-      <img
-        class="img-tech"
-        src="{{ site.assets }}/site-img/img-tech.svg"
-        >
-      <p class="site-title">블로그</p>
-    </div>
+    <lottie-player
+      class="site-title"
+      src="{{ site.assets }}/site-img/title.json"
+      speed="1"
+      hover
+      loop
+      autoplay>
+    </lottie-player>
+
     <div class="site-desc two-lines">
       <p>한컴 개발자들의 <span class="site-desc-highlight">실전 개발 경험과 지식</span>이 담겨진 기술 블로그입니다.</p>
     </div>
