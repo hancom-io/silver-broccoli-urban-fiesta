@@ -4,6 +4,11 @@
 
 {% if isHome %}{% assign siteHeaderClass = 'site-header-big' %}{% endif %}
 <header class="site-header {{ siteHeaderClass }}" role="banner">
+  {% if isHome %}
+  <video muted autoPlay loop>
+    <source src="{{ site.assets }}/site-img/background.mp4" type="video/mp4" />
+  </video>
+  {% endif %}
 
   {% if isHome %}{% assign navMenuClass = 'nav-menu-overlay' %}{% endif %}
   <div class="nav-menu {{ navMenuClass }}">

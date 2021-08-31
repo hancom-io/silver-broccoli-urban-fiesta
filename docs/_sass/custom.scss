@@ -70,9 +70,18 @@ $bg4-y: calc(100% - 224px);
   height: $menu-height;
 
   &.site-header-big {
-    background-image: url("site-img/img-top.png");
     background-color: darkblue;
     height: $banner-height;
+
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+
+    video {
+      position: absolute;
+      height: 100%;
+      z-index: -1;
+    }
   }
 
   .nav-menu {
