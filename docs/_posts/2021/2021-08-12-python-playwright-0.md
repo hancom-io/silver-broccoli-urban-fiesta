@@ -1,5 +1,5 @@
 ---
-title: 파이썬과 Playwright를 활용하여 웹크롤링 하기 - 1
+title: 파이썬과 Playwright를 활용하여 웹크롤링하기 - 1
 author: 김현수
 author_id: hnc-hyunsu00
 tag:
@@ -35,7 +35,7 @@ playwright install
 
 ## 기본 사용법
 
-- screen shot
+- screenshot
 
 ```python
 from playwright.sync_api import sync_playwright
