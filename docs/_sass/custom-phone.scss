@@ -8,6 +8,7 @@
   .site-header {
     &.site-header-big {
       height: $banner-height;
+      justify-content: flex-start;
     }
 
     .nav-menu {
