@@ -191,6 +191,7 @@ $bg4-y: calc(100% - 224px);
   .site-title {
     width: 408px;
     height: 60px;
+    z-index: -1;
   }
 
   .site-desc {
