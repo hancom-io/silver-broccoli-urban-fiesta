@@ -9,6 +9,10 @@
     &.site-header-big {
       height: $banner-height;
       justify-content: flex-start;
+
+      .bg-video {
+        display: none;
+      }
     }
 
     .nav-menu {
@@ -79,10 +83,15 @@
         margin-left: 24px;
       }
 
-      .site-desc {
-        font-size: 14px;
-        margin-top: 10px;
-        height: 40px;
+      .site-subtitle {
+        &-text {
+          display: block;
+          font-size: 14px;
+          height: 40px;
+        }
+        &-anim {
+          display: none;
+        }
       }
     }
   }

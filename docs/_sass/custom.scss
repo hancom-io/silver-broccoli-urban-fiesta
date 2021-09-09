@@ -70,14 +70,15 @@ $bg4-y: calc(100% - 224px);
   height: $menu-height;
 
   &.site-header-big {
-    background-color: darkblue;
+    background-color: #1b19a6;
+    background-image: linear-gradient(127deg, #1b19a6, #7108f2);
     height: $banner-height;
 
     display: flex;
     justify-content: center;
     overflow: hidden;
 
-    video {
+    .bg-video {
       position: absolute;
       height: 100%;
       z-index: -1;
@@ -194,16 +195,25 @@ $bg4-y: calc(100% - 224px);
     z-index: -1;
   }
 
-  .site-desc {
-    margin: 16px 24px 0;
-    height: 29px;
-    font-family: NotoSansCJKkr, sans-serif;
-    font-size: 20px;
-    letter-spacing: -0.33px;
-    color: rgba(255, 255, 255, 0.64);
+  .site-subtitle {
+    margin-top: 16px;
+    z-index: -1;
 
-    &-highlight {
-      color: rgba(178, 159, 255, 0.64);
+    &-text {
+      display: none;
+      margin: 0 24px;
+      height: 29px;
+      font-family: NotoSansCJKkr, sans-serif;
+      font-size: 20px;
+      letter-spacing: -0.33px;
+      color: rgba(255, 255, 255, 0.64);
+
+      &-highlight {
+        color: rgba(178, 159, 255, 0.64);
+      }
+    }
+    &-anim {
+      height: 30px;
     }
   }
 }
