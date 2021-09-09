@@ -5,7 +5,7 @@
 {% if isHome %}{% assign siteHeaderClass = 'site-header-big' %}{% endif %}
 <header class="site-header {{ siteHeaderClass }}" role="banner">
   {% if isHome %}
-  <video muted autoPlay loop>
+  <video class="bg-video" muted autoPlay loop>
     <source src="{{ site.assets }}/site-img/background.mp4" type="video/mp4" />
   </video>
   {% endif %}
@@ -27,8 +27,18 @@
       autoplay>
     </lottie-player>
 
-    <div class="site-desc two-lines">
-      <p>한컴 개발자들의 <span class="site-desc-highlight">실전 개발 경험과 지식</span>이 담겨진 기술 블로그입니다.</p>
+    <div class="site-subtitle">
+      <div class="site-subtitle-text two-lines">
+        <p>한컴 개발자들의 <span class="site-subtitle-text-highlight">실전 개발 경험과 지식</span>이 담겨진 기술 블로그입니다.</p>
+      </div>
+      <lottie-player
+        class="site-subtitle-anim"
+        src="{{ site.assets }}/site-img/subtitle.json"
+        speed="1"
+        hover
+        loop
+        autoplay>
+      </lottie-player>
     </div>
   </div>
   {% endif %}

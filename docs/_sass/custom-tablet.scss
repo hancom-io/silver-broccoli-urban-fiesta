@@ -54,10 +54,16 @@
         height: 48px;
       }
 
-      .site-desc {
-        font-size: 18px;
+      .site-subtitle {
         margin-top: 10px;
-        height: calc(56px / 2);   // enough for one line
+
+        &-text {
+          font-size: 18px;
+          height: calc(56px / 2);   // enough for one line
+        }
+        &-anim {
+          height: 27px;
+        }
       }
     }
   }
