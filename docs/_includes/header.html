@@ -5,7 +5,7 @@
 {% if isHome %}{% assign siteHeaderClass = 'site-header-big' %}{% endif %}
 <header class="site-header {{ siteHeaderClass }}" role="banner">
   {% if isHome %}
-  <video class="bg-video" muted autoPlay loop>
+  <video class="bg-video" muted autoplay loop playsinline>
     <source src="{{ site.assets }}/site-img/background.mp4" type="video/mp4" />
   </video>
   {% endif %}
