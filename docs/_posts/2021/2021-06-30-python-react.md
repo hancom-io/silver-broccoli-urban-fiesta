@@ -1,7 +1,8 @@
 ---
 title: 파이썬과 리액트를 활용하여 간단한 웹 애플리케이션 만들기 - 1
-author: 최준성
-author_id: hnc-cjs
+author: 
+  name: 최준성
+  uri: https://github.com/hnc-cjs
 tag: 
 - flask
 - react

@@ -1,7 +1,8 @@
 ---
 title: 구글 신은 모든 것을 알고 있다
-author: 윤명
-author_id: hnc-myoon
+author: 
+  name: 윤명
+  uri: https://github.com/hnc-myoon
 tag:
 - google
 - GDI

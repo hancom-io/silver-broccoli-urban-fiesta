@@ -1,7 +1,8 @@
 ---
 title: 자바스크립트의 역사 - Prologue
-author: 김찬희
-author_id: hnc-chanheekim
+author: 
+  name: 김찬희
+  uri: https://github.com/hnc-chanheekim
 tags: browser cross-browsing-issue javascript html css
 ---
 

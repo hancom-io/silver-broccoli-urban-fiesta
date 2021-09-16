@@ -28,8 +28,8 @@ layout: default
         </div>
 
         <div class="post-meta">
-          {%- assign authorId = post.author_id | default: post.author -%}
-          {%- assign author = post.author | default: post.author_id -%}
+          {%- assign authorId = post.author.uri | remove_first: "https://github.com/" -%}
+          {%- assign author = post.author.name -%}
 
           {%- if author and authorId -%}
           <div class="author-avatar">

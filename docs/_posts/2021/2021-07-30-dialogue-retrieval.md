@@ -1,7 +1,8 @@
 ---
 title: 좀 더 정확하고 빠른 Dialogue Retrieval 방법 - 1
-author: 김대규
-author_id: hnc-daekyoo
+author: 
+  name: 김대규
+  uri: https://github.com/hnc-daekyoo
 tags: NLP Dialog-System Retriever Bi-Encoder Cross-Encoder
 excerpt: 대화 모델에서 사용하는 Retriever에 대해 살펴봅니다
 use_math: true

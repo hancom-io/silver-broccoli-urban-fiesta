@@ -5,8 +5,8 @@ layout: default
   <header class="post-header">
     <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
     <p class="post-meta">
-      {%- assign authorId = page.author_id | default: page.author -%}
-      {%- assign author = page.author | default: page.author_id -%}
+      {%- assign authorId = page.author.uri | remove_first: "https://github.com/" -%}
+      {%- assign author = page.author.name -%}
 
       {%- if author and authorId -%}
       <span class="author-avatar">{%- avatar user=authorId size=40 -%}</span>

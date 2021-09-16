@@ -1,7 +1,8 @@
 ---
 title: VBA와 오피스 자동화(Automation)
-author: 박광용
-author_id: hnc-kypark
+author: 
+  name: 박광용
+  uri: https://github.com/hnc-kypark
 tag:
 - VBA
 - Automation

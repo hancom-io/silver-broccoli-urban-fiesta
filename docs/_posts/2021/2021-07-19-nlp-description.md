@@ -1,7 +1,8 @@
 ---
 title: 쉽게 풀어쓴 자연어처리 NLP(Natural Language Processing)
-author: 김건우
-author_id: hnc-keonwookim
+author: 
+  name: 김건우
+  uri: https://github.com/hnc-keonwookim
 tag: 
 - AI
 - NLP

@@ -1,7 +1,8 @@
 ---
 title: "한컴오피스에서 clipboard 에 저장되는 데이터 포맷"
-author: 정민옥
-author_id: hnc-mojung
+author: 
+  name: 정민옥
+  uri: https://github.com/hnc-mojung
 tag:
 - 한컴오피스
 - 클립보드

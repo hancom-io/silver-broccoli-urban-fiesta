@@ -1,7 +1,8 @@
 ---
 title: 엑셀 "열 너비"의 비밀
-author: 박종서
-author_id: hnc-pjs
+author: 
+  name: 박종서
+  uri: https://github.com/hnc-pjs
 date: 2021-06-21 01:23:45 +0900
 tags: Excel column-width algorithm secret 엑셀 열너비 알고리즘 비밀
 excerpt: 계산 알고리즘의 숨겨진 인자를 찾아서..

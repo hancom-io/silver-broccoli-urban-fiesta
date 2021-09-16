@@ -1,7 +1,8 @@
 ---
 title: Vision Transformer
-author: 박호준
-author_id: hnc-hojunpark
+author: 
+  name: 박호준
+  uri: https://github.com/hnc-hojunpark
 tags: Vision-Transformer Swin-Transformer Attention
 excerpt: Transformer를 이미지에 적용하는 방법에 대해 알아보자
 use_math: true

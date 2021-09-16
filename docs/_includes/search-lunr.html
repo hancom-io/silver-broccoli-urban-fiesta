@@ -22,13 +22,13 @@
 {% assign counter = 0 %}
 const documents = [
 {% for page in site.posts %}
+    {% assign authorId = page.author.uri | remove_first: 'https://github.com/' -%}
     {
         "id": {{ counter }},
         "url": "{{ page.url | relative_url }}",
         "title": "{{ page.title | replace: '"', ''}}",
-        "author": "{{ page.author }}",
-        "author_id": "{{ page.author_id }}",
-        "avatar_img": `{%- avatar user=page.author_id size=56 -%}`,
+        "author": "{{ page.author.name }}",
+        "avatar_img": `{%- avatar user=authorId size=56 -%}`,
         "tags": [
             {% for tag in page.tags %}"{{ tag }}",{% endfor %}
         ],

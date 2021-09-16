@@ -1,7 +1,8 @@
 ---
 title: "COM 그리고 한글 컨트롤"
-author: 윤명
-author_id: hnc-myoon
+author: 
+  name: 윤명
+  uri: https://github.com/hnc-myoon
 tag:
 - COM
 - Automation

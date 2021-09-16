@@ -1,7 +1,8 @@
 ---
 title: 파이썬과 Playwright를 활용하여 웹크롤링하기 - 1
-author: 김현수
-author_id: hnc-hyunsu00
+author: 
+  name: 김현수
+  uri: https://github.com/hnc-hyunsu00
 tag:
   - python
   - playwright
