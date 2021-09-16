@@ -1,7 +1,8 @@
 ---
 title: "제품소개 - 한컴통합문서뷰어"
-author: 정민옥
-author_id: hnc-mojung
+author: 
+  name: 정민옥
+  uri: https://github.com/hnc-mojung
 tag:
 - 한컴통합문서뷰어
 - docsconverter

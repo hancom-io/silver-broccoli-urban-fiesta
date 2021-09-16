@@ -1,7 +1,8 @@
 ---
 title: 가볍게 읽는 닷넷 프레임워크(.NET Framework)의 진화 이야기
-author: 김현성
-author_id: hnc-kimhs
+author:
+  name: 김현성
+  uri: https://github.com/hnc-kimhs
 tags: 닷넷프레임워크 .NETFramework 닷넷 .NET 
 excerpt: 닷넷(.NET) - 진화의 시작
 ---
