@@ -4,9 +4,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   {%- if page.title -%}
   <title>{{ page.title | append: " - " | append: site.title }}</title>
+  <meta property="og:title" content="{{ page.title }}" />
+  <meta property="og:description" content="{{ page.excerpt }}" />
+  <meta property="og:url" content="{{ site.url | append: site.baseurl | append: page.url }}" />
   {%- else -%}
   <title>{{ site.title }}</title>
+  <meta property="og:title" content="{{ site.title }}" />
+  <meta property="og:description" content="{{ site.description }}" />
+  <meta property="og:url" content="{{ site.url | append: site.baseurl }}" />
   {%- endif -%}
+  <meta property="og:image" content="{{ site.url | append: site.baseurl | append: '/assets/site-img/favicon_developers@3x.png' }}" />
+  <meta property="og:site_name" content="{{ site.title }}">
 
   <!-- TODO: remove 'robots' meta tag and use the original code -->
   <meta name="robots" content="noindex, nofollow">
