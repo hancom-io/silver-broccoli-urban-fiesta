@@ -31,23 +31,24 @@ $highlight-blue: #2e5fd8;
   -webkit-box-orient: vertical;
 }
 
-// for image align in markdown text
-img {
-  &.center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
+// for alignment in markdown text (ex: image, caption, etc.)
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
 
-  &.right {
-    display: block;
-    margin-left: auto;
-    margin-right: 0;
-  }
+.right {
+  display: block;
+  margin-left: auto;
+  margin-right: 0;
+  text-align: right;
+}
 
-  &.left {
-    display: block;
-    margin-left: 0;
-    margin-right: auto;
-  }
+.left {
+  display: block;
+  margin-left: 0;
+  margin-right: auto;
+  text-align: left;
 }
