@@ -128,7 +128,7 @@ $bg4-y: calc(100% - 224px);
 
         .menu-item {
           opacity: 0.9;
-          font-family: NotoSansCJKkr, sans-serif;
+          font-family: 'Noto Sans KR', sans-serif;
           font-size: 19px;
           font-weight: 500;
           color: #ffffff;
@@ -203,7 +203,7 @@ $bg4-y: calc(100% - 224px);
       display: none;
       margin: 0 24px;
       height: 29px;
-      font-family: NotoSansCJKkr, sans-serif;
+      font-family: 'Noto Sans KR', sans-serif;
       font-size: 20px;
       letter-spacing: -0.33px;
       color: rgba(255, 255, 255, 0.64);
@@ -247,7 +247,7 @@ $bg4-y: calc(100% - 224px);
         flex-wrap: wrap;
 
         opacity: 0.88;
-        font-family: NotoSansCJKkr, sans-serif;
+        font-family: 'Noto Sans KR', sans-serif;
         font-size: 14px;
 
         li {
@@ -267,7 +267,7 @@ $bg4-y: calc(100% - 224px);
 
       .company-info {
         color: #aaaaaa;
-        font-family: NotoSansCJKkr, sans-serif;
+        font-family: 'Noto Sans KR', sans-serif;
         font-size: 12px;
         line-height: 1.67;
         margin: 0;
@@ -299,7 +299,7 @@ $bg4-y: calc(100% - 224px);
         background-repeat: no-repeat;
         background-position: 95% 50%;
         color: rgba(255, 255, 255, 0.8);
-        font-family: NotoSansCJKkr, sans-serif;
+        font-family: 'Noto Sans KR', sans-serif;
         font-size: 14px;
 
         option {
@@ -336,8 +336,7 @@ $bg4-y: calc(100% - 224px);
         .post-link {
           @extend .one-line;
           line-height: 1em;
-          font-family: NotoSansCJKkr, sans-serif;
-          font-weight: 500;
+          font-family: 'Noto Sans KR', sans-serif;
           font-size: 24px;
           height: 26px;
           letter-spacing: -0.4px;
@@ -346,7 +345,7 @@ $bg4-y: calc(100% - 224px);
 
         .post-excerpt {
           margin: 12px 0 16px;
-          font-family: NotoSansCJKkr, sans-serif;
+          font-family: 'Noto Sans KR', sans-serif;
           font-size: 16px;
           line-height: 1.5;
           letter-spacing: -0.2px;
@@ -377,13 +376,13 @@ $bg4-y: calc(100% - 224px);
         }
 
         .author-name {
-          font-family: NotoSans, sans-serif;
+          font-family: 'Noto Sans KR', sans-serif;
           font-size: 14px;
           color: #333333;
         }
 
         .post-date {
-          font-family: NotoSans, sans-serif;
+          font-family: 'Noto Sans KR', sans-serif;
           font-size: 14px;
           color: #bdbdbd;
         }
@@ -424,7 +423,7 @@ mark {
     display: flex;
     align-items: center;
 
-    font-family: NotoSansCJKkr, sans-serif;
+    font-family: 'Noto Sans KR', sans-serif;
     font-size: 13px;
     color: #333333;
     white-space: nowrap;

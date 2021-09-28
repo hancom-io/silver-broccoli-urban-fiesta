@@ -7,15 +7,16 @@
 .post {
   margin-top: 80px;
 
-  p, h1, h2, h3, h4, h5, h6 {
+  p, h1, h2, h3, h4, h5, h6, li {
     max-width: $content-text-width;
+    font-family: 'Noto Sans KR', sans-serif;
   }
 
   .post-header {
     margin: 0;
 
     .post-title {
-      font-family: NotoSansCJKkr, sans-serif;
+      font-family: 'Noto Sans KR', sans-serif;
       font-size: 40px;
       line-height: 1.35;
       letter-spacing: -0.4px;
@@ -37,14 +38,14 @@
 
       .p-author {
         margin: 0 8px;
-        font-family: NotoSans, sans-serif;
+        font-family: 'Noto Sans KR', sans-serif;
         font-size: 14px;
         color: #111111;
       }
 
       .dt-published {
         margin: 0 8px;
-        font-family: NotoSans, sans-serif;
+        font-family: 'Noto Sans KR', sans-serif;
         font-size: 14px;
         color: #999999;
       }
@@ -88,7 +89,7 @@
     background-color: white;
     cursor: pointer;
     font-size: 14px;
-    font-family: NotoSansCJKkr, sans-serif;
+    font-family: 'Noto Sans KR', sans-serif;
   }
 }
 
