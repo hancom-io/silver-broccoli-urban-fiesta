@@ -32,8 +32,7 @@ End Sub
 
 
 > ![A1 셀에 "HI" 입력]({{ site.assets }}/2021/2021-06-09-inputDataIntoCell.gif)
->
-> 그림 1. 한셀에서 셀A1에 HI를 입력하는 모습
+> *그림 1. 한셀에서 셀 A1에 HI를 입력하는 모습*{: .caption }
 
 이는 VBA를 통하여 이렇게 나타낼 수 있다.
 
@@ -57,14 +56,13 @@ End Sub
 - - -
 <br>
 > ![한셀 객체 모델]({{ site.assets }}/2021/2021-06-09-HCellObjectModel.png)
->그림 2. 대표적인 한셀 객체 모델
+> *그림 2. 대표적인 한셀 객체 모델*{: .caption }
 
 한셀 객체 모델의 대표적인 객체들을 보자면 다음과 같다.
 ### Application
  제일 상위 객체로 한셀 프로그램 그 자체를 나타낸다.
  > ![한셀 Application]({{ site.assets }}/2021/2021-06-09-hcellApplication.png)
- >
- > 그림 3. 한셀 Application
+ > *그림 3. 한셀 Application*{: .caption }
 
 ```vb
 'Application 객체의 ScreenUpdating 속성 테스트
@@ -171,7 +169,7 @@ End Sub
 ### Worksheet
 시트를 나타내는 객체이다.
  > ![Worksheet]({{ site.assets }}/2021/2021-06-09-worksheet.png)
- > 그림 4. Worksheet
+ > *그림 4. Worksheet*{: .caption }
 
 ```vb
 '특정 시트를 숨기기
@@ -208,7 +206,7 @@ End Sub
 ### Range
 시트 내에 셀들의 영역을 관리할 수 있는 객체이다. 셀의 특정 범위에 대한 데이터를 다룰 수 있다.
  > ![Range]({{ site.assets }}/2021/2021-06-09-range.png)
- > 그림 5. Range
+ > *그림 5. Range*{: .caption }
 
 ```vb
 '특정 범위의 값 데이터 얻기

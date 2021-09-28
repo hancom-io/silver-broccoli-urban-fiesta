@@ -22,8 +22,7 @@ excerpt: 인공지능 자연어처리에 대해 쉽게 알아보자.
 ## 1. 인공지능에서 자연어처리는?
 
 >!["ai-background-1"]({{ site.assets }}/2021/2021-07-19-ai-background-1.png){:width="700px"}
->
->출처 : 과학기술정보통신부
+>*출처 : 과학기술정보통신부*{: .caption }
 
 <br />
 우리는 몇 년 전부터 “4차 산업혁명이 도래했다”, “인공지능이 세계를 지배한다”, “인공지능이 우리의 삶의 질을 바꿀 것이다” 라는 문구를 뉴스, 신문기사, 서점에서의 서적 표지만 보더라도 쉽게 접할 수 있었습니다.
@@ -40,8 +39,7 @@ excerpt: 인공지능 자연어처리에 대해 쉽게 알아보자.
 <br />
 
 >!["turing-test"]({{ site.assets }}/2021/2021-07-19-turing-test.jpg){:width="700px"}
->
->출처: [https://slideplayer.com/slide/6019950/](https://slideplayer.com/slide/6019950/)
+>*출처: [https://slideplayer.com/slide/6019950/](https://slideplayer.com/slide/6019950/)*{: .caption }
 
 <br />
 1950년에 앨런 튜링에 의해 개발된 Turing test가 있는데 이 테스트는 인간 평가자가 인간과 같은 반응을 일으키도록 설계된 기계 사이의 자연 언어 대화를 판단하는 테스트로 평가자가 기계와 인간을 확실하게 구분할 수 없는 경우, 그 기계는 Turing test에 합격하였다고 이야기합니다[1]. 이 실험은 "기계가 생각할 수 있는가?"라는 튜링의 철학적인 질문에서 시작된 이 실험처럼 자연어처리 개발의 궁극적인 목적은 컴퓨터가 인간이 의도한 질문을 이해하고 사람처럼 답을 제시하고 행동하는 것입니다.
@@ -52,8 +50,7 @@ excerpt: 인공지능 자연어처리에 대해 쉽게 알아보자.
 <br />
 
 >!["ai-background-2"]({{ site.assets }}/2021/2021-07-19-ai-background-2.jpg){:width="700px"}
->
->출처 : 인공지능신문([http://www.aitimes.kr](http://www.aitimes.kr))
+>*출처 : 인공지능신문([http://www.aitimes.kr](http://www.aitimes.kr))*{: .caption }
 
 <br />
 그러나 최근에는 고성능의 CPU, GPU, 메모리로 컴퓨터의 빠른 처리 속도 그리고 스마트폰이 개발되고 빠른 네트워크 통신 속도로 인터넷에 많은 데이터가 축적되면서 인공지능 연구와 개발이 수월하게 되었고 자연어처리 개발 또한 많은 발전을 이룰 수 있게 되었습니다.
@@ -84,8 +81,7 @@ excerpt: 인공지능 자연어처리에 대해 쉽게 알아보자.
 <br />
 
 >!["fully-connected-layer"]({{ site.assets }}/2021/2021-07-19-fully-connected-layer.png){:width="700px"}
->
-> fully connected layer
+> *fully connected layer*{: .caption }
 
 <br />
 자연어처리 언어모델은 규칙기반(rule-based)과 확률에 기반한 언어모델로 나뉠 수 있고 확률모델은 전통적인 통계기법으로 할 수 있지만 인공신경망으로도 구현할 수 있습니다. 인공신경망 학습을 진행할 때 Layer가 얕으면 Shallow한 형태, Layer를 많이 쌓아 학습하게 되면 Deep한 형태가 되는데 Layer가 Deep한 형태로 학습(Learning)하는 것을 딥러닝(Deep Learning) 모델이라고 부릅니다. 모든 인공지능 모델이 그렇듯 한국어 언어모델은 도메인이나 요구사항이 어떤 것인지에 따라 모델 구성이 달라질 수 있고 한국어 학습데이터 구성도 달라질 수 있습니다. 그래서 개발할 때 원하는 서비스에 맞는 양질의 데이터의 확보는 언어모델 개발만큼 중요합니다.
@@ -123,8 +119,7 @@ excerpt: 인공지능 자연어처리에 대해 쉽게 알아보자.
 <br />
 
 >!["bag-of-words"]({{ site.assets }}/2021/2021-07-19-bag-of-words.jpg){:width="700px"}
->
->출처: [https://slideplayer.com/slide/7073400/](https://slideplayer.com/slide/7073400/)
+>*출처: [https://slideplayer.com/slide/7073400/](https://slideplayer.com/slide/7073400/)*{: .caption }
 
 <br />
 문장을 인코딩 과정을 거쳐 0과 1로 표현하는 과정 또한 전처리에 포함되는 내용입니다. 이런 과정들을 거쳐 만들어진 학습 데이터를 언어 모델에 학습시키는 것이 자연어처리 개발의 일반적인 내용이라고 할 수 있습니다.

@@ -1,5 +1,7 @@
 @import 'common.scss';
 
+$image-margin: 40px;
+
 .site-header {
   z-index: 1;
 }
@@ -58,6 +60,19 @@
     border: {
       top: 1px solid #111111;
       bottom: 1px solid #111111;
+    }
+
+    p > img {
+      margin-top: $image-margin;
+
+      &:only-child {
+        margin-bottom: $image-margin;
+      }
+
+      + .caption {
+        margin-top: 10px;
+        margin-bottom: $image-margin;
+      }
     }
 
     .tag-list {
