@@ -31,6 +31,12 @@ $highlight-blue: #2e5fd8;
   -webkit-box-orient: vertical;
 }
 
+.caption {
+  color: gray;
+  font-size: smaller;
+  display: block;
+}
+
 // for alignment in markdown text (ex: image, caption, etc.)
 .center {
   display: block;

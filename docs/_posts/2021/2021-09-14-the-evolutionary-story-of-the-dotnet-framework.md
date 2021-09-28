@@ -66,7 +66,6 @@ C#과 .NET이라는 개발 프레임워크를 묶어 자바(JAVA) 진영에 대�
 <br/>
 ## 닷넷(.NET) 등장 : 진화의 시작
 * * *
-<br/>
 
 ![닷넷프레임워크히스토리]({{ site.assets }}/2021/2021-09-14-the-evolutionary-story-of-the-dotnet-framework-02.png) <br/>
 (출처 : <https://devblogs.microsoft.com/dotnet/net-core-is-the-future-of-net/>)   

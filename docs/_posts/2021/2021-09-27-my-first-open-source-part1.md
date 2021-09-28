@@ -16,7 +16,6 @@ excerpt: 나는 어찌하여 오픈소스 걱정을 그만두고 xterm을 사랑
 - 결국 VS Code에 들어가게 되었다.
 
 <br>
-
 ### 긴 이야기
 
 자, 그럼 시작해보자. 이 이야기는 장황해질 수도 있다. 그래도 내용은 별 거 없고 사실 위에 적은 게 다다. 하지만 우리는 뭐하러 블로그에 글을 적고 그걸 또 읽고 앉았는가. 그냥 단지 뭐라도 구구절절 이야기를 쓰고 싶고, 읽고 싶을 뿐이지 않은가.
@@ -33,11 +32,9 @@ macOS의 기본 터미널을 보자. 이걸 안 쓰고 iTerm이나 다른 걸 �
 
 터미널을 쓸 때 곧잘 누르게 되는 단축키가 ctrl-C 이다. 아시다시피 뭔가 프로그램을 실행하다가 중단시키고 싶을 때 break 역할로 쓴다. 그런데 macOS에서 이 키를 쓰기는 좀 불편한데, 그건 Mac 키보드에서 control 키를 찾아서 누르기가 영 마땅치 않기 때문이다. 맥북의 키보드에서도 그렇고 요즘 나오는 아이맥에 딸려오는 무선 키보드에서도 control 키는 참 애매한 위치에 있다. 맨 왼쪽 아래 Fn 키 바로 옆에 한 자리 차지하고 있다.
 
-\
 ![mac-keyboard]({{ site.assets }}/2021/2021-09-27-mac-control-key.png){: .center width="500px" }
-<figcaption>자, 눈으로 안 보고 control 키 눌러보라. 할 수 있겠는가?</figcaption>{: .center }
+*자, 눈으로 안 보고 control 키 눌러보라. 할 수 있겠는가?*{: .caption .center }
 
-\
 난 아직 이걸 안 보고 제대로 눌러본 적이 없다. 그래도 별 불편은 없는 게, macOS에서 중요한 키는 command 키이기 때문에 사실 control 키는 별로 누를 일이 없기 때문이다. 딱 한 경우, 터미널에서 ctrl-C 를 누를 때 빼고는.
 
 그런데 마침맞게도 macOS 터미널에서는 더 나은 방법이 있었으니, 그것은 바로 cmd-. (커맨드 쩜) 을 누르는 것이었다. 이게 있는 걸 알고 아주 좋았다. 이제 더 이상 control 키 찾느라 두리번거리지 않아도 된다! 그리하여 불편 없는 터미널 생활을 하고 있던 차에, VS Code에 내장된 터미널을 써보니 아뿔싸, 여기에서는 그 키가 안 먹는 것이었다.
@@ -65,39 +62,30 @@ xterm.js의 github 페이지를 찾아갔다. git clone을 하고 빌드를 해�
 
 이 조건문 안에 비슷하게 넣으면 될 것 같군. 가만있어보자, 쩜 키를 누를 때의 키 코드가 뭐였더라? 콘솔에 로그를 찍어보는 게 확실하겠군. 그런데, 코드 수정하고 실행했는데 왜 콘솔에 아무 것도 안 찍히는 거지? 아, 이거는 .ts 소스잖아, .js로 트랜스파일되었는지 확인해야지. 역시 안 되었군. <code>yarn build</code>를 하고 다시 돌려보자. 오케이, 나온다. 쩜을 누를 때의 키 코드는 190이군. 그럼 이제 그걸 콘트롤-씨로 매핑해야 하는데… 남들 해놓은 것을 보니 대충 result.key 값을 바꿔주는 것 같군. C0 라는 namespace에 값들이 선언되어 있는 것 같은데, 오 여기 있다. 콘트롤-씨에는 ETX라는 이름이 붙어있구나. 그걸로 키 값을 바꿔주고, 어디 한번. 오, 된다. 디버그용 데모 페이지에서 커맨드 쩜이 인식된다!
 
-\
 ![xterm-demo-page]({{ site.assets }}/2021/2021-09-27-xterm-demo-page.png){: .center }
-<figcaption>xterm.js의 디버그용 데모 페이지 화면</figcaption>{: .center }
+*xterm.js의 디버그용 데모 페이지 화면*{: .caption .center }
 
-\
-아, 일단 한 고비 넘은 것 같다. 잘 했으니 술 한 잔 하고 오자. (우유 마심)\
+아, 일단 한 고비 넘은 것 같다. 잘 했으니 술 한 잔 하고 오자. (우유 마심)\
 그럼 이제 어떡하지? 요거 고친 거를 바로 올리면 되나? 음, 아냐. 이거를 고쳤을 때 진짜로 VS Code에서도 키가 먹는지를 확인해야겠어.
 
 그런데, 내가 고친 xterm을 VS Code에서 쓰게 하려면 어떻게 하면 되지? 찾아보자, 찾아보자… 아, 이런 방법이 있군. xterm쪽에서 <code>npm pack</code>을 하고, .tar 파일을 옮겨다 적당한 데다 풀어서 package라는 폴더를 만들고, VS Code 쪽에서는 <code>yarn add</code>로 그 폴더를 설치. 오, package.json에서 xterm 항목이 내가 수제 가공한 버전으로 경로가 바뀌었네. 이렇게도 dependency가 연결될 수 있구나.
 
-\
 ![vscode-package-json]({{ site.assets }}/2021/2021-09-27-vscode-package-json.png){: .center width="800px" }
-<figcaption>VS Code의 package.json에 local xterm 경로가 지정되었다.</figcaption>{: .center }
+*VS Code의 package.json에 local xterm 경로가 지정되었다.*{: .caption .center }
 
-\
 어디 그럼, 이제 요걸로 VS Code를 실행해보자. 빌드를 한 번 해주고, Code-OSS 실행하니… 오오, 된다! *(감동의 물결~)*\
 좋아, 그럼 이제 Pull Request 올려보자. 
 
 회사 프로젝트 작업할 때 GitLab의 Merge Request 만드는 거랑 같겠지만, 그래도 혹시 몰라 xterm의 안내 페이지를 여러 번 참고해보았다. 내 딴에는 잘 한다고 수정해서 올려도, 그쪽 규칙에 안 맞는다거나 하면 안 되니까. Contributing 페이지에 뭐라고 써있나. 일단 이슈를 하나 등록하고(JIRA 이슈 같은 거겠지), 그것을 내가 고치겠다고 명시하고, 그 다음에 PR을 올리면 되는 것 같았다. 맞다, 설마 이 커맨드 쩜 단축키에 관한 이슈가 이미 올라와있거나 하진 않겠지? 기존 이슈들을 쭉 둘러본 결과 그렇지는 않았다. 좋다. 그럼 이슈를 등록하자. 커맨드 쩜 단축키가 왜 필요한지 나름대로 간단명료하게 쓰려고 노력했다. 
 
-\
 ![xterm-issue]({{ site.assets }}/2021/2021-09-27-xterm-issue.png){: .center }
-<figcaption>xterm 프로젝트에 이슈 등록한 화면 (나의 개인 github 계정을 사용하였다)</figcaption>{: .center }
+*xterm 프로젝트에 이슈 등록한 화면 (나의 개인 github 계정을 사용하였다)*{: .caption .center }
 
-\
 다음, xterm.js 소스를 내 계정 밑으로 fork 했다 (처음엔 이 개념이 굉장히 낯설었다). 이제 그걸 origin 삼아서 로컬에 clone하고, 코드를 수정하고 (두 줄짜리 if 문 추가), 로컬에 커밋하고, <code>git push</code> 실행. 그 다음 github 웹으로 가서 PR을 작성했다. 두근두근, 설렌다. 외부 세계에 내 목소리를 내는 것이다. “저기요, 제가 이런 거 한번 고쳐봤거든요. 어떻게 좀 한번 봐주시겠어요…?”
 
-\
 ![xterm-pr]({{ site.assets }}/2021/2021-09-27-xterm-pr.png){: .center }
-<figcaption>xterm 프로젝트에 PR 올린 화면</figcaption>{: .center }
+*xterm 프로젝트에 PR 올린 화면*{: .caption .center }
 
-\
-\
 자, 이제 루비콘 강을 건넜고, 주사위는 던져졌다. 과연 이 PR은 어떤 처분을 받게 될 것인가.
 
 \
