@@ -21,9 +21,8 @@ excerpt: 닷넷(.NET) - 진화의 시작
 네트워크 작업, 인터페이스 등의 많은 작업을 캡슐화하여 코딩의 효율성을 증대시키며   
 개발자들의 생산성을 더욱더 높은 수준으로 끌어올리는 데 기여했습니다.   
 
-![닷넷프레임워크히스토리]({{ site.assets }}/2021/2021-09-14-the-evolutionary-story-of-the-dotnet-framework-01.png) <br/>
-(출처 : <https://en.wikipedia.org/wiki/.NET_Framework_version_history>)   
-<br/>
+![닷넷프레임워크히스토리]({{ site.assets }}/2021/2021-09-14-the-evolutionary-story-of-the-dotnet-framework-01.png)
+*(출처 : <https://en.wikipedia.org/wiki/.NET_Framework_version_history>)*{: .caption }   
 
 닷넷 프레임워크는 웹/윈도우즈 기반 응용프로그램을 개발 할 수 있는   
 훌륭한 도구이자 .NET 표준을 따르는 프로그래밍 언어인   
@@ -67,9 +66,8 @@ C#과 .NET이라는 개발 프레임워크를 묶어 자바(JAVA) 진영에 대�
 ## 닷넷(.NET) 등장 : 진화의 시작
 * * *
 
-![닷넷프레임워크히스토리]({{ site.assets }}/2021/2021-09-14-the-evolutionary-story-of-the-dotnet-framework-02.png) <br/>
-(출처 : <https://devblogs.microsoft.com/dotnet/net-core-is-the-future-of-net/>)   
-<br/>
+![닷넷프레임워크히스토리]({{ site.assets }}/2021/2021-09-14-the-evolutionary-story-of-the-dotnet-framework-02.png)
+*(출처 : <https://devblogs.microsoft.com/dotnet/net-core-is-the-future-of-net/>)*{: .caption }
 
 기술 및 개발 분야 트렌드의 변화로 자바(JAVA) 언어와의 경쟁은 그 의미가 퇴색되며 공존으로 변화가 불가피했지만,   
 이후에도 수없이 등장한 신규 개발 언어들에 빈틈을 주지 않으며 마이크로소프트의 경쟁력이 되는   

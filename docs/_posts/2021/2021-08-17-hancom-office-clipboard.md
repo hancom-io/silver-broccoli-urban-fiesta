@@ -35,15 +35,15 @@ excerpt: 오피스에서 제공되는 특별한 Clipboard Format 들에 대해 �
 
 한컴오피스에는 많은 클립보드 포맷들을 제공한다. 대체적으로 가장 많이 사용되는 HTML, 이미지 (메타파일 포함), Text 뿐 아니라 매우 다양한 포맷들이 제공되고 있다. 아래의 그림은 한컴오피스 한셀에서 Micorosoft Excel 에 [골라 붙이기] 를 할 경우 지원가능한 데이터들이다.
 
-> ![한컴오피스 Clipboad 포맷]({{site.assets}}/2021/2021-08-17-hancell-to-excel.png) <br>
-> 그림 1. 한셀에서 복사된 데이터를 Micorosoft Excel 에서 붙여넣기 할 경우 가능한 포맷들
+> ![한컴오피스 Clipboad 포맷]({{site.assets}}/2021/2021-08-17-hancell-to-excel.png)
+> *그림 1. 한셀에서 복사된 데이터를 Micorosoft Excel 에서 붙여넣기 할 경우 가능한 포맷들*{: .caption }
 
 <br>
 
 아래 그림은 한셀에서 복사하기 시도시 클립보드의 상태를 보여준다. (Clipspy 를 사용하면 확인 가능하다.)
 
-> ![한컴오피스 Clipboad 포맷]({{site.assets}}/2021/2021-08-17-hancell-to-clipspy.png) <br>
-> 그림 2. 한셀에서 복사를 시도하였을 경우 Clipboard 의 상태
+> ![한컴오피스 Clipboad 포맷]({{site.assets}}/2021/2021-08-17-hancell-to-clipspy.png)
+> *그림 2. 한셀에서 복사를 시도하였을 경우 Clipboard 의 상태*{: .caption }
 
 <br>
 
@@ -68,8 +68,8 @@ excerpt: 오피스에서 제공되는 특별한 Clipboard Format 들에 대해 �
 | Link Source            | [IMoniker](https://msdn.microsoft.com/en-us/library/ms679705.aspx) | OLE 2.0. Followed by document class ID                  |
 | Hyperlink              | [IHlink](https://msdn.microsoft.com/en-us/library/aa767974.aspx) | Methods to enable a hyperlink to navigate to its target |
 
-> ![한컴오피스 Clipboad 포맷]({{site.assets}}/2021/2021-08-17-hancell-ole-paste.png) <br>
-> 그림 3. 한셀 내용을 복사하여 워드패드에 OLE 로 붙여 넣은 모습 (편집 가능한 모습)
+> ![한컴오피스 Clipboad 포맷]({{site.assets}}/2021/2021-08-17-hancell-ole-paste.png)
+> *그림 3. 한셀 내용을 복사하여 워드패드에 OLE 로 붙여 넣은 모습 (편집 가능한 모습)*{: .caption }
 
 <br>
 
@@ -114,8 +114,8 @@ gvmlFile.Close()
 
 해당 파일을 열어보면 파일이 아래와 같이 구성되어 있으며, 그중 drawing1.xml 을 확인해보면 DrawingML 형태로 개체가 저장되어 있음을 확인할 수 있다.
 
-> ![한컴오피스 Clipboad 포맷]({{site.assets}}/2021/2021-08-17-gvml-data.png)<br>
-> 그림 4. GVML 의 데이터 형태
+> ![한컴오피스 Clipboad 포맷]({{site.assets}}/2021/2021-08-17-gvml-data.png)
+> *그림 4. GVML 의 데이터 형태*{: .caption }
 
 <br>
 
