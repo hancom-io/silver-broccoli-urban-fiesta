@@ -12,7 +12,6 @@ excerpt: 웹 개발 입문자의 걸음마 프로젝트
 
 # 들어가기 전에
 ---
-<br>
 본 블로그 내용은 웹 애플리케이션 동작원리 이해와 리액트 개발 능력 향상을 위한 공부용 개인 프로젝트입니다.
 <br>
 참고로 저는 웹 애플리케이션 개발 처음입니다.^^
@@ -145,7 +144,6 @@ if __name__ == '__main__':
 <br>
 # 마치며
 ---
-<br>
 전체 소스코드는 아래 github에서 clone 받아 보시면 됩니다.<br>
 > [https://github.com/hnc-cjs/MyStock](https://github.com/hnc-cjs/MyStock)
 

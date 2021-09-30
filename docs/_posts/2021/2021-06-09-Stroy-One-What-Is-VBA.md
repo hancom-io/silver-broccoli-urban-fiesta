@@ -12,7 +12,6 @@ excerpt: VBA의 개요와 한셀을 이용한 자동화 기본 예제
 ---
 # Visual Basic for Application
 - - -
-<br>
   VBA는 1993년 MS Excel 5.0 에서 처음 공개된 언어로 **Visual Basic for Application** 이란 이름 그대로 특정 Application을 위한
  Visual Basic이다. 프로그래밍 언어인 VBA 코드를 작성하여 Application의 특정 기능을 실행시킬 수 있다.
 
@@ -25,7 +24,6 @@ End Sub
 
 # 자동화(Automation)
 - - -
-<br>
 **자동화(Automation)**란 *Application*이 자신의 기능을 외부로 노출하여 다른 *Application*에서도 사용할 수 있게 하는 기술이다. VBA에서는 이렇게 노출된 자동화 객체를 이용하여 *Application*의 기능을 실행시킨다.
 <br><br>
 예를 들어 아래와 같이 한셀에서 A1 셀에 "HI"라는 텍스트값을 입력하는 동작을 보자.
@@ -49,12 +47,10 @@ End Sub
 
 # 활용
 - - -
-<br>
 자동화 객체를 활용하는 방법은 매우 다양하다. 여기서는 한셀의 자동화 객체 모델에 대하여 간단하게 알아보고 이를 이용한 예제를 살펴보자.
 
 ## 한셀 객체 모델
 - - -
-<br>
 > ![한셀 객체 모델]({{ site.assets }}/2021/2021-06-09-HCellObjectModel.png)
 > *그림 2. 대표적인 한셀 객체 모델*{: .caption }
 
