@@ -62,6 +62,17 @@ $image-margin: 40px;
       bottom: 1px solid #111111;
     }
 
+    hr {
+      margin: 15px 0 20px;
+
+      + p {
+        > img {
+          // not to show too much margin of an image following hr
+          margin-top: 0;
+        }
+      }
+    }
+
     p > img {
       margin-top: $image-margin;
 
