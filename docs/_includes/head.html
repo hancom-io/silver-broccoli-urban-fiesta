@@ -5,7 +5,7 @@
   {%- if page.title -%}
   <title>{{ page.title | append: " - " | append: site.title }}</title>
   <meta property="og:title" content="{{ page.title }}" />
-  <meta property="og:description" content="{{ page.excerpt }}" />
+  <meta property="og:description" content="{{ page.excerpt | strip_html | strip_newlines }}" />
   <meta property="og:url" content="{{ site.url | append: site.baseurl | append: page.url }}" />
   {%- else -%}
   <title>{{ site.title }}</title>
