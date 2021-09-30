@@ -9,8 +9,6 @@ excerpt: 계산 알고리즘의 숨겨진 인자를 찾아서..
 ---
 
 ## 계산 알고리즘의 숨겨진 인자를 찾아서..
-<br />
-
 
 ## 들어가기
 ---
@@ -22,10 +20,6 @@ Excel의 `열 너비`(`column width`)는 지금까지 베일에 싸여있었다.
 공식에 대한 연구와 실험 결과.. 미공개 factor가 존재함을 확신하게 되었고, 폰트의 구조 및 관련된 단위계에 대한 리서치부터 시작하여, 공식 문서에는 없는 미공개 factor를 찾기 위해 수십 가지 키워드 조합으로 수많은 리서치를 수행하여 `column width`와 관련된 아주 작은 정보까지 샅샅이 수집하였다. 또한 여러 폰트들과 `열 너비` 사이의 무모할 정도로 많은 조합에 대해 수백 가지 실험 값을 만들고 비교하기에 이르렀다.
 
 이하는 그렇게 발견한 미공개 factor를 공개 알고리즘과 조합하여 정확한 `열 너비`를 얻어내는 여정에 대한 이야기이다.
-<br />
-<br />
-<br />
-
 
 ## 단위 및 용어
 ---
@@ -108,9 +102,6 @@ Excel 앱단에서 사용되는 글꼴의 기본 크기를 말한다. 변경 후
 |:--:|
 |![Cell Width Structure]({{ site.assets }}/2021/2021-06-21-secret-of-excel-column-width_Cell-Width-Structure.svg){: style="margin-left: 20px"}|
 
-<br />
-
-
 ## 기본 공식
 ---
 
@@ -125,10 +116,6 @@ Excel 앱단에서 사용되는 글꼴의 기본 크기를 말한다. 변경 후
 #### - `twip` to `pt` 변환
 [//]: # twip \times \frac{1}{20} = pt
 ![twip to px]({{ site.assets }}/2021/2021-06-21-secret-of-excel-column-width_twip2pt.svg){: style="margin-left: 100px"}
-<br />
-<br />
-<br />
-
 
 ## 공개된 공식
 ---
@@ -167,9 +154,6 @@ OOXML 공식 스펙 문서(ISO/IEC 29500 part 1)의 18.3.1.13 col(Column Width &
 ![char width]({{ site.assets }}/2021/2021-06-21-secret-of-excel-column-width_pub-char-width.svg){: style="margin-left: 100px; margin-bottom: 20px;"}  
 
 #### * 그러나, 공개된 공식만으로는 제대로 된 `열 너비`를 구할 수 없더라!!
-<br />
-<br />
-
 
 ## 미공개 factors
 ---
@@ -199,10 +183,6 @@ pixel 보정까지 완료하면, `px` 단위의 `열 너비`는 정확하게 나
 그러나 문제는 `ch` 단위의 `열 너비`가 정확하지 않다는 것이다.  
 먼저 해당 `px`에 `padding`을 제외하고 실제 표시할 수 있는 폭(`char width`)을 계산해야 한다. 이것이 `열 너비` 툴팁에 `px` 단위와 함께 표시된다.  
 마지막으로 `char width`를 사용하여 `padding`까지 포함한 열 너비(`col width`)를 `ch` 단위로 얻어오면 비로소 모든 과정이 끝난다.
-<br />
-<br />
-<br />
-
 
 ## 미공개 factor를 적용한 공식
 ---
@@ -246,9 +226,6 @@ pixel 보정까지 완료하면, `px` 단위의 `열 너비`는 정확하게 나
 `px` 단위의 총 너비에서 `margin space`를 제외한 순수 글자표시 영역을 `ch` 단위로 변환하되,  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 소수점 3째 자리에서 반올림하여 구한다.  
-<br />
-<br />
-
 
 ## 전체 계산 프로세스
 ---
@@ -263,9 +240,6 @@ pixel 보정까지 완료하면, `px` 단위의 `열 너비`는 정확하게 나
 |:--:|
 |![Entire Process]({{ site.assets }}/2021/2021-06-21-secret-of-excel-column-width_Entire-Process.svg){: width="800px" }|
 
-<br />
-
-
 ## Caching Mapping
 ---
 
@@ -276,9 +250,6 @@ Key(s) | Value(s)
 `Font Name` + `Size` | { `MDW` }
 `MDW` | { `padding`, `margin space` }
 `Def Char` + `MDW` | { `col width px`, `char width` }
-
-<br />
-
 
 ## 마치며
 ---

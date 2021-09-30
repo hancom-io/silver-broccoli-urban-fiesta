@@ -17,7 +17,6 @@ excerpt: 웹 개발 입문자의 걸음마 프로젝트
 참고로 저는 웹 애플리케이션 개발 처음입니다.^^
 <br>
 부족한 부분이 많지만 여러분과 함께 소통하며 성장하면 좋겠습니다.
-<br>
 
 ### 주제 선정
 웹 애플리케이션을 막상 만들려니 어떤 주제가 좋을지 고민이 많았습니다.
@@ -60,7 +59,6 @@ excerpt: 웹 개발 입문자의 걸음마 프로젝트
 <br>
 장고는 나중에 기초가 쌓이고 실력이 갖춰지면 써보는 걸로..
 
-<br>
 ### 구현순서
 구현하게 될 순서입니다.
 오늘은 1번을 진행하도록 하겠습니다.
@@ -69,8 +67,6 @@ excerpt: 웹 개발 입문자의 걸음마 프로젝트
 3. 가공된 데이터를 제공하는 API 구현 (flask)
 4. 프론트에서 데이터를 받아 출력 (react)
 
-<br>
-<br>
 # 구현
 ---
 ### 데이터 수집
@@ -91,7 +87,7 @@ if __name__ == '__main__':
 > ![res]({{ site.assets }}/2021/2021-06-30-res1.png){: width="600px" }
 
 위와 같이 yfinance API를 이용해 쉽게 과거 데이터를 수집하고 이용할 수 있습니다.
-<br>
+
 ### 데이터 가공
 위에서 수집한 Close(종가)값을 이용하여 추세선 데이터를 뽑아내는 함수를 작성해보았습니다.<br>
 <code>numpy.polyfit()</code>를 이용하여 데이터 추세에 맞는 다항식을 얻고,<br>
@@ -116,7 +112,7 @@ if __name__ == '__main__':
     res = get_data("AAPL")
     res['TrendLineWithClose'] = getTrendLine(res, 'Id', 'Close', 4)
 ```
-<br>
+
 ### 차트로 출력
 출력은 프론트엔드에서 하기로했지만 연재 마지막날에 프론트를 구현할 예정이라 오늘은 임시로 데이터를 출력해봤습니다.<br>
 다음과 같이 <code>matplotlib.pyplot</code> 패키지를 이용하여 **가공된 추세선 데이터를 출력**합니다.<br>
@@ -140,11 +136,11 @@ if __name__ == '__main__':
 > ![chart]({{ site.assets }}/2021/2021-06-30-chart1.png){: width="600px" }
 
    ~~이렇게 보니 고평가..~~
-<br>
-<br>
+
 # 마치며
 ---
-전체 소스코드는 아래 github에서 clone 받아 보시면 됩니다.<br>
+전체 소스코드는 아래 github에서 clone 받아 보시면 됩니다.
+
 > [https://github.com/hnc-cjs/MyStock](https://github.com/hnc-cjs/MyStock)
 
 <br>

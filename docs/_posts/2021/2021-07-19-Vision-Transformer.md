@@ -38,7 +38,6 @@ Vision Transformer에서 사용하는 Transformer Encoder는 기존 Transformer 
 Vision Transformer는 위 과정을 거쳐서 이미지 Classification을 수행하게 됩니다. CNN과 Transformer를 비교하자면 CNN의 경우 지역적인 정보를 중요하게 생각하고 Transformer는 지역적인 정보를 상대적으로 덜 중요하게 여기면서 모델의 자유도를 높이게 됩니다. Vision Transformer는 CNN과 달리 inductive bias가 적은 관계로 좋은 성능을 내기 위해서는 굉장히 많은 데이터가 필요하거나 Augmentation과 Regularization을 신경써야 합니다. 충분한 양의 데이터가 있다면 기존의 CNN 모델을 뛰어넘는 성능을 낼 수 있지만 적은 수의 데이터에서는 Transformer가 오히려 성능이 떨어질 수 있다는게 단점입니다. 따라서 학습 데이터가 충분할 때 사용하는 것이 좋습니다. 최근에는 Transformer를 보완하기 위한 연구가 활발히 진행되고 있고 적은 데이터 수로도 높은 성능을 내는 Data Efficient Transformer 기술도 연구가 되고 있습니다.
 
 
-<br>
 # Swin Transformer
 
 

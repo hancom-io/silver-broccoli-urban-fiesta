@@ -25,7 +25,7 @@ End Sub
 # 자동화(Automation)
 - - -
 **자동화(Automation)**란 *Application*이 자신의 기능을 외부로 노출하여 다른 *Application*에서도 사용할 수 있게 하는 기술이다. VBA에서는 이렇게 노출된 자동화 객체를 이용하여 *Application*의 기능을 실행시킨다.
-<br><br>
+
 예를 들어 아래와 같이 한셀에서 A1 셀에 "HI"라는 텍스트값을 입력하는 동작을 보자.
 
 
