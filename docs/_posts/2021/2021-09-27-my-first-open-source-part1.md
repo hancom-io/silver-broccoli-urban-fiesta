@@ -91,7 +91,8 @@ xterm.js의 github 페이지를 찾아갔다. git clone을 하고 빌드를 해�
 \
 *To be continued...*{: .right }
 
-
+\
+*(이어지는 글: [나의 얼렁뚱땅 오픈소스 참여기 - part 2]({{ '/2021/10/07/my-first-open-source-part2.html' | relative_url }}) )*{: .right }
 
 ### Links
 - VS Code
