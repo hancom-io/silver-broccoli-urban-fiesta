@@ -78,7 +78,8 @@ xterm.js의 github 페이지를 찾아갔다. git clone을 하고 빌드를 해�
 회사 프로젝트 작업할 때 GitLab의 Merge Request 만드는 거랑 같겠지만, 그래도 혹시 몰라 xterm의 안내 페이지를 여러 번 참고해보았다. 내 딴에는 잘 한다고 수정해서 올려도, 그쪽 규칙에 안 맞는다거나 하면 안 되니까. Contributing 페이지에 뭐라고 써있나. 일단 이슈를 하나 등록하고(JIRA 이슈 같은 거겠지), 그것을 내가 고치겠다고 명시하고, 그 다음에 PR을 올리면 되는 것 같았다. 맞다, 설마 이 커맨드 쩜 단축키에 관한 이슈가 이미 올라와있거나 하진 않겠지? 기존 이슈들을 쭉 둘러본 결과 그렇지는 않았다. 좋다. 그럼 이슈를 등록하자. 커맨드 쩜 단축키가 왜 필요한지 나름대로 간단명료하게 쓰려고 노력했다. 
 
 ![xterm-issue]({{ site.assets }}/2021/2021-09-27-xterm-issue.png){: .center }
-*xterm 프로젝트에 이슈 등록한 화면 (나의 개인 github 계정을 사용하였다)*{: .caption .center }
+*xterm 프로젝트에 이슈 등록한 화면\
+(나의 개인 github 계정을 사용하였다)*{: .caption .center }
 
 다음, xterm.js 소스를 내 계정 밑으로 fork 했다 (처음엔 이 개념이 굉장히 낯설었다). 이제 그걸 origin 삼아서 로컬에 clone하고, 코드를 수정하고 (두 줄짜리 if 문 추가), 로컬에 커밋하고, <code>git push</code> 실행. 그 다음 github 웹으로 가서 PR을 작성했다. 두근두근, 설렌다. 외부 세계에 내 목소리를 내는 것이다. “저기요, 제가 이런 거 한번 고쳐봤거든요. 어떻게 좀 한번 봐주시겠어요…?”
 
@@ -92,7 +93,7 @@ xterm.js의 github 페이지를 찾아갔다. git clone을 하고 빌드를 해�
 *To be continued...*{: .right }
 
 \
-*(이어지는 글: [나의 얼렁뚱땅 오픈소스 참여기 - part 2]({{ '/2021/10/07/my-first-open-source-part2.html' | relative_url }}) )*{: .right }
+*(이어지는 글: [나의 얼렁뚱땅 오픈소스 참여기 <span class='block'>- part 2</span>]({{ '/2021/10/07/my-first-open-source-part2.html' | relative_url }}) )*{: .right }
 
 ### Links
 - VS Code
