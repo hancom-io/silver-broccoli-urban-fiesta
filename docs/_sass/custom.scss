@@ -37,6 +37,18 @@ $bg4-y: calc(100% - 224px);
   top: 30px;
 }
 
+// Don't break Korean words in titles and captions
+:lang(ko) {
+  h1, h2, h3, h4, h5, h6,
+  .caption {
+    word-break: keep-all;
+  }
+}
+
+.block {
+  display: inline-block;
+}
+
 .page-content {
   background-repeat: no-repeat;
   padding: 0;

@@ -11,7 +11,7 @@ tags:
 excerpt: 나는 어찌하여 xterm 걱정을 그만두고 다시 VS Code를 사랑하게 되었는가
 ---
 
-*(이전 글: [나의 얼렁뚱땅 오픈소스 참여기 - part 1]({{ '/2021/09/27/my-first-open-source-part1.html' | relative_url }}) )*{: .right }
+*(이전 글: [나의 얼렁뚱땅 오픈소스 참여기 <span class='block'>- part 1</span>]({{ '/2021/09/27/my-first-open-source-part1.html' | relative_url }}) )*{: .right }
 
 \
 사실 이럴 생각까지는 아니었다. 이게 뭐 대단한 얘기라고 글을 두 편이나 나눠 쓰나? 일필휘지로 한달음에 갈겨 쓸 생각이었다. 그런데, 쓰다 보니 흐름상 이쯤에서 한번 끊어줘야겠다는 느낌이 들었다. 실제로도 xterm.js 에 PR 올린 후에 시간적인 단절이 있기도 했고.
