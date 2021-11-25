@@ -7,7 +7,7 @@ date: 2021-11-02 11:17:00 +0900
 tags:
   - AWS
   - ABP
-  - cat
+  - my-neighbor-cats
 excerpt: 어느 날 그렇게 우리의 프로젝트는 시작되고
 ---
 
@@ -60,7 +60,8 @@ API key 같은 것은 코드에 포함되면 안 되니까 .env.local 파일에 
 \
 *To be continued…*{: .right }
 
-
+\
+*(이어지는 글: [우리 동네 고양이 <span class='block'>- part 2</span>]({{ '/2021/11/25/my-neighbor-cats-part2.html' | relative_url }}) )*{: .right }
 ### Links
 
 - [PR #1: Init next.js for frontend and add Kakao map sample](https://github.com/hnc-jihoon/my-neighbor-cats/pull/1)
