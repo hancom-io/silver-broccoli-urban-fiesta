@@ -15,6 +15,12 @@ $highlight-blue: #2e5fd8;
   visibility: hidden;
 }
 
+.no-select,
+.no-select * {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
 .one-line {
   overflow: hidden;
   text-overflow: ellipsis;
