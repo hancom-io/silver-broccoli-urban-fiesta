@@ -180,7 +180,9 @@ $bg4-y: calc(100% - 224px);
             &::placeholder {
               color: white;
               opacity: 0.6;
+
               user-select: none;
+              -webkit-user-select: none;
             }
           }
         }
