@@ -38,6 +38,7 @@ defaults:
 
 # custom variables
 assets: "/silver-broccoli-urban-fiesta/assets"
+intro_url: "http://hnc-dev-center-intro.s3-website.ap-northeast-2.amazonaws.com/"
 
 # Build settings
 theme: minima
