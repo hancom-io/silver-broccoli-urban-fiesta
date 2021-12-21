@@ -58,6 +58,8 @@ AWS Amplify 서비스를 이용해서 전반적인 구성을 하였고, DynamoDB
 \
 *To be continued…*{: .right }
 
+\
+*(이어지는 글: [우리 동네 고양이 <span class='block'>- part 3</span>]({{ '/2021/12/21/my-neighbor-cats-part3.html' | relative_url }}) )*{: .right }
 
 ### Links
 
