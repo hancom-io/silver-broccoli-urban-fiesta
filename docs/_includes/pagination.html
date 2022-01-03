@@ -40,7 +40,7 @@
     {% if page == current_page %}
     <div class="page-unit current">{{ page }}</div>
     {% elsif page == 1 %}
-    <a href="{{ paginator.previous_page_path | relative_url }}">
+    <a href="{{ '/' | relative_url }}">
       <div class="page-unit">{{ page }}</div>
     </a>
     {% else %}
