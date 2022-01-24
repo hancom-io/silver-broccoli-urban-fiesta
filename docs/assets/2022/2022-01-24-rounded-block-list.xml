@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<dgm:layoutDef xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" xmlns:dgm="http://schemas.openxmlformats.org/drawingml/2006/diagram" xmlns:dsp="http://schemas.microsoft.com/office/drawing/2008/diagram" uniqueId="urn:hancom.com/office/diagram/2020/3/layout/list_1" minVer="http://schemas.openxmlformats.org/drawingml/2006/diagram" defStyle="">
+  <dgm:title val="Rounded Block List"/>
+  <dgm:title lang="ko-KR" val="모서리가 둥근 블록 목록형"/>
+  <dgm:desc val="Works well for showing non-sequential or grouped list."/>
+  <dgm:desc lang="ko-KR" val="비순차적이거나 그룹화된 목록을 표시하는 데 적합합니다."/>
+  <dgm:catLst>
+    <dgm:cat type="list" pri="101000"/>
+  </dgm:catLst>
+  <dgm:sampData>
+    <dgm:dataModel>
+      <dgm:ptLst>
+        <dgm:pt modelId="0" type="doc"/>
+        <dgm:pt modelId="1">
+          <dgm:prSet phldr="1"/>
+        </dgm:pt>
+        <dgm:pt modelId="2">
+          <dgm:prSet phldr="1"/>
+        </dgm:pt>
+        <dgm:pt modelId="3">
+          <dgm:prSet phldr="1"/>
+        </dgm:pt>
+        <dgm:pt modelId="4">
+          <dgm:prSet phldr="1"/>
+        </dgm:pt>
+        <dgm:pt modelId="5">
+          <dgm:prSet phldr="1"/>
+        </dgm:pt>
+      </dgm:ptLst>
+      <dgm:cxnLst>
+        <dgm:cxn modelId="6" srcId="0" destId="1" srcOrd="0" destOrd="0"/>
+        <dgm:cxn modelId="7" srcId="0" destId="2" srcOrd="1" destOrd="0"/>
+        <dgm:cxn modelId="8" srcId="0" destId="3" srcOrd="2" destOrd="0"/>
+        <dgm:cxn modelId="9" srcId="0" destId="4" srcOrd="3" destOrd="0"/>
+        <dgm:cxn modelId="10" srcId="0" destId="5" srcOrd="4" destOrd="0"/>
+      </dgm:cxnLst>
+      <dgm:bg/>
+      <dgm:whole/>
+    </dgm:dataModel>
+  </dgm:sampData>
+  <dgm:styleData>
+    <dgm:dataModel>
+      <dgm:ptLst>
+        <dgm:pt modelId="0" type="doc"/>
+        <dgm:pt modelId="1"/>
+        <dgm:pt modelId="2"/>
+      </dgm:ptLst>
+      <dgm:cxnLst>
+        <dgm:cxn modelId="3" srcId="0" destId="1" srcOrd="0" destOrd="0"/>
+        <dgm:cxn modelId="4" srcId="0" destId="2" srcOrd="1" destOrd="0"/>
+      </dgm:cxnLst>
+      <dgm:bg/>
+      <dgm:whole/>
+    </dgm:dataModel>
+  </dgm:styleData>
+  <dgm:clrData>
+    <dgm:dataModel>
+      <dgm:ptLst>
+        <dgm:pt modelId="0" type="doc"/>
+        <dgm:pt modelId="1"/>
+        <dgm:pt modelId="2"/>
+        <dgm:pt modelId="3"/>
+        <dgm:pt modelId="4"/>
+        <dgm:pt modelId="5"/>
+        <dgm:pt modelId="6"/>
+      </dgm:ptLst>
+      <dgm:cxnLst>
+        <dgm:cxn modelId="7" srcId="0" destId="1" srcOrd="0" destOrd="0"/>
+        <dgm:cxn modelId="8" srcId="0" destId="2" srcOrd="1" destOrd="0"/>
+        <dgm:cxn modelId="9" srcId="0" destId="3" srcOrd="2" destOrd="0"/>
+        <dgm:cxn modelId="10" srcId="0" destId="4" srcOrd="3" destOrd="0"/>
+        <dgm:cxn modelId="11" srcId="0" destId="5" srcOrd="4" destOrd="0"/>
+        <dgm:cxn modelId="12" srcId="0" destId="6" srcOrd="5" destOrd="0"/>
+      </dgm:cxnLst>
+      <dgm:bg/>
+      <dgm:whole/>
+    </dgm:dataModel>
+  </dgm:clrData>
+  <dgm:layoutNode name="diagram">
+    <dgm:varLst>
+      <dgm:dir/>
+      <dgm:resizeHandles val="exact"/>
+    </dgm:varLst>
+    <dgm:choose name="choose1">
+      <dgm:if name="if1" func="var" arg="dir" op="equ" val="norm">
+        <dgm:alg type="snake">
+          <dgm:param type="grDir" val="tL"/>
+          <dgm:param type="flowDir" val="row"/>
+          <dgm:param type="contDir" val="sameDir"/>
+          <dgm:param type="off" val="ctr"/>
+        </dgm:alg>
+      </dgm:if>
+      <dgm:else name="else1">
+        <dgm:alg type="snake">
+          <dgm:param type="grDir" val="tR"/>
+          <dgm:param type="flowDir" val="row"/>
+          <dgm:param type="contDir" val="sameDir"/>
+          <dgm:param type="off" val="ctr"/>
+        </dgm:alg>
+      </dgm:else>
+    </dgm:choose>
+    <dgm:shape type="none"/>
+    <dgm:presOf/>
+    <dgm:constrLst>
+      <dgm:constr type="w" for="ch" forName="node" refType="w"/>
+      <dgm:constr type="h" for="ch" forName="node" refType="w" refFor="ch" refForName="node"/>
+      <dgm:constr type="w" for="ch" forName="sibTrans" refType="w" refFor="ch" refForName="node" fact="0.100"/>
+      <dgm:constr type="sp" refType="w" refFor="ch" refForName="sibTrans"/>
+      <dgm:constr type="primFontSz" for="ch" forName="node" op="equ" val="65.000"/>
+    </dgm:constrLst>
+    <dgm:ruleLst/>
+    <dgm:forEach name="forEach1" axis="ch" ptType="node">
+      <dgm:layoutNode name="node">
+        <dgm:varLst>
+          <dgm:bulletEnabled val="1"/>
+        </dgm:varLst>
+        <dgm:alg type="tx"/>
+        <dgm:shape type="roundRect"/>
+        <dgm:presOf axis="desOrSelf" ptType="node"/>
+        <dgm:constrLst>
+          <dgm:constr type="lMarg" refType="primFontSz" fact="0.300"/>
+          <dgm:constr type="rMarg" refType="primFontSz" fact="0.300"/>
+          <dgm:constr type="tMarg" refType="primFontSz" fact="0.300"/>
+          <dgm:constr type="bMarg" refType="primFontSz" fact="0.300"/>
+        </dgm:constrLst>
+        <dgm:ruleLst>
+          <dgm:rule type="primFontSz" val="5.000" fact="NaN" max="NaN"/>
+        </dgm:ruleLst>
+      </dgm:layoutNode>
+      <dgm:forEach name="forEach2" axis="followSib" ptType="sibTrans" cnt="1">
+        <dgm:layoutNode name="sibTrans">
+          <dgm:alg type="sp"/>
+          <dgm:shape type="none"/>
+          <dgm:presOf/>
+          <dgm:constrLst/>
+          <dgm:ruleLst/>
+        </dgm:layoutNode>
+      </dgm:forEach>
+    </dgm:forEach>
+  </dgm:layoutNode>
+</dgm:layoutDef>
