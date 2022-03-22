@@ -5,16 +5,19 @@
 
 ## 로컬 개발 환경 설정
 
-GitHub Pages 서비스는 Jekyll을 이용해 사이트를 구축합니다. 로컬 PC에 Jekyll을 설치하면 사이트 결과물을 미리 확인할 수 있습니다.
+GitHub Pages 서비스는 Jekyll을 이용해 사이트를 구축합니다. 로컬 PC에 Jekyll을 설치하면 사이트 결과물을 미리 확인할 수 있습니다. Jekyll 구동을 위해서는 [Ruby 개발 환경](https://www.ruby-lang.org/ko/downloads/)이 필요합니다.
 
 ### 사전 준비
 
 ```bash
-# (ruby 설치, gem 설치 - 별도로 알아서)
+# ruby 환경 확인
+$ ruby --version
+$ gem --version
+
 $ gem install bundler
 $ gem install jekyll
 
-# 확인
+# jekyll 설치 확인
 $ jekyll --version
 $ bundle --version
 ```
@@ -42,7 +45,7 @@ $ bundle exec jekyll serve
 ### js 코드 수정
 
 브라우저 쪽에서의 동작을 위해 수행되는 JavaScript 코드는 `docs/js` 아래에 들어있고, `docs/_includes` 아래의 html 파일에도 일부 들어있습니다.<br>
-`docs/js` 아래의 코드를 수정하게 되면, 그 코드가 `docs/assets/js` 폴더에 번들로 포함되어 사이트 빌드 시에 잘 반영될 수 있도록 *js 빌드*를 한번 해주어야 합니다. `yarn`이 미리 설치되어 있어야 합니다.
+`docs/js` 아래의 코드를 수정하게 되면, 그 코드가 `docs/assets/js` 폴더에 번들로 포함되어 사이트 빌드 시에 잘 반영될 수 있도록 *js 빌드*를 한번 해주어야 합니다. [`yarn`](https://classic.yarnpkg.com/en/docs/install)이 미리 설치되어 있어야 합니다.
 
 ```bash
 # docs 폴더에서
